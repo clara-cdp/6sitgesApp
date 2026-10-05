@@ -2,7 +2,7 @@ import { KingKongLogo } from './KingKongLogo'
 
 export function Footer() {
   return (
-    <footer className="w-full font-['Montserrat'] select-none mt-auto overflow-hidden relative">
+    <footer className="w-full font-['Montserrat'] select-none mt-auto sticky bottom-0 z-50 overflow-hidden relative">
       {/* Upper Area with Red King Kong Logo */}
       <div className="relative w-full h-12 flex items-end justify-end">
         {/* Red King Kong: Positioned to stand directly on top of the red bar */}

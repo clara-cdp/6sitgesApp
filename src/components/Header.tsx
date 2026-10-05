@@ -2,7 +2,7 @@ import { KingKongLogo } from './KingKongLogo'
 
 export function Header() {
   return (
-    <header className="w-full font-['Montserrat'] select-none">
+    <header className="w-full font-['Montserrat'] select-none sticky top-0 z-50">
       {/* Top Black Bar */}
       <div className="bg-[#000000] text-[#FF0042] px-4 py-2 flex justify-between items-center text-xs sm:text-sm font-extrabold tracking-widest uppercase">
         <div>8-18 OCTUBRE 2026</div>
