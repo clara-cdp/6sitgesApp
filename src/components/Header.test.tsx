@@ -31,4 +31,13 @@ describe('Header Component', () => {
     const svgs = container.querySelectorAll('svg')
     expect(svgs.length).toBeGreaterThanOrEqual(2)
   })
+
+  it('renders the header element with sticky positioning classes', () => {
+    const { container } = render(<Header />)
+    const headerElement = container.querySelector('header')
+    expect(headerElement).toBeInTheDocument()
+    expect(headerElement).toHaveClass('sticky')
+    expect(headerElement).toHaveClass('top-0')
+    expect(headerElement).toHaveClass('z-50')
+  })
 })
