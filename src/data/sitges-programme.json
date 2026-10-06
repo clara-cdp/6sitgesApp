@@ -237,7 +237,7 @@
         {
           "name": "Alejandro Amenábar",
           "bio": "Alejandro Amenábar va irrompre al cinema espanyol el 1996 amb Tesis, el seu aclamat debut com a director i guionista amb només 23 anys. Aquest thriller claustrofòbic sobre el món de les pel·lícules snuff a la facultat de Ciències de la Informació de Madrid es va convertir en un fenomen de crítica i taquilla, guanyant set premis Goya —inclosos els de millor pel·lícula, guió original i direcció novella— i consolidant-lo instantàniament com un mestre del suspens i la tensió psicològica.",
-          "photo": "/images/directors/tesis_director.jpeg"
+          "photo": "/images/films/tesis_director.jpg"
         }
       ],
       "year": "1996",
@@ -255,9 +255,14 @@
       "sitgesUrl": "https://sitgesfilmfestival.com/ca/film/2026/tesis",
       "trailerUrl": "https://www.youtube.com/watch?v=Ku4CbW2m7Sg",
       "ticketId": null,
-      "images": [],
+      "images": [
+        "/images/films/tesis_1.jpg",
+        "/images/films/tesis_2.jpg",
+        "/images/films/tesis_3.jpg",
+        "/images/films/tesis_4.jpg"
+      ],
       "section": "Sitges Clàssics",
-      "poster": "assets/films/tesis-1996_poster.jpg"
+      "poster": "/images/films/tesis_1.jpg"
     },
     {
       "id": "oceano",
@@ -266,7 +271,7 @@
         {
           "name": "Konstantina Kotzamani",
           "bio": "Guardonada cineasta amb curtmetratges que s’han exhibit als festivals de Canes, Berlín i Venècia. Océano Titánico és el seu debut al llargmetratge.",
-          "photo": "/images/directors/oceano_director.jpeg"
+          "photo": "/images/films/oceano_director.jpeg"
         }
       ],
       "year": "2026",
@@ -284,9 +289,13 @@
       "sitgesUrl": "https://sitgesfilmfestival.com/ca/film/2026/oceano-titanico",
       "trailerUrl": "https://www.youtube.com/watch?v=n0-_06AcZ7g",
       "ticketId": null,
-      "images": [],
+      "images": [
+        "/images/films/oceano_1.jpg",
+        "/images/films/oceano_2.jpg",
+        "/images/films/oceano_3.jpg"
+      ],
       "section": "Oficial Fantàstic Competició",
-      "poster": "assets/films/oceano-titanico_poster.jpg"
+      "poster": "/images/films/oceano_poster.jpg"
     },
     {
       "id": "devils",
@@ -295,7 +304,7 @@
         {
           "name": "Ken Russell",
           "bio": "Henry Kenneth Alfred Russell (3 July 1927 – 27 November 2011)[2][3] was a British film director known for his pioneering work in television and film, and for his flamboyant and controversial style. His films were mainly liberal adaptations of existing texts, or biographies, notably of composers of the Romantic era. Russell began directing for the BBC, where he made creative adaptations of composers' lives which were unusual for the time. He also directed many feature films independently and for studios.",
-          "photo": "/images/directors/devils_director.jpeg"
+          "photo": "/images/films/devils_director.webp"
         }
       ],
       "year": "2026",
@@ -313,9 +322,15 @@
       "sitgesUrl": "https://sitgesfilmfestival.com/ca/film/2026/devils-1971",
       "trailerUrl": "https://www.youtube.com/watch?v=ImeXlanF3iY",
       "ticketId": null,
-      "images": [],
+      "images": [
+        "/images/films/devils_1.jpg",
+        "/images/films/devils_2.jpg",
+        "/images/films/devils_3.jpg",
+        "/images/films/devils_4.jpg",
+        "/images/films/devils_5.jpg"
+      ],
       "section": "Sitges Clàssics",
-      "poster": "assets/films/the-devils-1971_poster.jpg"
+      "poster": "/images/films/devils_poster.webp"
     },
     {
       "id": "11",
@@ -324,12 +339,12 @@
         {
           "name": "Clàudia Serra",
           "bio": "Primas y dúo creativo junto a Paula Serra, iniciaron su trayectoria con el corto Matryoshka (2016). Han realizado proyectos para RTVE, National Geographic y Arcadia Motion Pictures.",
-          "photo": "/images/directors/11_director_1.jpeg"
+          "photo": "/images/films/11_director_1.jpg"
         },
         {
           "name": "Paula Serra",
           "bio": "Primas y dúo creativo junto a Clàudia Serra, iniciaron su trayectoria con el corto Matryoshka (2016). Han realizado proyectos para RTVE, National Geographic y Arcadia Motion Pictures.",
-          "photo": "/images/directors/11_director_2.jpeg"
+          "photo": "/images/films/11_director_2.jpg"
         }
       ],
       "year": "2026",
@@ -347,9 +362,13 @@
       "sitgesUrl": "https://sitgesfilmfestival.com/ca/film/2026/11",
       "trailerUrl": null,
       "ticketId": null,
-      "images": [],
+      "images": [
+        "/images/films/11_1.jpg",
+        "/images/films/11_2.jpg",
+        "/images/films/11_3.jpg"
+      ],
       "section": "Oficial Fantàstic Competició",
-      "poster": "assets/films/11_poster.jpg"
+      "poster": "/images/films/11_poster.jpg"
     },
     {
       "id": "face",
@@ -358,7 +377,7 @@
         {
           "name": "Anna Biller",
           "bio": "Directora, guionista i dissenyadora nord-americana que va començar la seva trajectòria amb curtmetratges com A Visit from the Incubus (2001), ja marcats pel seu interès pel cinema clàssic i els imaginaris femenins.",
-          "photo": "/images/directors/face_director.jpeg"
+          "photo": "/images/films/face_director.webp"
         }
       ],
       "year": "2026",
@@ -376,9 +395,11 @@
       "sitgesUrl": "https://sitgesfilmfestival.com/ca/film/2026/face-horror",
       "trailerUrl": "https://www.youtube.com/watch?v=K0RSqAxbehs",
       "ticketId": null,
-      "images": [],
+      "images": [
+        "/images/films/face_1.jpg"
+      ],
       "section": "Oficial Fantàstic Competició",
-      "poster": "assets/films/the-face-of-horror_poster.jpg"
+      "poster": "/images/films/face_poster.jpg"
     },
     {
       "id": "girl",
@@ -387,7 +408,7 @@
         {
           "name": "Luka Marčetić",
           "bio": "Creador de la primera websèrie eslovena, Day of Love (2010), va debutar al llargmetratge amb At Hostar (2016), pel·lícula més vista de la història d’Eslovènia.",
-          "photo": "/images/directors/girl_director.jpeg"
+          "photo": "/images/films/girl_director.jpg"
         }
       ],
       "year": "2026",
@@ -405,9 +426,13 @@
       "sitgesUrl": "https://sitgesfilmfestival.com/ca/film/2026/girl-night",
       "trailerUrl": "https://www.youtube.com/watch?v=mlzc3X3Qa20",
       "ticketId": null,
-      "images": [],
+      "images": [
+        "/images/films/girl_1.jpg",
+        "/images/films/girl_2.jpg",
+        "/images/films/girl_3.jpg"
+      ],
       "section": "Noves Visions",
-      "poster": "assets/films/girl_poster.jpg"
+      "poster": "/images/films/girl_poster.jpg"
     },
     {
       "id": "sanguine",
@@ -416,7 +441,7 @@
         {
           "name": "Marion Le Corroller",
           "bio": "Productora i cineasta, el seu migmetratge Dieu n’est plus médecin (2021) fou seleccionat als Premis César.",
-          "photo": "/images/directors/sanguine_director.jpeg"
+          "photo": "/images/films/sanguine_director.jpg"
         }
       ],
       "year": "2026",
@@ -434,9 +459,11 @@
       "sitgesUrl": "https://sitgesfilmfestival.com/ca/film/2026/sanguine",
       "trailerUrl": "https://www.youtube.com/watch?v=Plkb2DcOpeE",
       "ticketId": null,
-      "images": [],
+      "images": [
+        "/images/films/sanguine_1.jpg"
+      ],
       "section": "Oficial Fantàstic Competició",
-      "poster": "assets/films/sanguine_poster.jpg"
+      "poster": "/images/films/sanguine_poster.jpg"
     },
     {
       "id": "buddy",
@@ -445,7 +472,7 @@
         {
           "name": "Casper Kelly",
           "bio": "Guionista i director, conegut per la sèrie nominada a l’Emmy Your Pretty Face Is Going to Hell (2013) i la seva participació a V/H/S Halloween (2025).",
-          "photo": "/images/directors/buddy_director.jpeg"
+          "photo": "/images/films/buddy_director.webp"
         }
       ],
       "year": "2026",
@@ -463,9 +490,14 @@
       "sitgesUrl": "https://sitgesfilmfestival.com/ca/film/2026/buddy",
       "trailerUrl": "https://www.youtube.com/watch?v=0mil0YgOtu8&t=1s",
       "ticketId": null,
-      "images": [],
+      "images": [
+        "/images/films/buddy_1.jpeg",
+        "/images/films/buddy_2.jpeg",
+        "/images/films/buddy_3.jpeg",
+        "/images/films/buddy_4.png"
+      ],
       "section": "Oficial Fantàstic Competició",
-      "poster": "assets/films/buddy_poster.jpg"
+      "poster": "/images/films/buddy_poster.jpg"
     },
     {
       "id": "wicked",
@@ -474,7 +506,7 @@
         {
           "name": "Kasper Kalle Skovsbøl",
           "bio": "Després de graduar-se a l’Escola Nacional de Cinema de Dinamarca, va debutar amb el curtmetratge Sorte måne (2015). C4 (2018) va ser el seu primer llargmetratge.",
-          "photo": "/images/directors/no-rest-for-the-wicked_director.jpeg"
+          "photo": "/images/films/wicked_director.png"
         }
       ],
       "year": "2026",
@@ -492,9 +524,14 @@
       "sitgesUrl": "https://sitgesfilmfestival.com/ca/film/2026/no-rest-wicked",
       "trailerUrl": "https://www.youtube.com/watch?v=FWHydpn9xIM",
       "ticketId": null,
-      "images": [],
+      "images": [
+        "/images/films/wicked_1.jpg",
+        "/images/films/wicked_2.jpg",
+        "/images/films/wicked_3.jpg",
+        "/images/films/wicked_4.jpg"
+      ],
       "section": "Oficial Fantàstic Competició",
-      "poster": "assets/films/wicked_poster.jpg"
+      "poster": "/images/films/wicked_poster.jpg"
     },
     {
       "id": "after-dark",
@@ -503,7 +540,7 @@
         {
           "name": "Dave Boyle",
           "bio": "Guionista, director i productor. La seva exitosa sèrie House of Ninjas va arribar al número 1 del Top 10 Global de Netflix el 2024.",
-          "photo": "/images/directors/after-dark_director.jpeg"
+          "photo": "/images/films/after-dark_director.jpg"
         }
       ],
       "year": "2026",
@@ -516,14 +553,16 @@
       "time": "16:30",
       "venue": "Auditori Meliá",
       "duration": "105' | 110'",
-      "synopsis": "L’Airi, una mèdium que ajuda les ànimes perdudes a creuar al més enllà, és sol·licitada en una casa de camp aïllada, un lloc on s’haurà d’enfrontar a una poderosa entitat. Mentre investiga el passat fosc de l’habitatge i l’origen de la presència sobrenatural, descobreix un secret ocult que la converteix en el blanc d’una amenaça mortal. Per primera vegada, el seu principal adversari no prové del món dels esperits, sinó del dels vius.",
+      "synopsis": "L’Airi, una mèdium que ajuda les ànimes perdudes a creuar al més enllà, és sol·licitada en una casa de camp aïllada, un lloc on s’haurà d’enfrontar a una poderosa entitat. Mentre investiga el passat fosc de l’habitatge i l’origen de la presència sobrenatural, descobreix un secret occult que la converteix en el blanc d’una amenaça mortal. Per primera vegada, el seu principal adversari no prové del món dels esperits, sinó del dels vius.",
       "presence": true,
       "sitgesUrl": "https://sitgesfilmfestival.com/ca/film/2026/never-after-dark",
       "trailerUrl": "https://www.youtube.com/watch?v=fu33xTw654A",
       "ticketId": null,
-      "images": [],
+      "images": [
+        "/images/films/after-dark_1.webp"
+      ],
       "section": "Oficial Fantàstic Competició",
-      "poster": "assets/films/never-after-dark_poster.jpg"
+      "poster": "/images/films/after-dark_poster.jpg"
     },
     {
       "id": "spiral",
@@ -532,7 +571,7 @@
         {
           "name": "Paolo Strippoli",
           "bio": "Graduat en Direcció al Centro Sperimentale di Cinematografia de Roma, salta a la Secció Oficial després de clausurar Noves Visions amb La sonrisa del mal.",
-          "photo": "/images/directors/spiral_director.jpeg"
+          "photo": "/images/films/spiral_director.jpg"
         }
       ],
       "year": "2026",
@@ -550,9 +589,14 @@
       "sitgesUrl": "https://sitgesfilmfestival.com/ca/film/2026/spiral",
       "trailerUrl": "https://www.youtube.com/watch?v=OiPKYpJlRGM",
       "ticketId": null,
-      "images": [],
+      "images": [
+        "/images/films/spiral_1.jpg",
+        "/images/films/spiral_2.jpg",
+        "/images/films/spiral_3.jpg",
+        "/images/films/spiral_4.jpg"
+      ],
       "section": "Oficial Fantàstic Competició",
-      "poster": "assets/films/spiral_poster.jpg"
+      "poster": "/images/films/spiral_poster.jpg"
     },
     {
       "id": "no-way",
@@ -561,12 +605,12 @@
         {
           "name": "Mohamed Chabane",
           "bio": "Com a codirector, ha treballat a les sèries ReuSSS (2022) i Jóvenes y millonarios (2025). No Way Down és el seu debut al llargmetratge.",
-          "photo": "/images/directors/no-way_director_1.jpeg"
+          "photo": "/images/films/no-way_director_1.jpeg"
         },
         {
           "name": "Théo Jourdain",
           "bio": "As co-directors, they worked on the series ReuSSS (2022) and Young Millionaires (2025). No Way Down, presented at Fantastic Fest, marks their feature film debut.",
-          "photo": "/images/directors/no-way_director_2.jpeg"
+          "photo": "/images/films/no-way_director_2.png"
         }
       ],
       "year": "2026",
@@ -584,9 +628,14 @@
       "sitgesUrl": "https://sitgesfilmfestival.com/ca/film/2026/no-way-down",
       "trailerUrl": "https://www.youtube.com/watch?v=qA-RRpup4lE",
       "ticketId": null,
-      "images": [],
+      "images": [
+        "/images/films/no-way_1.jpg",
+        "/images/films/no-way_2.jpg",
+        "/images/films/no-way_3.jpg",
+        "/images/films/no-way_4.jpg"
+      ],
       "section": "Panorama",
-      "poster": "assets/films/no-way_poster.jpg"
+      "poster": "/images/films/no-way_poster.webp"
     },
     {
       "id": "salmokji",
@@ -595,7 +644,7 @@
         {
           "name": "Sang-min Lee",
           "bio": "Director dedicat al terror i al thriller; a la seva obra explora com la por consumeix els seus personatges. Salmokji: Whispering Water és el seu primer llargmetratge.",
-          "photo": "/images/directors/salmokji_director.jpeg"
+          "photo": "/images/films/salmokji_director.jpeg"
         }
       ],
       "year": "2026",
@@ -613,9 +662,13 @@
       "sitgesUrl": "https://sitgesfilmfestival.com/ca/film/2026/salmokji-whispering-water",
       "trailerUrl": null,
       "ticketId": null,
-      "images": [],
+      "images": [
+        "/images/films/salmokji_1.jpg",
+        "/images/films/salmokji_2.jpg",
+        "/images/films/salmokji_3.jpg"
+      ],
       "section": "Panorama",
-      "poster": "assets/films/salmokji-whispering-water_poster.jpg"
+      "poster": "/images/films/salmokji_poster.jpg"
     },
     {
       "id": "drag",
@@ -624,12 +677,12 @@
         {
           "name": "Greg Yagolnitzer",
           "bio": "Forma un duo de cineastes amb Raviv Ullman, especialistes en mals d’esquena, que debuta a la direcció amb Drag.",
-          "photo": "/images/directors/drag_director_1.jpeg"
+          "photo": "/images/films/drag_director_1.jpeg"
         },
         {
           "name": "Raviv Ullman",
           "bio": "Forma un duo de cineastes amb Greg Yagolnitzer, especialistes en mals d’esquena, que debuta a la direcció amb Drag.",
-          "photo": "/images/directors/drag_director_2.jpeg"
+          "photo": "/images/films/drag_director_2.jpeg"
         }
       ],
       "year": "2026",
@@ -647,9 +700,14 @@
       "sitgesUrl": "https://sitgesfilmfestival.com/ca/film/2026/drag",
       "trailerUrl": null,
       "ticketId": null,
-      "images": [],
+      "images": [
+        "/images/films/drag_1.jpeg",
+        "/images/films/drag_2.jpeg",
+        "/images/films/drag_3.jpeg",
+        "/images/films/drag_4.jpeg"
+      ],
       "section": "Oficial Fantàstic Competició",
-      "poster": "assets/films/drag_poster.jpg"
+      "poster": "/images/films/drag_poster.jpg"
     },
     {
       "id": "victorian",
@@ -658,7 +716,7 @@
         {
           "name": "Zachary Wigon",
           "bio": "Cineasta novaiorquès que, abans de dedicar-se al cinema, escrivia com a periodista cinematogràfic a Vanity Fair, The Village Voice i Filmmaker Magazine, entre altres.",
-          "photo": "/images/directors/victorian_director.jpeg"
+          "photo": "/images/films/victorian_director.jpg"
         }
       ],
       "year": "2026",
@@ -676,9 +734,12 @@
       "sitgesUrl": "https://sitgesfilmfestival.com/ca/film/2026/victorian-psycho",
       "trailerUrl": "https://www.youtube.com/watch?v=sDiFol_2j2I",
       "ticketId": null,
-      "images": [],
+      "images": [
+        "/images/films/victorian_1.jpg",
+        "/images/films/victorian_2.jpg"
+      ],
       "section": "Oficial Fantàstic Competició",
-      "poster": "assets/films/victorian_poster.jpg"
+      "poster": "/images/films/victorian_poster.jpg"
     },
     {
       "id": "hope",
@@ -687,7 +748,7 @@
         {
           "name": "Na Hong-jin",
           "bio": "Director coreà caracteritzat per la seva estètica visual. L’any 2011 va guanyar el premi a Millor Director al Festival per El mar groc.",
-          "photo": "/images/directors/hope_director.jpeg"
+          "photo": "/images/films/hope_director.jpg"
         }
       ],
       "year": "2026",
@@ -705,9 +766,13 @@
       "sitgesUrl": "",
       "trailerUrl": "https://www.youtube.com/watch?v=OFaJzL83y0Q",
       "ticketId": null,
-      "images": [],
+      "images": [
+        "/images/films/hope_1.jpg",
+        "/images/films/hope_2.jpg",
+        "/images/films/hope_3.jpg"
+      ],
       "section": "SOF - Sitges Collection",
-      "poster": "assets/films/hope_poster.jpg"
+      "poster": "/images/films/hope_poster.jpg"
     },
     {
       "id": "sheeps",
@@ -773,9 +838,14 @@
       "sitgesUrl": "https://sitgesfilmfestival.com/ca/film/2026/theater-living-dead",
       "trailerUrl": "https://www.youtube.com/watch?v=JaoozSJES0c",
       "ticketId": null,
-      "images": [],
+      "images": [
+        "/images/films/living-dead_1.jpg",
+        "/images/films/living-dead_2.jpg",
+        "/images/films/living-dead_3.jpg",
+        "/images/films/living-dead_4.jpg"
+      ],
       "section": "Sessions Especials - Curts",
-      "poster": "assets/films/living-dead_poster.jpg"
+      "poster": "/images/films/living-dead_poster.png"
     },
     {
       "id": "unholy",
@@ -784,7 +854,7 @@
         {
           "name": "Michael Gabriele",
           "bio": "Cineasta conegut pel seu destacat treball dins el gènere de terror, com els premiats curtmetratges Get Away (2022) i Room Tone (2022).",
-          "photo": "/images/directors/unholy_director.jpeg"
+          "photo": "/images/films/unholy_director.jpeg"
         }
       ],
       "year": "2026",
@@ -830,7 +900,7 @@
       "time": "01:30",
       "venue": "Auditori Meliá",
       "duration": "71'",
-      "synopsis": "Després d’anys sense veure’s, la Tsumugi se’n va d’acampada amb les seves excompanyes d’atletisme. La il·lusió de la retrobada s’esvaeix quan ressorgeix un conflicte que no s’havia resolt. El que no s’imagina ningú és que dormen damunt d’un antic lloc d’execucions, on fa segles els aldeans eren crucificats nus. A la nit, els seus esperits emergeixen per caçar les campistes. Llavors, la Tsumugi descobreix l’única forma de sobreviure: despullar-se.",
+      "synopsis": "Després d’anys sense veure’s, la Tsumugi se’n va d’acampada amb les seves excompanyes d’atletisme. La il·lusió de la retrobada s’esvaeix quan ressorgeix un conflicte que no s’havia resolt. El que només imaginava ningú és que dormen damunt d’un antic lloc d’execucions, on fa segles els aldeans eren crucificats nus. A la nit, els seus esperits emergeixen per caçar les campistes. Llavors, la Tsumugi descobreix l’única forma de sobreviure: despullar-se.",
       "presence": true,
       "sitgesUrl": "https://sitgesfilmfestival.com/ca/film/2026/get-undressed",
       "trailerUrl": null,
