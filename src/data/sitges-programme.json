@@ -1,0 +1,878 @@
+{
+  "films": [
+    {
+      "id": "miasma",
+      "title": "Adolescencia, sexo y muerte en Campamento Miasma",
+      "directors": [
+        {
+          "name": "Jane Schoenbrun",
+          "bio": "Cineasta i escriptori. La seva pel·lícula El brillo de la televisión (2024) fou nominada als Independent Spirit Awards. Aviat publicarà la seva primera novel·la, Public Access Afterworld.",
+          "photo": "/images/films/miasma_director.jpeg"
+        }
+      ],
+      "year": "2026",
+      "country": "Estats Units Canadà",
+      "idioma": "Anglès",
+      "subt": "Anglès",
+      "date": "2026-10-09",
+      "programmeDate": "2026-10-09",
+      "dayLabel": "divendres",
+      "time": "08:30",
+      "venue": "Auditori Meliá",
+      "duration": "111'",
+      "synopsis": "Després d’anys de seqüeles infames i amb una base de fans en declivi, confien la franquícia de slashers “Camp Miasma” a una directora jove i entusiasta perquè la ressusciti. Quan la noia visita la Billy, la final girl de la pel·lícula original, totes dues se submergeixen en una espiral de desig, por i deliri banyada en sang. Un relat metacinematogràfic sobre els trops de l’slasher vuitanter que, mentre reescriu les regles del joc, no deixa de riure’s d’ell mateix.",
+      "presence": true,
+      "sitgesUrl": "https://sitgesfilmfestival.com/ca/film/2026/teenage-sex-and-death-camp-miasma",
+      "trailerUrl": "https://mubi.com/en/es/films/teenage-sex-and-death-at-camp-miasma",
+      "ticketId": null,
+      "images": [
+        "/images/films/miasma_1.jpg",
+        "/images/films/miasma_2.jpg",
+        "/images/films/miasma_3.jpg"
+      ],
+      "section": "SOF - Sitges Collection",
+      "poster": "/images/films/miasma_poster.jpg"
+    },
+    {
+      "id": "half",
+      "title": "HALF",
+      "directors": [
+        {
+          "name": "Samjad",
+          "bio": "Director i guionista. Entre els seus treballs destaca el thriller aclamat per la crítica Golam (2024), que fou el seu debut com a director.",
+          "photo": "/images/films/half_director.jpg"
+        }
+      ],
+      "year": "2026",
+      "country": "India",
+      "idioma": "Malayalam Tamil Telugu Hindi Anglès",
+      "subt": " Català, Castellà, Anglès",
+      "date": "2026-10-09",
+      "programmeDate": "2026-10-09",
+      "dayLabel": "divendres",
+      "time": "13:15",
+      "venue": "Sala Tramuntana Meliá",
+      "duration": "96'",
+      "synopsis": "Dos vampirs bessons mestissos, l’Ivy i l’Ethan, emprenen una violenta cacera de segrestadors de carretera mentre duen a terme un pla de venjança arrelat en la tradició vampírica. Amb una acció hàbilment coreografiada per Very Tri Yulisman (The Raid 2), aquest sagnant western d’arts marcials farà xalar de valent els amants de l’splatter: sang i fetge a cabassos que arriba directament de la Midnight Madness del Festival de Toronto.",
+      "presence": false,
+      "sitgesUrl": "https://sitgesfilmfestival.com/ca/film/2026/half",
+      "trailerUrl": null,
+      "ticketId": null,
+      "images": [
+        "/images/films/half_1.jpg"
+      ],
+      "section": "SOF - Sitges Collection",
+      "poster": "/images/films/half_poster.jpg"
+    },
+    {
+      "id": "leviticus",
+      "title": "Leviticus",
+      "directors": [
+        {
+          "name": "Adrian Chiarella",
+          "bio": "Director i guionista australià que debuta al cinema amb Leviticus, el seu primer llargmetratge de terror després d’una sèrie de curts i productes per a la televisió.",
+          "photo": "/images/films/leviticus_director.jpeg"
+        }
+      ],
+      "year": "2026",
+      "country": "Austràlia",
+      "idioma": "Anglès",
+      "subt": "Castellà",
+      "date": "2026-10-09",
+      "programmeDate": "2026-10-09",
+      "dayLabel": "divendres",
+      "time": "15:30",
+      "venue": "Auditori Meliá",
+      "duration": "89'",
+      "synopsis": "En una remota comunitat religiosa, dos adolescents descobreixen que el seu amor prohibit ha despertat un ens sobrenatural que adopta la forma d’allò que més desitgen: l’un a l’altre. Per sobreviure, hauran d’enfrontar-se tant al monstre que els persegueix com al fanatisme que els condemna. Una de les grans pel·lícules de terror de l’any, qualificada espiritualment com la versió LGTBIQA+ d’It Follows.",
+      "presence": false,
+      "sitgesUrl": "https://sitgesfilmfestival.com/ca/film/2026/leviticus",
+      "trailerUrl": "https://www.youtube.com/watch?v=WXuK0vlFxI",
+      "ticketId": null,
+      "images": [
+        "/images/films/leviticus_1.jpeg",
+        "/images/films/leviticus_2.jpeg",
+        "/images/films/leviticus_3.jpeg"
+      ],
+      "section": "Oficial Fantàstic Competició",
+      "poster": "/images/films/leviticus_poster.webp"
+    },
+    {
+      "id": "karma",
+      "title": "Karma",
+      "directors": [
+        {
+          "name": "Guillaume Canet",
+          "bio": "Director, actor i guionista francès que ha dirigit pel·lícules com Petites mentides sense importància (2010), Llaços de sang (2013) i Coses de l’edat (2017).",
+          "photo": "/images/films/karma_director.jpeg"
+        }
+      ],
+      "year": "2026",
+      "country": "França",
+      "idioma": "Francès Espanyol Català",
+      "subt": "Castellà, Anglès",
+      "date": "2026-10-09",
+      "programmeDate": "2026-10-09",
+      "dayLabel": "divendres",
+      "time": "17:30",
+      "venue": "Auditori Meliá",
+      "duration": "140'",
+      "synopsis": "La Jeanne intenta reconstruir la seva vida al costat del Daniel fins que la desaparició del seu fillol de sis anys la converteix en la principal sospitosa. Guillaume Canet combina misteri i thriller psicològic en una història marcada per la sospita i la culpa.",
+      "presence": false,
+      "sitgesUrl": "https://sitgesfilmfestival.com/ca/film/2026/karma",
+      "trailerUrl": "https://www.youtube.com/watch?v=ULAvTzHBwjs",
+      "ticketId": null,
+      "images": [
+        "/images/films/karma_1.jpg",
+        "/images/films/karma_2.jpg",
+        "/images/films/karma_3.jpg"
+      ],
+      "section": "Òrbita",
+      "poster": "/images/films/karma_poster.png"
+    },
+    {
+      "id": "apocalipsis",
+      "title": "Apocalipsis Z: Nuevo mundo",
+      "directors": [
+        {
+          "name": "Carles Torrens",
+          "bio": "Cineasta català que ha passat diverses vegades pel Festival amb títols com Sequence (2013), Animal de compañía (2016) i Apocalipsis Z: El principio del fin.",
+          "photo": "/images/films/apocalipsis_director.jpg"
+        }
+      ],
+      "year": "2025",
+      "country": "Espanya",
+      "idioma": "Espanyol Anglès",
+      "subt": "Castellà, Anglès",
+      "date": "2026-10-09",
+      "programmeDate": "2026-10-09",
+      "dayLabel": "divendres",
+      "time": "23:00",
+      "venue": "Sala Tramuntana Meliá",
+      "duration": "96'",
+      "synopsis": "Les Illes Canàries s’han convertit en l’últim refugi d’Europa contra un virus mortal. Un grup de supervivents haurà de viatjar a la península per trobar subministraments vitals, però el perill es multiplica en un món devastat per la pandèmia.",
+      "presence": false,
+      "sitgesUrl": "https://sitgesfilmfestival.com/ca/film/2026/apocalipsis-z-nuevo-mundo",
+      "trailerUrl": "https://www.youtube.com/watch?v=_SGPFqySL6c&t=1s",
+      "ticketId": null,
+      "images": [
+        "/images/films/apocalipsis_1.jpg",
+        "/images/films/apocalipsis_2.jpg"
+      ],
+      "section": "SOF - Sitges Collection",
+      "poster": "/images/films/apocalipsis_poster.jpg"
+    },
+    {
+      "id": "red",
+      "title": "Red Snow",
+      "directors": [
+        {
+          "name": "Ilja Rautsi",
+          "bio": "Cineasta finlandès, és guionista d’Ego (2022) i Nightborn (2026) i director de Helsinki Mansplaining Massacre (2018) i Night of the Living Dicks (2021).",
+          "photo": "/images/directors/red_director.jpeg"
+        }
+      ],
+      "year": "2026",
+      "country": "Finlàndia Estonia Suècia",
+      "idioma": "Finès",
+      "subt": "Castellà, Anglès",
+      "date": "2026-10-10",
+      "programmeDate": "2026-10-10",
+      "dayLabel": "dissabte",
+      "time": "12:45",
+      "venue": "Auditori Meliá",
+      "duration": "92'",
+      "synopsis": "La Johanna, una adolescent emo, somia amb un resplendent príncep vampir sorgit de Crepuscle. Però no és Edward Cullen a qui coneix, sinó Martti, un vampir de 49 anys calb i panxut, que es disfressa de Pare Noel per colar-se a les cases i devorar famílies. En lloc d’un idil·li etern, la Johanna es troba atrapada en una massacre nadalenca aterridora sobre la masculinitat en decadència i els traumes familiars.",
+      "presence": false,
+      "sitgesUrl": "https://sitgesfilmfestival.com/ca/film/2026/red-snow",
+      "trailerUrl": "https://www.youtube.com/watch?v=55Np7LmHByA",
+      "ticketId": null,
+      "images": [
+        "/images/films/red_2.jpg",
+        "/images/films/red_3.jpg",
+        "/images/films/red_4.jpg",
+        "/images/films/red_5.jpg"
+      ],
+      "section": "SOF - Sitges Collection",
+      "poster": "/images/films/Red_poster.jpg"
+    },
+    {
+      "id": "brain",
+      "title": "Braindead (1992) 4K",
+      "directors": [
+        {
+          "name": "Peter Jackson",
+          "bio": "Sir Peter Jackson is an acclaimed New Zealand filmmaker who began his career as an indie maverick, pioneering low-budget, over-the-top splatter comedies before transitioning into blockbuster prestige. After breaking out with the DIY alien comedy Bad Taste (1987), he cemented his cult status with the 1992 zombie horror-comedy BraindeadJackson subsequently expanded his artistic range with the critically lauded psychological drama Heavenly Creatures (1994) before achieving historic international acclaim by co-writing and directing The Lord of the Rings trilogy which grossed nearly $3 billion and swept 17 Academy Awards, including Best Picture and Best Director for The Return of the King. Later directing The Hobbit trilogy and groundbreaking archival documentaries like They Shall Not Grow Old (2018) and The Beatles: Get Back (2021), Jackson remains one of cinema's most innovative directors and visual-effects trailblazers.",
+          "photo": "/images/films/braindead_director.jpg"
+        }
+      ],
+      "year": "1992",
+      "country": "New Zealand",
+      "idioma": "Anglès Espanyol",
+      "subt": "Castellà, Anglès",
+      "date": "2026-10-10",
+      "programmeDate": "2026-10-10",
+      "dayLabel": "dissabte",
+      "time": "23:15",
+      "venue": "Auditori Meliá",
+      "duration": "105' | 125'",
+      "synopsis": "Lionel Cosgrove té vint-i-cinc anys i no li han fet mai cap petó. Viu amb la seva mare, la Vera, dolenta com ella sola. La seva vida es torna molt més emocionant quan coneix la Paquita i se n’enamora. Però amb una simple mossegada al braç de la seva mare n’hi ha prou perquè el món del Lionel es faci a miques. A mesura que la mare, infectada, va perdent les facultats mentals, el Lionel lluitarà per mantenir una aparença de normalitat. Preview europea de la restauració en 4K del clàssic gore de Peter Jackson.",
+      "presence": true,
+      "sitgesUrl": "https://sitgesfilmfestival.com/ca/film/2026/braindead-1992-4k",
+      "trailerUrl": "https://www.youtube.com/watch?v=O8LIug1cP04",
+      "ticketId": null,
+      "images": [
+        "/images/films/BRAIN_1.jpg",
+        "/images/films/brain_2.jpg",
+        "/images/films/brain_3.jpg",
+        "/images/films/brain_4.jpg"
+      ],
+      "section": "Sitges Clàssics",
+      "poster": "/images/films/BRAINDEAD_poster.webp"
+    },
+    {
+      "id": "tesis",
+      "title": "Tesis (copia restaurada) (1996)",
+      "directors": [
+        {
+          "name": "Alejandro Amenábar",
+          "bio": "Alejandro Amenábar va irrompre al cinema espanyol el 1996 amb Tesis, el seu aclamat debut com a director i guionista amb només 23 anys. Aquest thriller claustrofòbic sobre el món de les pel·lícules snuff a la facultat de Ciències de la Informació de Madrid es va convertir en un fenomen de crítica i taquilla, guanyant set premis Goya —inclosos els de millor pel·lícula, guió original i direcció novella— i consolidant-lo instantàniament com un mestre del suspens i la tensió psicològica.",
+          "photo": "/images/directors/tesis_director.jpeg"
+        }
+      ],
+      "year": "1996",
+      "country": "Espanya",
+      "idioma": "Espanyol",
+      "subt": "Anglès",
+      "date": "2026-10-11",
+      "programmeDate": "2026-10-11",
+      "dayLabel": "diumenge",
+      "time": "12:15",
+      "venue": "Auditori Meliá",
+      "duration": "119' | 170'",
+      "synopsis": "L’Ángela està preparant una tesi sobre la violència audiovisual. El seu director de tesi es compromet a buscar a la videoteca de la facultat material per a ella, però l’endemà el troben mort. L’Ángela coneix el Chema, un company expert en cinema gore i pornogràfic, i el Bosco, un noi estrany, amic íntim d’una jove assassinada en una snuff movie. Sitges celebra el trentè aniversari de l’òpera prima d’Amenábar amb la première mundial d’una còpia restaurada amb nova remasterització de so.",
+      "presence": true,
+      "sitgesUrl": "https://sitgesfilmfestival.com/ca/film/2026/tesis",
+      "trailerUrl": "https://www.youtube.com/watch?v=Ku4CbW2m7Sg",
+      "ticketId": null,
+      "images": [],
+      "section": "Sitges Clàssics",
+      "poster": "assets/films/tesis-1996_poster.jpg"
+    },
+    {
+      "id": "oceano",
+      "title": "Océano Titánico",
+      "directors": [
+        {
+          "name": "Konstantina Kotzamani",
+          "bio": "Guardonada cineasta amb curtmetratges que s’han exhibit als festivals de Canes, Berlín i Venècia. Océano Titánico és el seu debut al llargmetratge.",
+          "photo": "/images/directors/oceano_director.jpeg"
+        }
+      ],
+      "year": "2026",
+      "country": "Grècia Espanya Alemanya Romania Japó",
+      "idioma": "Japonès",
+      "subt": "Catalan, Castellà, Anglès",
+      "date": "2026-10-11",
+      "programmeDate": "2026-10-11",
+      "dayLabel": "diumenge",
+      "time": "15:30",
+      "venue": "Auditori Meliá",
+      "duration": "132' | 137'",
+      "synopsis": "A l’univers enlluernador d’un internat japonès que entrena adolescents per convertir-les en sirenes, l’Akame, de 17 anys, aprèn a contenir la respiració, a actuar davant d’un públic entregat i a nedar amb taurons. Faula aquàtica en què la protagonista troba el primer amor i emprèn una metamorfosi que la conduirà a un territori suspès entre l’element real i el fantàstic, entre l’humà i l’animal.",
+      "presence": true,
+      "sitgesUrl": "https://sitgesfilmfestival.com/ca/film/2026/oceano-titanico",
+      "trailerUrl": "https://www.youtube.com/watch?v=n0-_06AcZ7g",
+      "ticketId": null,
+      "images": [],
+      "section": "Oficial Fantàstic Competició",
+      "poster": "assets/films/oceano-titanico_poster.jpg"
+    },
+    {
+      "id": "devils",
+      "title": "The Devils (1971)",
+      "directors": [
+        {
+          "name": "Ken Russell",
+          "bio": "Henry Kenneth Alfred Russell (3 July 1927 – 27 November 2011)[2][3] was a British film director known for his pioneering work in television and film, and for his flamboyant and controversial style. His films were mainly liberal adaptations of existing texts, or biographies, notably of composers of the Romantic era. Russell began directing for the BBC, where he made creative adaptations of composers' lives which were unusual for the time. He also directed many feature films independently and for studios.",
+          "photo": "/images/directors/devils_director.jpeg"
+        }
+      ],
+      "year": "2026",
+      "country": "Grècia Espanya Alemanya Romania Japó",
+      "idioma": "Japonès",
+      "subt": "Catalan, Castellà, Anglès",
+      "date": "2026-10-11",
+      "programmeDate": "2026-10-11",
+      "dayLabel": "diumenge",
+      "time": "22:40",
+      "venue": "Auditori Meliá",
+      "duration": "114' | 119'",
+      "synopsis": "Un clergue, a la França del XVII, és acusat d’heretgia. La història es basa en els fets reals de la vila de Loudun, que són coneguts com el cas més gran de possessió diabòlica registrat mai dins l’Església catòlica. Restauració en 4K i sense talls de l’obra mestra de Ken Russell. Una versió íntegra, perduda fins fa poc, de la que és considerada com una de les pel·lícules més polèmiques de la història.",
+      "presence": true,
+      "sitgesUrl": "https://sitgesfilmfestival.com/ca/film/2026/devils-1971",
+      "trailerUrl": "https://www.youtube.com/watch?v=ImeXlanF3iY",
+      "ticketId": null,
+      "images": [],
+      "section": "Sitges Clàssics",
+      "poster": "assets/films/the-devils-1971_poster.jpg"
+    },
+    {
+      "id": "11",
+      "title": "11",
+      "directors": [
+        {
+          "name": "Clàudia Serra",
+          "bio": "Primas y dúo creativo junto a Paula Serra, iniciaron su trayectoria con el corto Matryoshka (2016). Han realizado proyectos para RTVE, National Geographic y Arcadia Motion Pictures.",
+          "photo": "/images/directors/11_director_1.jpeg"
+        },
+        {
+          "name": "Paula Serra",
+          "bio": "Primas y dúo creativo junto a Clàudia Serra, iniciaron su trayectoria con el corto Matryoshka (2016). Han realizado proyectos para RTVE, National Geographic y Arcadia Motion Pictures.",
+          "photo": "/images/directors/11_director_2.jpeg"
+        }
+      ],
+      "year": "2026",
+      "country": "Espanya Andorra Argentina",
+      "idioma": "Català",
+      "subt": "Castellà, Anglès",
+      "date": "2026-10-12",
+      "programmeDate": "2026-10-12",
+      "dayLabel": "dilluns",
+      "time": "08:15",
+      "venue": "Sala Tramuntana Meliá",
+      "duration": "89'",
+      "synopsis": "Vuit nens i dos monitors queden atrapats en un refugi dels Pirineus durant una tempesta de neu. Aviat descobreixen que hi ha un nen de més.",
+      "presence": false,
+      "sitgesUrl": "https://sitgesfilmfestival.com/ca/film/2026/11",
+      "trailerUrl": null,
+      "ticketId": null,
+      "images": [],
+      "section": "Oficial Fantàstic Competició",
+      "poster": "assets/films/11_poster.jpg"
+    },
+    {
+      "id": "face",
+      "title": "The Face of Horror",
+      "directors": [
+        {
+          "name": "Anna Biller",
+          "bio": "Directora, guionista i dissenyadora nord-americana que va començar la seva trajectòria amb curtmetratges com A Visit from the Incubus (2001), ja marcats pel seu interès pel cinema clàssic i els imaginaris femenins.",
+          "photo": "/images/directors/face_director.jpeg"
+        }
+      ],
+      "year": "2026",
+      "country": "Espanya Andorra Argentina",
+      "idioma": "Català",
+      "subt": "Castellà, Anglès",
+      "date": "2026-10-12",
+      "programmeDate": "2026-10-12",
+      "dayLabel": "dilluns",
+      "time": "11:30",
+      "venue": "Auditori Meliá",
+      "duration": "120' | 126'",
+      "synopsis": "A l’Anglaterra medieval, la bella Eleanor llangueix mentre espera el retorn del seu espòs, el ben plantat però adúlter cavaller Edward. Quan la traïció d’ell desencadena una tragèdia que primer li arrabassa la bellesa i després la vida, la jove torna convertida en espectre per consumar una sagnant venjança contra ell i contra la seva nova esposa. Admirable adaptació de la famosa història de fantasmes japonesa Yotsuya Kaidan a l’Europa del segle XIV.",
+      "presence": true,
+      "sitgesUrl": "https://sitgesfilmfestival.com/ca/film/2026/face-horror",
+      "trailerUrl": "https://www.youtube.com/watch?v=K0RSqAxbehs",
+      "ticketId": null,
+      "images": [],
+      "section": "Oficial Fantàstic Competició",
+      "poster": "assets/films/the-face-of-horror_poster.jpg"
+    },
+    {
+      "id": "girl",
+      "title": "Girl in the Night",
+      "directors": [
+        {
+          "name": "Luka Marčetić",
+          "bio": "Creador de la primera websèrie eslovena, Day of Love (2010), va debutar al llargmetratge amb At Hostar (2016), pel·lícula més vista de la història d’Eslovènia.",
+          "photo": "/images/directors/girl_director.jpeg"
+        }
+      ],
+      "year": "2026",
+      "country": "Slovenia",
+      "idioma": "Eslovac",
+      "subt": "Català, Castellà, Anglès",
+      "date": "2026-10-12",
+      "programmeDate": "2026-10-12",
+      "dayLabel": "dilluns",
+      "time": "14:15",
+      "venue": "Sala Tramuntana Meliá",
+      "duration": "94' | 99'",
+      "synopsis": "Per tal d’escapar de la monotonia dels seus torns de nit, el Rok mata el temps robant xocolatines a la benzinera on treballa. Una nit coneix una jove misteriosa amb el rostre cobert d’hematomes. La noia, que només apareix quan es fa fosc, es dedica a combatre el crim i assegura que posseeix superpoders. Per tornar-la a veure, el Rok idea un insòlit pla que provocarà un gir inesperat a la seva anodina existència: robar-li la bicicleta.",
+      "presence": true,
+      "sitgesUrl": "https://sitgesfilmfestival.com/ca/film/2026/girl-night",
+      "trailerUrl": "https://www.youtube.com/watch?v=mlzc3X3Qa20",
+      "ticketId": null,
+      "images": [],
+      "section": "Noves Visions",
+      "poster": "assets/films/girl_poster.jpg"
+    },
+    {
+      "id": "sanguine",
+      "title": "Sanguine",
+      "directors": [
+        {
+          "name": "Marion Le Corroller",
+          "bio": "Productora i cineasta, el seu migmetratge Dieu n’est plus médecin (2021) fou seleccionat als Premis César.",
+          "photo": "/images/directors/sanguine_director.jpeg"
+        }
+      ],
+      "year": "2026",
+      "country": "França Bèlgica",
+      "idioma": "Francès",
+      "subt": "Castellà, Anglès",
+      "date": "2026-10-13",
+      "programmeDate": "2026-10-13",
+      "dayLabel": "dimarts",
+      "time": "10:15",
+      "venue": "Cinema Casino Prado",
+      "duration": "103'",
+      "synopsis": "La Margot, una metgessa resident en pràctiques al servei d’urgències més competitiu de França, té dificultats per complir amb les exigències del seu lloc. Mentre atén diversos pacients de la seva edat que presenten símptomes inusuals, el seu cos comença a experimentar una inquietant transformació. L’hereva centennial de Crudo converteix el malestar de les noves generacions en una explosió de body horror deliciosa.",
+      "presence": false,
+      "sitgesUrl": "https://sitgesfilmfestival.com/ca/film/2026/sanguine",
+      "trailerUrl": "https://www.youtube.com/watch?v=Plkb2DcOpeE",
+      "ticketId": null,
+      "images": [],
+      "section": "Oficial Fantàstic Competició",
+      "poster": "assets/films/sanguine_poster.jpg"
+    },
+    {
+      "id": "buddy",
+      "title": "Buddy",
+      "directors": [
+        {
+          "name": "Casper Kelly",
+          "bio": "Guionista i director, conegut per la sèrie nominada a l’Emmy Your Pretty Face Is Going to Hell (2013) i la seva participació a V/H/S Halloween (2025).",
+          "photo": "/images/directors/buddy_director.jpeg"
+        }
+      ],
+      "year": "2026",
+      "country": "Estats Units",
+      "idioma": "Anglès",
+      "subt": "Català, Castellà, Anglès",
+      "date": "2026-10-13",
+      "programmeDate": "2026-10-13",
+      "dayLabel": "dimarts",
+      "time": "12:30",
+      "venue": "Auditori Meliá",
+      "duration": "95'",
+      "synopsis": "A finals dels anys 90, un grup de nens passa els dies cantant i ballant al món de It's Buddy!, un programa infantil presentat per un unicorn taronja brillant que viu al seu extravagant club. Quan un d’ells es nega a seguir el joc, comencen a aparèixer esquerdes en aquest món aparentment perfecte. Absolutament tronada, la proposta de Kelly combina a la perfecció l’humor recargolat amb el terror més extrem.",
+      "presence": false,
+      "sitgesUrl": "https://sitgesfilmfestival.com/ca/film/2026/buddy",
+      "trailerUrl": "https://www.youtube.com/watch?v=0mil0YgOtu8&t=1s",
+      "ticketId": null,
+      "images": [],
+      "section": "Oficial Fantàstic Competició",
+      "poster": "assets/films/buddy_poster.jpg"
+    },
+    {
+      "id": "wicked",
+      "title": "No Rest for the Wicked",
+      "directors": [
+        {
+          "name": "Kasper Kalle Skovsbøl",
+          "bio": "Després de graduar-se a l’Escola Nacional de Cinema de Dinamarca, va debutar amb el curtmetratge Sorte måne (2015). C4 (2018) va ser el seu primer llargmetratge.",
+          "photo": "/images/directors/no-rest-for-the-wicked_director.jpeg"
+        }
+      ],
+      "year": "2026",
+      "country": "Einamarca Iceland",
+      "idioma": "Danès Faroese",
+      "subt": "Castellà, English",
+      "date": "2026-10-13",
+      "programmeDate": "2026-10-13",
+      "dayLabel": "dimarts",
+      "time": "14:30",
+      "venue": "Auditori Meliá",
+      "duration": "103' | 108'",
+      "synopsis": "El Baldur, un jove de les illes Fèroe del segle XIX, intenta guanyar-se la vida com a pescador. El seu món es trastorna quan coneix el Helge, un estrany balener per qui sent una forta atracció. Quan una sèrie de morts violentes colpeix la zona, el seu idil·li es veurà compromès amb la seva lluita per protegir la resta dels habitants. Des de Fantasia arriba aquesta proposta de vampirs queer, amb tocs de folk horror i un marcat rerefons gòtic.",
+      "presence": true,
+      "sitgesUrl": "https://sitgesfilmfestival.com/ca/film/2026/no-rest-wicked",
+      "trailerUrl": "https://www.youtube.com/watch?v=FWHydpn9xIM",
+      "ticketId": null,
+      "images": [],
+      "section": "Oficial Fantàstic Competició",
+      "poster": "assets/films/wicked_poster.jpg"
+    },
+    {
+      "id": "after-dark",
+      "title": "Never After Dark",
+      "directors": [
+        {
+          "name": "Dave Boyle",
+          "bio": "Guionista, director i productor. La seva exitosa sèrie House of Ninjas va arribar al número 1 del Top 10 Global de Netflix el 2024.",
+          "photo": "/images/directors/after-dark_director.jpeg"
+        }
+      ],
+      "year": "2026",
+      "country": "Japó",
+      "idioma": "Japonès",
+      "subt": "Castellà, Anglès",
+      "date": "2026-10-13",
+      "programmeDate": "2026-10-13",
+      "dayLabel": "dimarts",
+      "time": "16:30",
+      "venue": "Auditori Meliá",
+      "duration": "105' | 110'",
+      "synopsis": "L’Airi, una mèdium que ajuda les ànimes perdudes a creuar al més enllà, és sol·licitada en una casa de camp aïllada, un lloc on s’haurà d’enfrontar a una poderosa entitat. Mentre investiga el passat fosc de l’habitatge i l’origen de la presència sobrenatural, descobreix un secret ocult que la converteix en el blanc d’una amenaça mortal. Per primera vegada, el seu principal adversari no prové del món dels esperits, sinó del dels vius.",
+      "presence": true,
+      "sitgesUrl": "https://sitgesfilmfestival.com/ca/film/2026/never-after-dark",
+      "trailerUrl": "https://www.youtube.com/watch?v=fu33xTw654A",
+      "ticketId": null,
+      "images": [],
+      "section": "Oficial Fantàstic Competició",
+      "poster": "assets/films/never-after-dark_poster.jpg"
+    },
+    {
+      "id": "spiral",
+      "title": "The Spiral",
+      "directors": [
+        {
+          "name": "Paolo Strippoli",
+          "bio": "Graduat en Direcció al Centro Sperimentale di Cinematografia de Roma, salta a la Secció Oficial després de clausurar Noves Visions amb La sonrisa del mal.",
+          "photo": "/images/directors/spiral_director.jpeg"
+        }
+      ],
+      "year": "2026",
+      "country": "Itàlia França Bèlgica",
+      "idioma": "Italià",
+      "subt": "Castellà, Català, Anglès",
+      "date": "2026-10-15",
+      "programmeDate": "2026-10-15",
+      "dayLabel": "dijous",
+      "time": "11:00",
+      "venue": "Auditori Meliá",
+      "duration": "115' | 120'",
+      "synopsis": "En plena tempesta, l’Anna apareix sense previ avís al pis universitari de la seva filla Alice per confessar-li la veritat sobre la seva família: anys enrere, va segellar un pacte amb una misteriosa desconeguda per salvar la cama de l’Alice després d’un accident. Aquest secret, ocult durant massa temps, torna ara per reclamar el preu que li correspon. Un fascinant thriller de terror que aterra a Sitges després de passar pels festivals de Venècia i Toronto.",
+      "presence": true,
+      "sitgesUrl": "https://sitgesfilmfestival.com/ca/film/2026/spiral",
+      "trailerUrl": "https://www.youtube.com/watch?v=OiPKYpJlRGM",
+      "ticketId": null,
+      "images": [],
+      "section": "Oficial Fantàstic Competició",
+      "poster": "assets/films/spiral_poster.jpg"
+    },
+    {
+      "id": "no-way",
+      "title": "No Way Down",
+      "directors": [
+        {
+          "name": "Mohamed Chabane",
+          "bio": "Com a codirector, ha treballat a les sèries ReuSSS (2022) i Jóvenes y millonarios (2025). No Way Down és el seu debut al llargmetratge.",
+          "photo": "/images/directors/no-way_director_1.jpeg"
+        },
+        {
+          "name": "Théo Jourdain",
+          "bio": "As co-directors, they worked on the series ReuSSS (2022) and Young Millionaires (2025). No Way Down, presented at Fantastic Fest, marks their feature film debut.",
+          "photo": "/images/directors/no-way_director_2.jpeg"
+        }
+      ],
+      "year": "2026",
+      "country": "França",
+      "idioma": "Francès",
+      "subt": "Castellà, Català, English",
+      "date": "2026-10-15",
+      "programmeDate": "2026-10-15",
+      "dayLabel": "dijous",
+      "time": "14:45",
+      "venue": "Cinema Casino Prado",
+      "duration": "96' | 101'",
+      "synopsis": "Dins d’un complex residencial abandonat, quatre amics entren en una torre clausurada convertida en llegenda urbana després de diverses desaparicions inexplicables. Quan un despietat assassí emergeixi de la foscor, cada planta allotjarà un nou terror, i de seguida descobriran que fugir-ne és impossible. Survival claustrofòbic que, jugant amb els codis del nou extremisme francès, aconsegueix mantenir la tensió més enllà dels límits del gènere.",
+      "presence": true,
+      "sitgesUrl": "https://sitgesfilmfestival.com/ca/film/2026/no-way-down",
+      "trailerUrl": "https://www.youtube.com/watch?v=qA-RRpup4lE",
+      "ticketId": null,
+      "images": [],
+      "section": "Panorama",
+      "poster": "assets/films/no-way_poster.jpg"
+    },
+    {
+      "id": "salmokji",
+      "title": "Salmokji: Whispering Water",
+      "directors": [
+        {
+          "name": "Sang-min Lee",
+          "bio": "Director dedicat al terror i al thriller; a la seva obra explora com la por consumeix els seus personatges. Salmokji: Whispering Water és el seu primer llargmetratge.",
+          "photo": "/images/directors/salmokji_director.jpeg"
+        }
+      ],
+      "year": "2026",
+      "country": "Corea",
+      "idioma": "Coreà",
+      "subt": "Castellà, Català, English",
+      "date": "2026-10-15",
+      "programmeDate": "2026-10-15",
+      "dayLabel": "dijous",
+      "time": "16:45",
+      "venue": "Cinema Casino Prado",
+      "duration": "95' | 100'",
+      "synopsis": "Quan una parella desapareix a prop de l’embassament de Salmokji i una figura no identificada apareix a les imatges de Street View, un equip de rodatge, liderat per Su-in, torna al lloc per repetir la gravació. Allà començaran a experimentar fenòmens torbadors sense cap explicació. Atmosfèric i trepidant found footage que es va convertir en la pel·lícula de gènere més taquillera de la història de la República de Corea, superant Dos hermanas.",
+      "presence": true,
+      "sitgesUrl": "https://sitgesfilmfestival.com/ca/film/2026/salmokji-whispering-water",
+      "trailerUrl": null,
+      "ticketId": null,
+      "images": [],
+      "section": "Panorama",
+      "poster": "assets/films/salmokji-whispering-water_poster.jpg"
+    },
+    {
+      "id": "drag",
+      "title": "Drag",
+      "directors": [
+        {
+          "name": "Greg Yagolnitzer",
+          "bio": "Forma un duo de cineastes amb Raviv Ullman, especialistes en mals d’esquena, que debuta a la direcció amb Drag.",
+          "photo": "/images/directors/drag_director_1.jpeg"
+        },
+        {
+          "name": "Raviv Ullman",
+          "bio": "Forma un duo de cineastes amb Greg Yagolnitzer, especialistes en mals d’esquena, que debuta a la direcció amb Drag.",
+          "photo": "/images/directors/drag_director_2.jpeg"
+        }
+      ],
+      "year": "2026",
+      "country": "Estats Units",
+      "idioma": "Anglès",
+      "subt": "Català, Castellà",
+      "date": "2026-10-15",
+      "programmeDate": "2026-10-15",
+      "dayLabel": "dijous",
+      "time": "19:00",
+      "venue": "Auditori Meliá",
+      "duration": "86' | 107'",
+      "synopsis": "Dues germanes amb una relació conflictiva realitzen un robatori en una casa de la zona rural de l’estat de Nova York. El que sembla un pla senzill es converteix en un malson quan una d’elles es lesiona l’esquena i queda immobilitzada a la segona planta. A mesura que la nit es descontrola, les dues germanes hauran de sortir d’allà abans que no torni el propietari. Comèdia negra esbojarrada que invoca el cantó masoquista de Sam Raimi i Bruce Campbell.",
+      "presence": true,
+      "sitgesUrl": "https://sitgesfilmfestival.com/ca/film/2026/drag",
+      "trailerUrl": null,
+      "ticketId": null,
+      "images": [],
+      "section": "Oficial Fantàstic Competició",
+      "poster": "assets/films/drag_poster.jpg"
+    },
+    {
+      "id": "victorian",
+      "title": "Victorian Psycho",
+      "directors": [
+        {
+          "name": "Zachary Wigon",
+          "bio": "Cineasta novaiorquès que, abans de dedicar-se al cinema, escrivia com a periodista cinematogràfic a Vanity Fair, The Village Voice i Filmmaker Magazine, entre altres.",
+          "photo": "/images/directors/victorian_director.jpeg"
+        }
+      ],
+      "year": "2026",
+      "country": "US, UK",
+      "idioma": "Anglès",
+      "subt": "Castellà",
+      "date": "2026-10-15",
+      "programmeDate": "2026-10-15",
+      "dayLabel": "dijous",
+      "time": "21:15",
+      "venue": "Auditori Meliá",
+      "duration": "102'",
+      "synopsis": "L’any 1858, una inquietant institutriu anomenada Winifred Notty arriba a Ensor House mentre amaga les seves tendències psicopàtiques. Quan el personal comença a desaparèixer, la família comença a sospitar d’ella.",
+      "presence": true,
+      "sitgesUrl": "https://sitgesfilmfestival.com/ca/film/2026/victorian-psycho",
+      "trailerUrl": "https://www.youtube.com/watch?v=sDiFol_2j2I",
+      "ticketId": null,
+      "images": [],
+      "section": "Oficial Fantàstic Competició",
+      "poster": "assets/films/victorian_poster.jpg"
+    },
+    {
+      "id": "hope",
+      "title": "Hope",
+      "directors": [
+        {
+          "name": "Na Hong-jin",
+          "bio": "Director coreà caracteritzat per la seva estètica visual. L’any 2011 va guanyar el premi a Millor Director al Festival per El mar groc.",
+          "photo": "/images/directors/hope_director.jpeg"
+        }
+      ],
+      "year": "2026",
+      "country": "Corea",
+      "idioma": "Coreà, Anglès",
+      "subt": "Castellà, Anglès",
+      "date": "2026-10-18",
+      "programmeDate": "2026-10-18",
+      "dayLabel": "diumenge",
+      "time": "10:00",
+      "venue": "Auditori Meliá",
+      "duration": "160'",
+      "synopsis": "Un poble aïllat queda incomunicat mentre una criatura aguaita des de les muntanyes. El conflicte humà converteix l’amenaça en una tragèdia de proporcions còsmiques.",
+      "presence": false,
+      "sitgesUrl": "",
+      "trailerUrl": "https://www.youtube.com/watch?v=OFaJzL83y0Q",
+      "ticketId": null,
+      "images": [],
+      "section": "SOF - Sitges Collection",
+      "poster": "assets/films/hope_poster.jpg"
+    },
+    {
+      "id": "sheeps",
+      "title": "Black Sheeps",
+      "directors": [
+        {
+          "name": "Jonathan King",
+          "bio": "Productor i director neozelandès, conegut per Ovejas asesinas (2006) i Under the Mountain (2009).",
+          "photo": "/images/films/sheeps_director.jpeg"
+        }
+      ],
+      "year": "2026",
+      "country": "New Zealand",
+      "idioma": "Anglès",
+      "subt": "Català, Castellà",
+      "date": "2026-10-11",
+      "programmeDate": "2026-10-10",
+      "dayLabel": "dissabte",
+      "time": "01:30",
+      "venue": "Auditori Meliá",
+      "duration": "97'",
+      "synopsis": "Vint anys després de l’estrena de la pel·lícula de culte Ovejas asesinas, per fi arriba l’esperada seqüela. En aquest segon capítol de la saga, una jove científica està convençuda que un nou i perillós patogen amenaça la població. La investigació la porta fins a la seva ciutat natal, situada a l’ombra de la remota granja d’ovelles on van tenir lloc els macabres esdeveniments del film original.",
+      "presence": true,
+      "sitgesUrl": "https://sitgesfilmfestival.com/ca/film/2026/black-sheeps",
+      "trailerUrl": "https://www.youtube.com/watch?v=k2pVmiQR-DE",
+      "ticketId": null,
+      "images": [
+        "/images/films/sheeps_1.jpg",
+        "/images/films/sheeps_2.jpg",
+        "/images/films/sheeps_3.jpg",
+        "/images/films/sheeps_4.jpg"
+      ],
+      "section": "Midnight X-Treme",
+      "poster": "/images/films/sheeps_poster.jpg"
+    },
+    {
+      "id": "living-dead",
+      "title": "The Theater of the Living Dead",
+      "directors": [
+        {
+          "name": "Giulio Maria Cavallini",
+          "bio": "És l'autor, director i productor de diversos curtmetratges, entre els quals destaquen «The Dreamer» (2011), amb el qual va guanyar el Premi del Jurat al Sottodiciotto Film Festival, i «Consequences» (2017), guardonat com a millor thriller als Los Angeles Film Awards. El 2020 va ser director de fotografia i muntador de la pel·lícula «Blackbird».",
+          "photo": "/images/films/living-dead_director_1.jpeg"
+        },
+        {
+          "name": "Riccardo Livermore",
+          "bio": "Cineasta i actor italià amb una trajectòria polifacètica que combina la direcció, el guió i la fotografia tant en cinema com en arts escèniques. Reconegut per curtmetratges premiats com The Dreamer i Consequences, així com pel seu treball al llargmetratge Blackbird, destaca per un estil visual cuidat que connecta el llenguatge cinematogràfic amb el teatre i l'òpera.",
+          "photo": "/images/films/living-dead_director_2.jpg"
+        }
+      ],
+      "year": "2025",
+      "country": "Itàlia",
+      "idioma": "Italià",
+      "subt": "Castellà, English",
+      "date": "2026-10-11",
+      "programmeDate": "2026-10-10",
+      "dayLabel": "dissabte",
+      "time": "01:30",
+      "venue": "Auditori Meliá",
+      "duration": "23'",
+      "synopsis": "Set joves estan llestos per debutar a l’escenari del Teatro Stabile. L’arribada d’un prestigiós director a la recerca de nous talents només fa que augmentar l’adrenalina. Però un dels nois arriba tard: l’ha mossegat un transeünt?",
+      "presence": true,
+      "sitgesUrl": "https://sitgesfilmfestival.com/ca/film/2026/theater-living-dead",
+      "trailerUrl": "https://www.youtube.com/watch?v=JaoozSJES0c",
+      "ticketId": null,
+      "images": [],
+      "section": "Sessions Especials - Curts",
+      "poster": "assets/films/living-dead_poster.jpg"
+    },
+    {
+      "id": "unholy",
+      "title": "Unholy Night",
+      "directors": [
+        {
+          "name": "Michael Gabriele",
+          "bio": "Cineasta conegut pel seu destacat treball dins el gènere de terror, com els premiats curtmetratges Get Away (2022) i Room Tone (2022).",
+          "photo": "/images/directors/unholy_director.jpeg"
+        }
+      ],
+      "year": "2026",
+      "country": "Canadà",
+      "idioma": "Anglès",
+      "subt": "Català, Castellà",
+      "date": "2026-10-11",
+      "programmeDate": "2026-10-10",
+      "dayLabel": "dissabte",
+      "time": "01:30",
+      "venue": "Auditori Meliá",
+      "duration": "93'",
+      "synopsis": "El tradicional sopar de Nadal del Gino i la seva família italiana es converteix en una sagnant batalla per la supervivència quan l’àvia, morta fa temps, apareix de sobte i emprèn una massacre. Juntament amb la seva exparella, el Gino haurà de fer front a un grup de retornats que sotja el veïnat. Divertida proposta de terror nadalenc que, gràcies a les seves grans dosis d’humor, es va endur el Gold Audience Award a Millor Pel·lícula Canadenca a Fantasia.",
+      "presence": true,
+      "sitgesUrl": "https://sitgesfilmfestival.com/ca/film/2026/unholy-night",
+      "trailerUrl": "https://www.youtube.com/watch?v=NK6jh04qNyY",
+      "ticketId": null,
+      "images": [
+        "/images/films/unholy_1.jpg",
+        "/images/films/unholy_2.jpg",
+        "/images/films/unholy_3.jpg"
+      ],
+      "section": "Midnight X-Treme",
+      "poster": "/images/films/unholy_poster.jpg"
+    },
+    {
+      "id": "get-undressed",
+      "title": "Get Undressed",
+      "directors": [
+        {
+          "name": "Seiji Chiba",
+          "bio": "L’any 2001 va fundar la companyia North CKY, des d’on desenvolupa la seva carrera com a director, productor i guionista.",
+          "photo": "/images/films/undressed_director.jpg"
+        }
+      ],
+      "year": "2026",
+      "country": "Japó",
+      "idioma": "Japonès",
+      "subt": "Català, Castellà, English",
+      "date": "2026-10-11",
+      "programmeDate": "2026-10-10",
+      "dayLabel": "dissabte",
+      "time": "01:30",
+      "venue": "Auditori Meliá",
+      "duration": "71'",
+      "synopsis": "Després d’anys sense veure’s, la Tsumugi se’n va d’acampada amb les seves excompanyes d’atletisme. La il·lusió de la retrobada s’esvaeix quan ressorgeix un conflicte que no s’havia resolt. El que no s’imagina ningú és que dormen damunt d’un antic lloc d’execucions, on fa segles els aldeans eren crucificats nus. A la nit, els seus esperits emergeixen per caçar les campistes. Llavors, la Tsumugi descobreix l’única forma de sobreviure: despullar-se.",
+      "presence": true,
+      "sitgesUrl": "https://sitgesfilmfestival.com/ca/film/2026/get-undressed",
+      "trailerUrl": null,
+      "ticketId": null,
+      "images": [
+        "/images/films/undressed_1.jpg",
+        "/images/films/undressed_2.jpg",
+        "/images/films/undressed_3.jpg"
+      ],
+      "section": "Midnight X-Treme",
+      "poster": "/images/films/undressed_poster.jpg"
+    }
+  ],
+  "marathons": [
+    {
+      "id": "nit-zombi",
+      "title": "La nit + zombi",
+      "date": "2026-10-11",
+      "programmeDate": "2026-10-10",
+      "dayLabel": "dissabte",
+      "time": "01:30",
+      "venue": "Auditori Meliá",
+      "ticketId": null,
+      "filmIds": [
+        "black-sheeps",
+        "the-theater-of-the-living-dead",
+        "unholy-night",
+        "get-undressed"
+      ],
+      "duration": "293'"
+    },
+    {
+      "id": "marato",
+      "title": "Marató Auditori",
+      "date": "2026-10-18",
+      "programmeDate": "2026-10-18",
+      "dayLabel": "diumenge",
+      "time": "15:30",
+      "venue": "Auditori Meliá",
+      "ticketId": null,
+      "filmIds": [],
+      "duration": "361'"
+    }
+  ]
+}
