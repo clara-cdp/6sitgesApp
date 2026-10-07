@@ -7,7 +7,6 @@ import type { ProgrammeData } from '../types/programme'
 const programme: ProgrammeData = programmeData
 
 export function AllFilmsPage() {
-
   const filteredFilms: Film[] = programme.films.filter(
     (film) => film.section !== 'Midnight X-Treme'
   )

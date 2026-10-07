@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import { KingKongLogo } from './KingKongLogo'
 
 export function Header() {
@@ -12,8 +13,8 @@ export function Header() {
         </div>
       </div>
 
-      {/* Main Red Banner */}
-      <div className="bg-[#FF0042] text-[#000000] px-4 py-4 sm:py-5 flex items-center gap-3 sm:gap-5 shadow-md">
+      {/* Main Red Banner linking back to Home */}
+      <Link to="/" className="bg-[#FF0042] text-[#000000] px-4 py-4 sm:py-5 flex items-center gap-3 sm:gap-5 shadow-md block">
         {/* King Kong Logo */}
         <div className="shrink-0 flex items-center justify-center">
           <KingKongLogo className="h-12 w-auto sm:h-16 text-[#000000]" fill="currentColor" />
@@ -28,7 +29,7 @@ export function Header() {
             59È FESTIVAL INTERNACIONAL DE <br /> CINEMA FANTÀSTIC DE CATALUNYA
           </p>
         </div>
-      </div>
+      </Link>
     </header>
   )
 }
