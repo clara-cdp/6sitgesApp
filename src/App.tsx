@@ -1,29 +1,44 @@
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { useState } from 'react'
+import { BrowserRouter, Route, Routes, useLocation } from 'react-router-dom'
 import { Footer } from './components/Footer'
 import { Header } from './components/Header'
 import { AllFilmsPage } from './pages/AllFilmsPage'
 import { WelcomePage } from './pages/WelcomePage'
 
-/**
- * Main App Component
- * 
- * Configures application routes with React Router:
- * - "/" -> WelcomePage (Welcome landing screen with navigation buttons)
- * - "/films" -> AllFilmsPage (Film list and marathon schedule)
- */
+function AppContent() {
+  const [isFilterOpen, setIsFilterOpen] = useState<boolean>(false)
+  const location = useLocation()
+  const isFilmsPage = location.pathname === '/films'
+
+  return (
+    <div className="min-h-screen bg-[#EFECE6] text-black font-['Montserrat'] flex flex-col justify-between">
+      <Header
+        showFilterToggle={isFilmsPage}
+        onToggleFilter={() => setIsFilterOpen((prev) => !prev)}
+      />
+      <main className="flex-1 w-full">
+        <Routes>
+          <Route path="/" element={<WelcomePage />} />
+          <Route
+            path="/films"
+            element={
+              <AllFilmsPage
+                isFilterOpen={isFilterOpen}
+                setIsFilterOpen={setIsFilterOpen}
+              />
+            }
+          />
+        </Routes>
+      </main>
+      <Footer />
+    </div>
+  )
+}
+
 function App() {
   return (
     <BrowserRouter>
-      <div className="min-h-screen bg-[#EFECE6] text-black font-['Montserrat'] flex flex-col justify-between">
-        <Header />
-        <main className="flex-1 w-full">
-          <Routes>
-            <Route path="/" element={<WelcomePage />} />
-            <Route path="/films" element={<AllFilmsPage />} />
-          </Routes>
-        </main>
-        <Footer />
-      </div>
+      <AppContent />
     </BrowserRouter>
   )
 }
