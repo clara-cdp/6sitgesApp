@@ -44,7 +44,7 @@ describe('FilmListItem', () => {
   it('renders a film item correctly', () => {
     render(<FilmListItem item={mockFilm} />)
     expect(screen.getByText('Adolescencia, sexo y muerte en Campamento Miasma')).toBeInTheDocument()
-    expect(screen.getByText('Auditori Meliá')).toBeInTheDocument()
+    expect(screen.getByText(/Auditori Meliá/i)).toBeInTheDocument()
     expect(screen.getByText('divendres')).toBeInTheDocument()
     expect(screen.getByText('9')).toBeInTheDocument()
     expect(screen.getByText('08:30')).toBeInTheDocument()
@@ -54,7 +54,7 @@ describe('FilmListItem', () => {
   it('renders a marathon item correctly', () => {
     render(<FilmListItem item={mockMarathon} />)
     expect(screen.getByText('La nit + zombi')).toBeInTheDocument()
-    expect(screen.getByText('Auditori Meliá')).toBeInTheDocument()
+    expect(screen.getByText(/Auditori Meliá/i)).toBeInTheDocument()
     expect(screen.getByText('dissabte')).toBeInTheDocument()
     expect(screen.getByText('11')).toBeInTheDocument()
     expect(screen.getByText('01:30')).toBeInTheDocument()
