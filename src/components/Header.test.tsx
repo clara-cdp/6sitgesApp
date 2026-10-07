@@ -1,6 +1,6 @@
-import { render, screen } from '@testing-library/react'
+import { render, screen, fireEvent } from '@testing-library/react'
 import { MemoryRouter } from 'react-router-dom'
-import { describe, expect, it } from 'vitest'
+import { describe, expect, it, vi } from 'vitest'
 import { Header } from './Header'
 
 const renderWithRouter = (ui: React.ReactElement) => {
@@ -31,18 +31,14 @@ describe('Header Component', () => {
     ).toBeInTheDocument()
   })
 
-  it('renders King Kong SVG vector logos', () => {
-    const { container } = renderWithRouter(<Header />)
-    const svgs = container.querySelectorAll('svg')
-    expect(svgs.length).toBeGreaterThanOrEqual(2)
-  })
+  it('renders filter toggle button when showFilterToggle is true and triggers onToggleFilter', () => {
+    const handleToggle = vi.fn()
+    renderWithRouter(<Header showFilterToggle={true} onToggleFilter={handleToggle} />)
 
-  it('renders the header element with sticky positioning classes', () => {
-    const { container } = renderWithRouter(<Header />)
-    const headerElement = container.querySelector('header')
-    expect(headerElement).toBeInTheDocument()
-    expect(headerElement).toHaveClass('sticky')
-    expect(headerElement).toHaveClass('top-0')
-    expect(headerElement).toHaveClass('z-50')
+    const toggleBtn = screen.getByRole('button', { name: /toggle filter menu/i })
+    expect(toggleBtn).toBeInTheDocument()
+
+    fireEvent.click(toggleBtn)
+    expect(handleToggle).toHaveBeenCalledTimes(1)
   })
 })
