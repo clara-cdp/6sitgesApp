@@ -17,7 +17,7 @@ export type Film = {
     synopsis: string
     presence: boolean
     sitgesUrl: string
-    trailerUrl?: string
+    trailerUrl?: string | null
     ticketId: string | null
     images?: string[]
     section: string

@@ -1,5 +1,9 @@
 import { Footer } from './components/Footer'
 import { Header } from './components/Header'
+import programmeData from './data/sitges-programme.json'
+import type { ProgrammeData } from './types/programme'
+
+const programme: ProgrammeData = programmeData
 
 function App() {
   return (
@@ -9,6 +13,8 @@ function App() {
         <h2 className="text-2xl sm:text-3xl font-bold mb-4">
           Benvinguts al 59è festival internacional de cinema fantàstic de Catalunya
         </h2>
+        <p>{programme.films.length} films loaded</p>
+        <p>{programme.marathons.length} marathons loaded</p>
       </main>
       <Footer />
     </div>
