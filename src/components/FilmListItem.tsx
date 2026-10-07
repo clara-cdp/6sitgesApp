@@ -1,45 +1,64 @@
+import { TicketButton } from './TicketButton'
 import type { Film } from '../types/film'
 import type { Marathon } from '../types/marathon'
 
 interface FilmListItemProps {
   item: Film | Marathon
+  onTicketClick?: () => void
 }
 
-export function FilmListItem({ item }: FilmListItemProps) {
+/**
+ * FilmListItem Component
+ * 
+ * Renders a single film or marathon item card on the films list page:
+ * - Left red date block (#FF0042) with day label, day number, and time
+ * - Title and venue details
+ * - Reusable TicketButton component on the right
+ */
+export function FilmListItem({ item, onTicketClick }: FilmListItemProps) {
   const dayNumber = item.date ? parseInt(item.date.split('-')[2], 10) : ''
 
   return (
-    <div className="flex items-center justify-between border-b border-gray-300 py-2.5 px-3 bg-[#EFECE6] hover:bg-[#E5E1D7] transition-colors cursor-pointer">
-      <div className="flex items-center space-x-3 sm:space-x-4 min-w-0">
-        {/* Red Date Block */}
-        <div className="bg-[#FF0042] text-white rounded-sm w-16 h-16 sm:w-20 sm:h-20 flex flex-col justify-center items-center flex-shrink-0 p-1 shadow-xs">
-          <span className="text-[10px] sm:text-xs font-medium lowercase tracking-tight leading-none">
-            {item.dayLabel}
-          </span>
-          <span className="text-xl sm:text-2xl font-black leading-tight my-0.5">
-            {dayNumber}
-          </span>
-          <span className="text-[10px] sm:text-xs font-semibold leading-none">
-            {item.time}
-          </span>
-        </div>
-
-        {/* Info Block */}
-        <div className="text-left min-w-0 pr-2">
-          <h3 className="font-bold text-sm sm:text-base text-black truncate leading-snug">
-            {item.title}
-          </h3>
-          <p className="text-xs sm:text-sm text-neutral-600 font-medium mt-1">
-            {item.venue}
-          </p>
-        </div>
+    <div className="bg-white my-2.5 shadow-xs border border-gray-200/70 flex items-stretch overflow-hidden hover:border-gray-300 transition-colors">
+      {/* 1. Left Red Date Block */}
+      <div className="bg-[#FF0042] text-black w-20 sm:w-24 flex flex-col justify-center items-center p-2.5 shrink-0 select-none">
+        <span className="text-xs sm:text-sm font-bold lowercase tracking-tight leading-none text-black">
+          {item.dayLabel}
+        </span>
+        <span className="text-2xl sm:text-3xl font-black leading-tight my-0.5 text-black">
+          {dayNumber}
+        </span>
+        <span className="text-xs sm:text-sm font-bold leading-none text-black">
+          {item.time}
+        </span>
       </div>
 
-      {/* Ticket Badge */}
-      <div className="flex-shrink-0 ml-2">
-        <span className="inline-block bg-[#B78B4B] text-white text-[10px] sm:text-xs font-bold tracking-wider uppercase px-2.5 py-1 rounded-xs shadow-xs">
-          TICKET
-        </span>
+      {/* 2. Middle Info & Ticket Button */}
+      <div className="flex-1 p-3.5 sm:p-4.5 flex items-center justify-between gap-3 min-w-0">
+        {/* Info Block */}
+        <div className="text-left min-w-0 pr-2">
+          <h3 className="font-bold text-base sm:text-lg text-black truncate leading-snug">
+            {item.title}
+          </h3>
+          <div className="flex items-center gap-1.5 text-xs sm:text-sm text-neutral-800 font-medium mt-1 min-w-0">
+            <svg
+              className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-black shrink-0"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+              aria-hidden="true"
+            >
+              <path fillRule="evenodd" clipRule="evenodd" d="M12 2C8.13401 2 5 5.13401 5 9C5 14.25 12 22 12 22C12 22 19 14.25 19 9C19 5.13401 15.866 2 12 2ZM12 11.5C10.6193 11.5 9.5 10.3807 9.5 9C9.5 7.61929 10.6193 6.5 12 6.5C13.3807 6.5 14.5 7.61929 14.5 9C14.5 10.3807 13.3807 11.5 12 11.5Z" />
+            </svg>
+            <span className="truncate">
+              {item.venue}{item.duration ? ` | ${item.duration}` : ''}
+            </span>
+          </div>
+        </div>
+
+        {/* Reusable Ticket Button */}
+        <div className="shrink-0 ml-1">
+          <TicketButton onClick={onTicketClick} />
+        </div>
       </div>
     </div>
   )

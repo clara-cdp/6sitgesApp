@@ -25,7 +25,6 @@ export function AllFilmsPage({ isFilterOpen = false, setIsFilterOpen }: AllFilms
     ...programme.marathons,
   ]
 
-
   const displayedItems = allItems.filter((item) => {
     if (selectedDateKey === 'ALL') return true
     return item.programmeDate === selectedDateKey || item.date === selectedDateKey
@@ -38,8 +37,7 @@ export function AllFilmsPage({ isFilterOpen = false, setIsFilterOpen }: AllFilms
   })
 
   return (
-    <div className="relative max-w-2xl w-full mx-auto bg-[#EFECE6] min-h-screen">
-      {/* Date Filter Dropdown Menu */}
+    <div className="relative max-w-2xl w-full mx-auto bg-[#EFECE6] min-h-screen px-3 py-4">
       <DateFilterDropdown
         selectedKey={selectedDateKey}
         onSelectKey={(key) => setSelectedDateKey(key)}
@@ -47,18 +45,11 @@ export function AllFilmsPage({ isFilterOpen = false, setIsFilterOpen }: AllFilms
         onClose={() => setIsFilterOpen && setIsFilterOpen(false)}
       />
 
-      {/* Films List */}
-      {displayedItems.length > 0 ? (
-        <div className="divide-y divide-gray-300">
-          {displayedItems.map((item) => (
-            <FilmListItem key={item.id} item={item} />
-          ))}
-        </div>
-      ) : (
-        <div className="p-8 text-center text-neutral-500 font-medium">
-          No hi ha sessions programades per a aquesta data.
-        </div>
-      )}
+      <div className="space-y-2">
+        {displayedItems.map((item) => (
+          <FilmListItem key={item.id} item={item} />
+        ))}
+      </div>
     </div>
   )
 }
