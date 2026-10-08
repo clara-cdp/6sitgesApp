@@ -31,6 +31,6 @@ describe('Footer Component', () => {
     render(<Footer />)
     const cathedralImg = screen.getByAltText(/Sitges Cathedral/i)
     expect(cathedralImg).toBeInTheDocument()
-    expect(cathedralImg).toHaveAttribute('src', '/catedral.svg')
+    expect(cathedralImg).toHaveAttribute('src', '/images/catedral.svg')
   })
 })

@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom'
 import { TicketButton } from './TicketButton'
 import type { Film } from '../types/film'
 import type { Marathon } from '../types/marathon'
@@ -7,21 +8,21 @@ interface FilmListItemProps {
   onTicketClick?: () => void
 }
 
-/**
- * FilmListItem Component
- * 
- * Renders a single film or marathon item card on the films list page:
- * - Left red date block (#FF0042) with day label, day number, and time
- * - Title and venue details
- * - Reusable TicketButton component on the right
- */
 export function FilmListItem({ item, onTicketClick }: FilmListItemProps) {
+  const navigate = useNavigate()
   const dayNumber = item.date ? parseInt(item.date.split('-')[2], 10) : ''
 
+  const handleCardClick = () => {
+    navigate(`/films/${item.id}`)
+  }
+
   return (
-    <div className="bg-white my-2.5 shadow-xs border border-gray-200/70 flex items-stretch overflow-hidden hover:border-gray-300 transition-colors">
+    <div
+      onClick={handleCardClick}
+      className="bg-white my-2.5 shadow-xs border border-gray-200/70 flex items-stretch overflow-hidden hover:border-gray-300 transition-colors cursor-pointer group"
+    >
       {/* 1. Left Red Date Block */}
-      <div className="bg-[#FF0042] text-black w-20 sm:w-24 flex flex-col justify-center items-center p-2.5 shrink-0 select-none">
+      <div className="bg-[#FF0042] text-black w-20 sm:w-24 flex flex-col justify-center items-center p-2.5 shrink-0 select-none group-hover:opacity-90 transition-opacity">
         <span className="text-xs sm:text-sm font-bold lowercase tracking-tight leading-none text-black">
           {item.dayLabel}
         </span>
@@ -36,8 +37,8 @@ export function FilmListItem({ item, onTicketClick }: FilmListItemProps) {
       {/* 2. Middle Info & Ticket Button */}
       <div className="flex-1 p-3.5 sm:p-4.5 flex items-center justify-between gap-3 min-w-0">
         {/* Info Block */}
-        <div className="text-left min-w-0 pr-2">
-          <h3 className="font-bold text-base sm:text-lg text-black truncate leading-snug">
+        <div className="text-left min-w-0 pr-2 flex-1 block">
+          <h3 className="font-bold text-base sm:text-lg text-black truncate leading-snug group-hover:text-[#FF0042] transition-colors">
             {item.title}
           </h3>
           <div className="flex items-center gap-1.5 text-xs sm:text-sm text-neutral-800 font-medium mt-1 min-w-0">
@@ -56,7 +57,12 @@ export function FilmListItem({ item, onTicketClick }: FilmListItemProps) {
         </div>
 
         {/* Reusable Ticket Button */}
-        <div className="shrink-0 ml-1">
+        <div
+          className="shrink-0 ml-1"
+          onClick={(e) => {
+            e.stopPropagation()
+          }}
+        >
           <TicketButton onClick={onTicketClick} />
         </div>
       </div>

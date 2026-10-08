@@ -1,10 +1,15 @@
-import { render, screen, fireEvent } from '@testing-library/react'
+import { fireEvent, render, screen } from '@testing-library/react'
+import { MemoryRouter } from 'react-router-dom'
 import { describe, expect, it, vi } from 'vitest'
 import { AllFilmsPage } from './AllFilmsPage'
 
 describe('AllFilmsPage', () => {
   it('renders all films and marathons by default', () => {
-    render(<AllFilmsPage />)
+    render(
+      <MemoryRouter>
+        <AllFilmsPage />
+      </MemoryRouter>
+    )
 
     expect(screen.getByText('Adolescencia, sexo y muerte en Campamento Miasma')).toBeInTheDocument()
     expect(screen.getByText('HALF')).toBeInTheDocument()
@@ -13,7 +18,11 @@ describe('AllFilmsPage', () => {
   })
 
   it('filters items when a specific date key is selected from dropdown', () => {
-    render(<AllFilmsPage isFilterOpen={true} setIsFilterOpen={vi.fn()} />)
+    render(
+      <MemoryRouter>
+        <AllFilmsPage isFilterOpen={true} setIsFilterOpen={vi.fn()} />
+      </MemoryRouter>
+    )
 
     const fridayOption = screen.getByRole('button', { name: 'Divendres 9' })
     fireEvent.click(fridayOption)
@@ -26,7 +35,11 @@ describe('AllFilmsPage', () => {
   })
 
   it('excludes Midnight X-Treme section films', () => {
-    render(<AllFilmsPage />)
+    render(
+      <MemoryRouter>
+        <AllFilmsPage />
+      </MemoryRouter>
+    )
 
     expect(screen.queryByText('Black Sheeps')).not.toBeInTheDocument()
     expect(screen.queryByText('Unholy Night')).not.toBeInTheDocument()
