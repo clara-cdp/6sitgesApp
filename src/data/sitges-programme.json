@@ -24,7 +24,7 @@
       "presence": true,
       "sitgesUrl": "https://sitgesfilmfestival.com/ca/film/2026/teenage-sex-and-death-camp-miasma",
       "trailerUrl": "https://mubi.com/en/es/films/teenage-sex-and-death-at-camp-miasma",
-      "ticketId": null,
+      "ticketId": "ticket-miasma",
       "images": [
         "/images/films/miasma_1.jpg",
         "/images/films/miasma_2.jpg",
@@ -57,7 +57,7 @@
       "presence": false,
       "sitgesUrl": "https://sitgesfilmfestival.com/ca/film/2026/half",
       "trailerUrl": null,
-      "ticketId": null,
+      "ticketId": "ticket-half",
       "images": [
         "/images/films/half_1.jpg"
       ],
@@ -88,7 +88,7 @@
       "presence": false,
       "sitgesUrl": "https://sitgesfilmfestival.com/ca/film/2026/leviticus",
       "trailerUrl": "https://www.youtube.com/watch?v=WXuK0vlFxI",
-      "ticketId": null,
+      "ticketId": "ticket-levi",
       "images": [
         "/images/films/leviticus_1.jpeg",
         "/images/films/leviticus_2.jpeg",
@@ -121,7 +121,7 @@
       "presence": false,
       "sitgesUrl": "https://sitgesfilmfestival.com/ca/film/2026/karma",
       "trailerUrl": "https://www.youtube.com/watch?v=ULAvTzHBwjs",
-      "ticketId": null,
+      "ticketId": "t-karma",
       "images": [
         "/images/films/karma_1.jpg",
         "/images/films/karma_2.jpg",
@@ -154,7 +154,7 @@
       "presence": false,
       "sitgesUrl": "https://sitgesfilmfestival.com/ca/film/2026/apocalipsis-z-nuevo-mundo",
       "trailerUrl": "https://www.youtube.com/watch?v=_SGPFqySL6c&t=1s",
-      "ticketId": null,
+      "ticketId": "t-apocalipasis",
       "images": [
         "/images/films/apocalipsis_1.jpg",
         "/images/films/apocalipsis_2.jpg"
@@ -186,7 +186,7 @@
       "presence": false,
       "sitgesUrl": "https://sitgesfilmfestival.com/ca/film/2026/red-snow",
       "trailerUrl": "https://www.youtube.com/watch?v=55Np7LmHByA",
-      "ticketId": null,
+      "ticketId": "t-red",
       "images": [
         "/images/films/red_2.jpg",
         "/images/films/red_3.jpg",
@@ -254,7 +254,7 @@
       "presence": true,
       "sitgesUrl": "https://sitgesfilmfestival.com/ca/film/2026/tesis",
       "trailerUrl": "https://www.youtube.com/watch?v=Ku4CbW2m7Sg",
-      "ticketId": null,
+      "ticketId": "t-tesis",
       "images": [
         "/images/films/tesis_1.jpg",
         "/images/films/tesis_2.jpg",
@@ -288,7 +288,7 @@
       "presence": true,
       "sitgesUrl": "https://sitgesfilmfestival.com/ca/film/2026/oceano-titanico",
       "trailerUrl": "https://www.youtube.com/watch?v=n0-_06AcZ7g",
-      "ticketId": null,
+      "ticketId": "t-oceano",
       "images": [
         "/images/films/oceano_1.jpg",
         "/images/films/oceano_2.jpg",
@@ -321,7 +321,7 @@
       "presence": true,
       "sitgesUrl": "https://sitgesfilmfestival.com/ca/film/2026/devils-1971",
       "trailerUrl": "https://www.youtube.com/watch?v=ImeXlanF3iY",
-      "ticketId": null,
+      "ticketId": "t-devils",
       "images": [
         "/images/films/devils_1.jpg",
         "/images/films/devils_2.jpg",
@@ -361,7 +361,7 @@
       "presence": false,
       "sitgesUrl": "https://sitgesfilmfestival.com/ca/film/2026/11",
       "trailerUrl": null,
-      "ticketId": null,
+      "ticketId": "t-onze",
       "images": [
         "/images/films/11_1.jpg",
         "/images/films/11_2.jpg",
@@ -394,7 +394,7 @@
       "presence": true,
       "sitgesUrl": "https://sitgesfilmfestival.com/ca/film/2026/face-horror",
       "trailerUrl": "https://www.youtube.com/watch?v=K0RSqAxbehs",
-      "ticketId": null,
+      "ticketId": "t-the-face",
       "images": [
         "/images/films/face_1.jpg"
       ],
@@ -425,7 +425,7 @@
       "presence": true,
       "sitgesUrl": "https://sitgesfilmfestival.com/ca/film/2026/girl-night",
       "trailerUrl": "https://www.youtube.com/watch?v=mlzc3X3Qa20",
-      "ticketId": null,
+      "ticketId": "t-girl",
       "images": [
         "/images/films/girl_1.jpg",
         "/images/films/girl_2.jpg",
@@ -458,7 +458,7 @@
       "presence": false,
       "sitgesUrl": "https://sitgesfilmfestival.com/ca/film/2026/sanguine",
       "trailerUrl": "https://www.youtube.com/watch?v=Plkb2DcOpeE",
-      "ticketId": null,
+      "ticketId": "t-sanguine",
       "images": [
         "/images/films/sanguine_1.jpg"
       ],
@@ -489,7 +489,7 @@
       "presence": false,
       "sitgesUrl": "https://sitgesfilmfestival.com/ca/film/2026/buddy",
       "trailerUrl": "https://www.youtube.com/watch?v=0mil0YgOtu8&t=1s",
-      "ticketId": null,
+      "ticketId": "t-buddy",
       "images": [
         "/images/films/buddy_1.jpeg",
         "/images/films/buddy_2.jpeg",
@@ -523,7 +523,7 @@
       "presence": true,
       "sitgesUrl": "https://sitgesfilmfestival.com/ca/film/2026/no-rest-wicked",
       "trailerUrl": "https://www.youtube.com/watch?v=FWHydpn9xIM",
-      "ticketId": null,
+      "ticketId": "t-wicked",
       "images": [
         "/images/films/wicked_1.jpg",
         "/images/films/wicked_2.jpg",
@@ -557,7 +557,7 @@
       "presence": true,
       "sitgesUrl": "https://sitgesfilmfestival.com/ca/film/2026/never-after-dark",
       "trailerUrl": "https://www.youtube.com/watch?v=fu33xTw654A",
-      "ticketId": null,
+      "ticketId": "t-after-dark",
       "images": [
         "/images/films/after-dark_1.webp"
       ],
@@ -588,7 +588,7 @@
       "presence": true,
       "sitgesUrl": "https://sitgesfilmfestival.com/ca/film/2026/spiral",
       "trailerUrl": "https://www.youtube.com/watch?v=OiPKYpJlRGM",
-      "ticketId": null,
+      "ticketId": "t-spiral",
       "images": [
         "/images/films/spiral_1.jpg",
         "/images/films/spiral_2.jpg",
@@ -627,7 +627,7 @@
       "presence": true,
       "sitgesUrl": "https://sitgesfilmfestival.com/ca/film/2026/no-way-down",
       "trailerUrl": "https://www.youtube.com/watch?v=qA-RRpup4lE",
-      "ticketId": null,
+      "ticketId": "t-no-way",
       "images": [
         "/images/films/no-way_1.jpg",
         "/images/films/no-way_2.jpg",
@@ -661,7 +661,7 @@
       "presence": true,
       "sitgesUrl": "https://sitgesfilmfestival.com/ca/film/2026/salmokji-whispering-water",
       "trailerUrl": null,
-      "ticketId": null,
+      "ticketId": "t-salmokji",
       "images": [
         "/images/films/salmokji_1.jpg",
         "/images/films/salmokji_2.jpg",
@@ -699,7 +699,7 @@
       "presence": true,
       "sitgesUrl": "https://sitgesfilmfestival.com/ca/film/2026/drag",
       "trailerUrl": null,
-      "ticketId": null,
+      "ticketId": "t-drag",
       "images": [
         "/images/films/drag_1.jpeg",
         "/images/films/drag_2.jpeg",
@@ -733,7 +733,7 @@
       "presence": true,
       "sitgesUrl": "https://sitgesfilmfestival.com/ca/film/2026/victorian-psycho",
       "trailerUrl": "https://www.youtube.com/watch?v=sDiFol_2j2I",
-      "ticketId": null,
+      "ticketId": "t-victorian",
       "images": [
         "/images/films/victorian_1.jpg",
         "/images/films/victorian_2.jpg"
@@ -763,9 +763,9 @@
       "duration": "160'",
       "synopsis": "Un poble aïllat queda incomunicat mentre una criatura aguaita des de les muntanyes. El conflicte humà converteix l’amenaça en una tragèdia de proporcions còsmiques.",
       "presence": false,
-      "sitgesUrl": "",
+      "sitgesUrl": "https://sitgesfilmfestival.com/es/film/2026/hope",
       "trailerUrl": "https://www.youtube.com/watch?v=OFaJzL83y0Q",
-      "ticketId": null,
+      "ticketId": "t-hope",
       "images": [
         "/images/films/hope_1.jpg",
         "/images/films/hope_2.jpg",
@@ -844,7 +844,7 @@
         "/images/films/living-dead_3.jpg",
         "/images/films/living-dead_4.jpg"
       ],
-      "section": "Sessions Especials - Curts",
+      "section": "Midnight X-Treme",
       "poster": "/images/films/living-dead_poster.png"
     },
     {
@@ -923,7 +923,7 @@
       "dayLabel": "dissabte",
       "time": "01:30",
       "venue": "Auditori Meliá",
-      "ticketId": null,
+      "ticketId": "ticket-zombi",
       "filmIds": [
         "sheeps",
         "living-dead",
@@ -940,7 +940,7 @@
       "dayLabel": "diumenge",
       "time": "15:30",
       "venue": "Auditori Meliá",
-      "ticketId": null,
+      "ticketId": "ticket-marato",
       "filmIds": [],
       "duration": "361'"
     }

@@ -4,6 +4,7 @@ import programmeData from '../data/sitges-programme.json'
 import type { Film } from '../types/film'
 import type { Marathon } from '../types/marathon'
 import type { ProgrammeData } from '../types/programme'
+import { openTicket } from '../lib/openTicket'
 
 const programme: ProgrammeData = programmeData
 
@@ -141,9 +142,13 @@ export function MarathonDetailPage() {
       </div>
 
       {/* Ticket Button Section */}
-      <div className="bg-black py-8 flex items-center justify-center border-t border-neutral-900 mt-6">
-        <TicketButton />
-      </div>
+      {marathon.ticketId && (
+        <div className="bg-black py-8 flex items-center justify-center border-t border-neutral-900 mt-6">
+          <TicketButton
+            onClick={() => void openTicket(marathon.ticketId!)}
+          />
+        </div>
+      )}
     </div>
   )
 }
