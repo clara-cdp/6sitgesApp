@@ -4,12 +4,14 @@ import programmeData from '../data/sitges-programme.json'
 import type { Film } from '../types/film'
 import type { Marathon } from '../types/marathon'
 import type { ProgrammeData } from '../types/programme'
-import { openTicket } from '../lib/openTicket'
+import { useOpenTicket } from '../hooks/useOpenTicket'
 
 const programme: ProgrammeData = programmeData
 
 export function MarathonDetailPage() {
   const { id } = useParams<{ id: string }>()
+
+  const openTicket = useOpenTicket()
 
   const marathon = programme.marathons.find((m: Marathon) => m.id === id)
 

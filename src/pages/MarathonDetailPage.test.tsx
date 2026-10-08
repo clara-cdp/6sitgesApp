@@ -2,18 +2,24 @@ import { MemoryRouter, Route, Routes } from 'react-router-dom'
 import { MarathonDetailPage } from './MarathonDetailPage'
 import { fireEvent, render, screen } from '@testing-library/react'
 import { beforeEach, describe, expect, it, vi } from 'vitest'
-import { openTicket } from '../lib/openTicket'
+import { useOpenTicket } from '../hooks/useOpenTicket'
 
-vi.mock('../lib/openTicket', () => ({
-  openTicket: vi.fn(),
+vi.mock('../hooks/useOpenTicket', () => ({
+  useOpenTicket: vi.fn(),
 }))
 
 beforeEach(() => {
   vi.clearAllMocks()
 })
 
-
 describe('MarathonDetailPage', () => {
+  const mockOpenTicket = vi.fn()
+
+  beforeEach(() => {
+    vi.clearAllMocks()
+    vi.mocked(useOpenTicket).mockReturnValue(mockOpenTicket)
+  })
+
   it('renders marathon details and lists associated films linking to their detail pages', () => {
     render(
       <MemoryRouter initialEntries={['/marathon/nit-zombi']}>
@@ -76,6 +82,6 @@ describe('MarathonDetailPage', () => {
 
     fireEvent.click(screen.getByRole('button', { name: 'TICKET' }))
 
-    expect(openTicket).toHaveBeenCalledExactlyOnceWith('ticket-marato')
+    expect(mockOpenTicket).toHaveBeenCalledExactlyOnceWith('ticket-marato')
   })
 })

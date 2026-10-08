@@ -2,16 +2,25 @@ import { fireEvent, render, screen } from '@testing-library/react'
 import { MemoryRouter, Route, Routes } from 'react-router-dom'
 import { beforeEach, describe, expect, it, vi } from 'vitest'
 import { FilmDetailPage } from './FilmDetailPage'
-import { openTicket } from '../lib/openTicket'
+import { useOpenTicket } from '../hooks/useOpenTicket'
 
-vi.mock('../lib/openTicket', () => ({
-  openTicket: vi.fn(),
+vi.mock('../hooks/useOpenTicket', () => ({
+  useOpenTicket: vi.fn(),
 }))
+
 beforeEach(() => {
   vi.clearAllMocks()
 })
 
 describe('FilmDetailPage', () => {
+
+  const mockOpenTicket = vi.fn()
+
+  beforeEach(() => {
+    vi.clearAllMocks()
+    vi.mocked(useOpenTicket).mockReturnValue(mockOpenTicket)
+  })
+
   it('renders film details when a valid film id is provided in the route', () => {
     render(
       <MemoryRouter initialEntries={['/films/miasma']}>
@@ -102,7 +111,7 @@ describe('FilmDetailPage', () => {
 
 
   it('opens the correct ticket from Braindead detail page', () => {
-    // Arrange: render Braindead's detail page.
+
     render(
       <MemoryRouter initialEntries={['/films/brain']}>
         <Routes>
@@ -113,7 +122,7 @@ describe('FilmDetailPage', () => {
 
     fireEvent.click(screen.getByRole('button', { name: 'TICKET' }))
 
-    expect(openTicket).toHaveBeenCalledExactlyOnceWith('ticket-brain')
+    expect(mockOpenTicket).toHaveBeenCalledExactlyOnceWith('ticket-brain')
   })
 
 })

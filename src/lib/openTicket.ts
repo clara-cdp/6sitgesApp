@@ -2,18 +2,13 @@
 import { tickets } from '../data/tickets'
 import { decryptTicket } from './ticketCrypto'
 
-export async function openTicket(ticketId: string) {
+export async function openTicket(ticketId: string, password: string) {
     const ticketPath = tickets[ticketId]
 
     if (!ticketPath) {
         console.error(`Ticket not found: ${ticketId}`)
         return
     }
-
-    // Temporary password prompt until we implement the lock screen
-    const password = window.prompt('Enter ticket password')
-
-    if (!password) return
 
     try {
         const response = await fetch(ticketPath)

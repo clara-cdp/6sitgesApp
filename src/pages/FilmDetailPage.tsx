@@ -4,12 +4,14 @@ import { TicketButton } from '../components/TicketButton'
 import programmeData from '../data/sitges-programme.json'
 import type { Film } from '../types/film'
 import type { ProgrammeData } from '../types/programme'
-import { openTicket } from '../lib/openTicket'
+import { useOpenTicket } from '../hooks/useOpenTicket'
 
 const programme: ProgrammeData = programmeData
 
 export function FilmDetailPage() {
   const { id } = useParams<{ id: string }>()
+
+  const openTicket = useOpenTicket()
 
   const film = programme.films.find((f: Film) => f.id === id)
 
