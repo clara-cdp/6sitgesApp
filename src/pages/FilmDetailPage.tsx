@@ -4,11 +4,14 @@ import { TicketButton } from '../components/TicketButton'
 import programmeData from '../data/sitges-programme.json'
 import type { Film } from '../types/film'
 import type { ProgrammeData } from '../types/programme'
+import { useOpenTicket } from '../hooks/useOpenTicket'
 
 const programme: ProgrammeData = programmeData
 
 export function FilmDetailPage() {
   const { id } = useParams<{ id: string }>()
+
+  const openTicket = useOpenTicket()
 
   const film = programme.films.find((f: Film) => f.id === id)
 
@@ -230,9 +233,13 @@ export function FilmDetailPage() {
         )}
 
         {/* Ticket Action Area */}
-        <div className="bg-black py-6 flex items-center justify-center border-t border-neutral-900">
-          <TicketButton />
-        </div>
+        {film.ticketId && (
+          <div className="bg-black py-6 flex items-center justify-center border-t border-neutral-900">
+            <TicketButton
+              onClick={() => void openTicket(film.ticketId!)}
+            />
+          </div>
+        )}
       </div>
 
       {/* Main Film Poster */}

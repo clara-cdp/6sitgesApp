@@ -4,11 +4,14 @@ import programmeData from '../data/sitges-programme.json'
 import type { Film } from '../types/film'
 import type { Marathon } from '../types/marathon'
 import type { ProgrammeData } from '../types/programme'
+import { useOpenTicket } from '../hooks/useOpenTicket'
 
 const programme: ProgrammeData = programmeData
 
 export function MarathonDetailPage() {
   const { id } = useParams<{ id: string }>()
+
+  const openTicket = useOpenTicket()
 
   const marathon = programme.marathons.find((m: Marathon) => m.id === id)
 
@@ -141,9 +144,13 @@ export function MarathonDetailPage() {
       </div>
 
       {/* Ticket Button Section */}
-      <div className="bg-black py-8 flex items-center justify-center border-t border-neutral-900 mt-6">
-        <TicketButton />
-      </div>
+      {marathon.ticketId && (
+        <div className="bg-black py-8 flex items-center justify-center border-t border-neutral-900 mt-6">
+          <TicketButton
+            onClick={() => void openTicket(marathon.ticketId!)}
+          />
+        </div>
+      )}
     </div>
   )
 }

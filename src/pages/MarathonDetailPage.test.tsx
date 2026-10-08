@@ -1,9 +1,25 @@
-import { render, screen } from '@testing-library/react'
 import { MemoryRouter, Route, Routes } from 'react-router-dom'
-import { describe, expect, it } from 'vitest'
 import { MarathonDetailPage } from './MarathonDetailPage'
+import { fireEvent, render, screen } from '@testing-library/react'
+import { beforeEach, describe, expect, it, vi } from 'vitest'
+import { useOpenTicket } from '../hooks/useOpenTicket'
+
+vi.mock('../hooks/useOpenTicket', () => ({
+  useOpenTicket: vi.fn(),
+}))
+
+beforeEach(() => {
+  vi.clearAllMocks()
+})
 
 describe('MarathonDetailPage', () => {
+  const mockOpenTicket = vi.fn()
+
+  beforeEach(() => {
+    vi.clearAllMocks()
+    vi.mocked(useOpenTicket).mockReturnValue(mockOpenTicket)
+  })
+
   it('renders marathon details and lists associated films linking to their detail pages', () => {
     render(
       <MemoryRouter initialEntries={['/marathon/nit-zombi']}>
@@ -53,5 +69,19 @@ describe('MarathonDetailPage', () => {
 
     expect(screen.getByText('Marató no trobada')).toBeInTheDocument()
     expect(screen.getByText('← Tornar a la llista')).toBeInTheDocument()
+  })
+
+  it('opens the correct ticket from Marató Auditori', () => {
+    render(
+      <MemoryRouter initialEntries={['/marathon/marato']}>
+        <Routes>
+          <Route path="/marathon/:id" element={<MarathonDetailPage />} />
+        </Routes>
+      </MemoryRouter>
+    )
+
+    fireEvent.click(screen.getByRole('button', { name: 'TICKET' }))
+
+    expect(mockOpenTicket).toHaveBeenCalledExactlyOnceWith('ticket-marato')
   })
 })

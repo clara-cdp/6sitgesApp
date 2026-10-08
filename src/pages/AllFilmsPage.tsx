@@ -5,6 +5,7 @@ import programmeData from '../data/sitges-programme.json'
 import type { Film } from '../types/film'
 import type { Marathon } from '../types/marathon'
 import type { ProgrammeData } from '../types/programme'
+import { useOpenTicket } from '../hooks/useOpenTicket'
 
 const programme: ProgrammeData = programmeData
 
@@ -15,6 +16,8 @@ interface AllFilmsPageProps {
 
 export function AllFilmsPage({ isFilterOpen = false, setIsFilterOpen }: AllFilmsPageProps) {
   const [selectedDateKey, setSelectedDateKey] = useState<string>('ALL')
+
+  const openTicket = useOpenTicket()
 
   const filteredFilms: Film[] = programme.films.filter(
     (film) => film.section !== 'Midnight X-Treme'
@@ -47,7 +50,15 @@ export function AllFilmsPage({ isFilterOpen = false, setIsFilterOpen }: AllFilms
 
       <div className="space-y-2">
         {displayedItems.map((item) => (
-          <FilmListItem key={item.id} item={item} />
+          <FilmListItem
+            key={item.id}
+            item={item}
+            onTicketClick={
+              item.ticketId
+                ? () => void openTicket(item.ticketId!)
+                : undefined
+            }
+          />
         ))}
       </div>
     </div>

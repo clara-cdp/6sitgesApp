@@ -1,9 +1,26 @@
 import { fireEvent, render, screen } from '@testing-library/react'
 import { MemoryRouter, Route, Routes } from 'react-router-dom'
-import { describe, expect, it } from 'vitest'
+import { beforeEach, describe, expect, it, vi } from 'vitest'
 import { FilmDetailPage } from './FilmDetailPage'
+import { useOpenTicket } from '../hooks/useOpenTicket'
+
+vi.mock('../hooks/useOpenTicket', () => ({
+  useOpenTicket: vi.fn(),
+}))
+
+beforeEach(() => {
+  vi.clearAllMocks()
+})
 
 describe('FilmDetailPage', () => {
+
+  const mockOpenTicket = vi.fn()
+
+  beforeEach(() => {
+    vi.clearAllMocks()
+    vi.mocked(useOpenTicket).mockReturnValue(mockOpenTicket)
+  })
+
   it('renders film details when a valid film id is provided in the route', () => {
     render(
       <MemoryRouter initialEntries={['/films/miasma']}>
@@ -91,4 +108,21 @@ describe('FilmDetailPage', () => {
     expect(screen.getByText('Pel·lícula no trobada')).toBeInTheDocument()
     expect(screen.getByText('← Tornar a la llista de pel·lícules')).toBeInTheDocument()
   })
+
+
+  it('opens the correct ticket from Braindead detail page', () => {
+
+    render(
+      <MemoryRouter initialEntries={['/films/brain']}>
+        <Routes>
+          <Route path="/films/:id" element={<FilmDetailPage />} />
+        </Routes>
+      </MemoryRouter>
+    )
+
+    fireEvent.click(screen.getByRole('button', { name: 'TICKET' }))
+
+    expect(mockOpenTicket).toHaveBeenCalledExactlyOnceWith('ticket-brain')
+  })
+
 })
