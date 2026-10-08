@@ -3,6 +3,7 @@ import { useState, type ReactNode } from 'react'
 import { TicketAuthContext } from './TicketAuthContext'
 import { decryptTicket } from '../lib/ticketCrypto'
 import { tickets } from '../data/tickets'
+import { validatePassword } from '../lib/validatePassword'
 
 interface TicketAuthProviderProps {
     children: ReactNode
@@ -15,7 +16,12 @@ export function TicketAuthProvider({ children }: TicketAuthProviderProps) {
     const isUnlocked = password !== null
 
     const unlock = async (attempt: string): Promise<boolean> => {
-        if (!attempt) return false
+        const validationError = validatePassword(attempt)
+
+        if (validationError) {
+            return false
+        }
+
 
         try {
             const response = await fetch(tickets['ticket-brain'])
