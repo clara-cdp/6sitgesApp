@@ -5,6 +5,7 @@ import programmeData from '../data/sitges-programme.json'
 import type { Film } from '../types/film'
 import type { Marathon } from '../types/marathon'
 import type { ProgrammeData } from '../types/programme'
+import { openTicket } from '../lib/openTicket'
 
 const programme: ProgrammeData = programmeData
 
@@ -47,7 +48,15 @@ export function AllFilmsPage({ isFilterOpen = false, setIsFilterOpen }: AllFilms
 
       <div className="space-y-2">
         {displayedItems.map((item) => (
-          <FilmListItem key={item.id} item={item} />
+          <FilmListItem
+            key={item.id}
+            item={item}
+            onTicketClick={
+              item.ticketId
+                ? () => void openTicket(item.ticketId!)
+                : undefined
+            }
+          />
         ))}
       </div>
     </div>

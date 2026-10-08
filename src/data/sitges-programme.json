@@ -220,7 +220,7 @@
       "presence": true,
       "sitgesUrl": "https://sitgesfilmfestival.com/ca/film/2026/braindead-1992-4k",
       "trailerUrl": "https://www.youtube.com/watch?v=O8LIug1cP04",
-      "ticketId": null,
+      "ticketId": "ticket-brain",
       "images": [
         "/images/films/BRAIN_1.jpg",
         "/images/films/brain_2.jpg",
