@@ -8,7 +8,7 @@ export function WelcomePage() {
       </h2>
 
       <div className="w-full max-w-xs space-y-4">
-        <NavButton label="Pel·lícules" to="/films" />
+        <NavButton label="El meu festival" to="/films" />
         <NavButton label="Horari" disabled />
         <NavButton label="Apunts" disabled />
       </div>

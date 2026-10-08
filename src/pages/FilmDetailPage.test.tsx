@@ -1,6 +1,6 @@
 import { fireEvent, render, screen } from '@testing-library/react'
 import { MemoryRouter, Route, Routes } from 'react-router-dom'
-import { beforeEach, describe, expect, it, vi } from 'vitest'
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import { FilmDetailPage } from './FilmDetailPage'
 import { useOpenTicket } from '../hooks/useOpenTicket'
 
@@ -16,8 +16,14 @@ describe('FilmDetailPage', () => {
 
   const mockOpenTicket = vi.fn()
 
+  afterEach(() => {
+    vi.useRealTimers()
+  })
+
   beforeEach(() => {
     vi.clearAllMocks()
+    vi.useFakeTimers()
+    vi.setSystemTime(new Date(2026, 9, 9, 23, 59, 59))
     vi.mocked(useOpenTicket).mockReturnValue(mockOpenTicket)
   })
 
@@ -125,4 +131,37 @@ describe('FilmDetailPage', () => {
     expect(mockOpenTicket).toHaveBeenCalledExactlyOnceWith('ticket-brain')
   })
 
+  it('persists star rating in localStorage when clicked', () => {
+    localStorage.clear()
+
+    render(
+      <MemoryRouter initialEntries={['/films/miasma']}>
+        <Routes>
+          <Route path="/films/:id" element={<FilmDetailPage />} />
+        </Routes>
+      </MemoryRouter>
+    )
+
+    const star5 = screen.getByRole('button', { name: 'Rate 5 stars' })
+    fireEvent.click(star5)
+
+    expect(localStorage.getItem('sitges_film_ratings')).toContain('"miasma":5')
+  })
+
+  it('persists half-star rating in localStorage when clicked', () => {
+    localStorage.clear()
+
+    render(
+      <MemoryRouter initialEntries={['/films/miasma']}>
+        <Routes>
+          <Route path="/films/:id" element={<FilmDetailPage />} />
+        </Routes>
+      </MemoryRouter>
+    )
+
+    const star3Half = screen.getByRole('button', { name: 'Rate 3.5 stars' })
+    fireEvent.click(star3Half)
+
+    expect(localStorage.getItem('sitges_film_ratings')).toContain('"miasma":3.5')
+  })
 })
