@@ -5,9 +5,10 @@ interface NavButtonProps {
   to?: string
   disabled?: boolean
   onClick?: () => void
+  type?: 'button' | 'submit'
 }
 
-export function NavButton({ label, to, disabled = false, onClick }: NavButtonProps) {
+export function NavButton({ label, to, disabled = false, onClick, type }: NavButtonProps) {
   const clipPathStyle = {
     clipPath:
       'polygon(10px 0, calc(100% - 10px) 0, 100% 10px, 100% calc(100% - 10px), calc(100% - 10px) 100%, 10px 100%, 0 calc(100% - 10px), 0 10px)',
@@ -36,7 +37,7 @@ export function NavButton({ label, to, disabled = false, onClick }: NavButtonPro
 
   return (
     <button
-      type="button"
+      type={type}
       disabled={disabled}
       onClick={onClick}
       style={clipPathStyle}

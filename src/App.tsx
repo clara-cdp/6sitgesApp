@@ -8,6 +8,9 @@ import { FilmDetailPage } from './pages/FilmDetailPage'
 import { MarathonDetailPage } from './pages/MarathonDetailPage'
 import { WelcomePage } from './pages/WelcomePage'
 import programmeData from './data/sitges-programme.json'
+import { TicketAuthProvider } from './context/TicketAuthProvider'
+import { useTicketAuth } from './context/useTicketAuth'
+import { PasswordScreen } from './components/PasswordScreen'
 
 function DetailRoute() {
   const { id } = useParams<{ id: string }>()
@@ -24,6 +27,7 @@ function AppContent() {
   const [isFilterOpen, setIsFilterOpen] = useState<boolean>(false)
   const location = useLocation()
   const isFilmsPage = location.pathname === '/films'
+  const { isUnlocked } = useTicketAuth()
 
   return (
     <div className="min-h-screen bg-[#EFECE6] text-black font-['Montserrat'] flex flex-col justify-between">
@@ -31,22 +35,26 @@ function AppContent() {
         showFilterToggle={isFilmsPage}
         onToggleFilter={() => setIsFilterOpen((prev) => !prev)}
       />
-      <main className="flex-1 w-full">
-        <Routes>
-          <Route path="/" element={<WelcomePage />} />
-          <Route
-            path="/films"
-            element={
-              <AllFilmsPage
-                isFilterOpen={isFilterOpen}
-                setIsFilterOpen={setIsFilterOpen}
-              />
-            }
-          />
-          <Route path="/films/:id" element={<DetailRoute />} />
-          <Route path="/marathon/:id" element={<MarathonDetailPage />} />
-          <Route path="/marathons/:id" element={<MarathonDetailPage />} />
-        </Routes>
+      <main className="flex-1 w-full flex flex-col">
+        {!isUnlocked ? (
+          <PasswordScreen />
+        ) : (
+          <Routes>
+            <Route path="/" element={<WelcomePage />} />
+            <Route
+              path="/films"
+              element={
+                <AllFilmsPage
+                  isFilterOpen={isFilterOpen}
+                  setIsFilterOpen={setIsFilterOpen}
+                />
+              }
+            />
+            <Route path="/films/:id" element={<DetailRoute />} />
+            <Route path="/marathon/:id" element={<MarathonDetailPage />} />
+            <Route path="/marathons/:id" element={<MarathonDetailPage />} />
+          </Routes>
+        )}
       </main>
       <Footer />
     </div>
@@ -55,9 +63,11 @@ function AppContent() {
 
 function App() {
   return (
-    <BrowserRouter>
-      <AppContent />
-    </BrowserRouter>
+    <TicketAuthProvider>
+      <BrowserRouter>
+        <AppContent />
+      </BrowserRouter>
+    </TicketAuthProvider>
   )
 }
 
