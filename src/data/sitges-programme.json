@@ -925,9 +925,9 @@
       "venue": "Auditori Meliá",
       "ticketId": null,
       "filmIds": [
-        "black-sheeps",
-        "the-theater-of-the-living-dead",
-        "unholy-night",
+        "sheeps",
+        "living-dead",
+        "unholy",
         "get-undressed"
       ],
       "duration": "293'"
