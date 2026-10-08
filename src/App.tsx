@@ -11,6 +11,7 @@ import programmeData from './data/sitges-programme.json'
 import { TicketAuthProvider } from './context/TicketAuthProvider'
 import { useTicketAuth } from './context/useTicketAuth'
 import { PasswordScreen } from './components/PasswordScreen'
+import { PWAUpdatePrompt } from './components/PWAUpdatePrompt'
 
 function DetailRoute() {
   const { id } = useParams<{ id: string }>()
@@ -66,6 +67,7 @@ function App() {
     <TicketAuthProvider>
       <BrowserRouter>
         <AppContent />
+        <PWAUpdatePrompt />
       </BrowserRouter>
     </TicketAuthProvider>
   )

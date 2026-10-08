@@ -145,7 +145,8 @@ describe('TicketAuthProvider', () => {
         fireEvent.click(
             screen.getByRole('button', { name: 'Try empty password' }),
         )
-        expect(fetch).not.toHaveBeenCalled()
+        // Initial mount fetches the verification ticket once for pre-caching
+        expect(fetch).toHaveBeenCalledTimes(1)
         expect(decryptTicket).not.toHaveBeenCalled()
     })
 
