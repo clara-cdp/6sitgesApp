@@ -1,5 +1,5 @@
 
-import { useState, type ReactNode } from 'react'
+import { useEffect, useState, type ReactNode } from 'react'
 import { TicketAuthContext } from './TicketAuthContext'
 import { decryptTicket } from '../lib/ticketCrypto'
 import { tickets } from '../data/tickets'
@@ -14,6 +14,13 @@ export function TicketAuthProvider({ children }: TicketAuthProviderProps) {
     const [password, setPassword] = useState<string | null>(null)
 
     const isUnlocked = password !== null
+
+    useEffect(() => {
+        // Pre-fetch verification ticket silently so it is cached for offline authentication
+        fetch(tickets['ticket-brain']).catch(() => {
+            // Ignore fetch error when offline
+        })
+    }, [])
 
     const unlock = async (attempt: string): Promise<boolean> => {
         const validationError = validatePassword(attempt)
