@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Routes, useLocation } from 'react-router-dom'
 import { Footer } from './components/Footer'
 import { Header } from './components/Header'
 import { AllFilmsPage } from './pages/AllFilmsPage'
+import { FilmDetailPage } from './pages/FilmDetailPage'
 import { WelcomePage } from './pages/WelcomePage'
 
 function AppContent() {
@@ -28,6 +29,7 @@ function AppContent() {
               />
             }
           />
+          <Route path="/films/:id" element={<FilmDetailPage />} />
         </Routes>
       </main>
       <Footer />
