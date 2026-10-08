@@ -7,6 +7,7 @@ import { AllFilmsPage } from './pages/AllFilmsPage'
 import { FilmDetailPage } from './pages/FilmDetailPage'
 import { MarathonDetailPage } from './pages/MarathonDetailPage'
 import { WelcomePage } from './pages/WelcomePage'
+import { ApuntsPage } from './pages/ApuntsPage'
 import programmeData from './data/sitges-programme.json'
 import { TicketAuthProvider } from './context/TicketAuthProvider'
 import { useTicketAuth } from './context/useTicketAuth'
@@ -54,6 +55,8 @@ function AppContent() {
             <Route path="/films/:id" element={<DetailRoute />} />
             <Route path="/marathon/:id" element={<MarathonDetailPage />} />
             <Route path="/marathons/:id" element={<MarathonDetailPage />} />
+            <Route path="/apunts" element={<ApuntsPage />} />
+            <Route path="/notes" element={<ApuntsPage />} />
           </Routes>
         )}
       </main>

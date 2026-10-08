@@ -10,7 +10,7 @@ export function WelcomePage() {
       <div className="w-full max-w-xs space-y-4">
         <NavButton label="El meu festival" to="/films" />
         <NavButton label="Horari" disabled />
-        <NavButton label="Apunts" disabled />
+        <NavButton label="Apunts" to="/apunts" />
       </div>
     </div>
   )

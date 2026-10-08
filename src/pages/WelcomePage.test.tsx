@@ -30,7 +30,8 @@ describe('WelcomePage Component', () => {
     const horariBtn = screen.getByRole('button', { name: /Horari/i })
     expect(horariBtn).toBeDisabled()
 
-    const apuntsBtn = screen.getByRole('button', { name: /Apunts/i })
-    expect(apuntsBtn).toBeDisabled()
+    const apuntsLink = screen.getByRole('link', { name: /Apunts/i })
+    expect(apuntsLink).toBeInTheDocument()
+    expect(apuntsLink).toHaveAttribute('href', '/apunts')
   })
 })
