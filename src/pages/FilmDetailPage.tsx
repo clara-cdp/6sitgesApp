@@ -5,6 +5,7 @@ import programmeData from '../data/sitges-programme.json'
 import type { Film } from '../types/film'
 import type { ProgrammeData } from '../types/programme'
 import { useOpenTicket } from '../hooks/useOpenTicket'
+import { getFilmRating, setFilmRating } from '../lib/ratings'
 
 const programme: ProgrammeData = programmeData
 
@@ -18,7 +19,17 @@ export function FilmDetailPage() {
   const [isSynopsisExpanded, setIsSynopsisExpanded] = useState<boolean>(false)
   const [isBioExpanded, setIsBioExpanded] = useState<boolean>(false)
   const [currentStillIndex, setCurrentStillIndex] = useState<number>(0)
-  const [userRating, setUserRating] = useState<number>(0)
+  const [userRating, setUserRating] = useState<number>(() =>
+    film ? getFilmRating(film.id) : 0
+  )
+
+  const handleRate = (star: number) => {
+    const newRating = userRating === star ? 0 : star
+    setUserRating(newRating)
+    if (film) {
+      setFilmRating(film.id, newRating)
+    }
+  }
 
   if (!film) {
     return (
@@ -294,33 +305,60 @@ export function FilmDetailPage() {
                   key={still}
                   type="button"
                   onClick={() => setCurrentStillIndex(idx)}
-                  className={`aspect-video overflow-hidden border-2 transition-all cursor-pointer ${currentStillIndex === idx ? 'border-[#FF0042] opacity-100' : 'border-transparent opacity-60 hover:opacity-100'
-                    }`}
+                  className={`aspect-video overflow-hidden border-2 transition-all cursor-pointer ${
+                    currentStillIndex === idx ? 'border-[#FF0042] opacity-100' : 'border-transparent opacity-60 hover:opacity-100'
+                  }`}
                 >
                   <img src={still} alt="" className="w-full h-full object-cover" />
                 </button>
               ))}
             </div>
           )}
-
-          {/* Interactive Star Rating */}
-          <div className="flex justify-center items-center gap-2 py-4 select-none">
-            {[1, 2, 3, 4, 5].map((star) => (
-              <button
-                key={star}
-                type="button"
-                onClick={() => setUserRating(star)}
-                aria-label={`Rate ${star} stars`}
-                className="text-2xl sm:text-3xl transition-transform active:scale-125 hover:scale-110 cursor-pointer focus:outline-none"
-              >
-                <span className={star <= userRating ? 'text-[#B78B4B]' : 'text-neutral-600'}>
-                  ★
-                </span>
-              </button>
-            ))}
-          </div>
         </div>
       )}
+
+      {/* Interactive Star Rating - Always rendered for every film */}
+      <div className="bg-black py-4 px-4 sm:px-6 border-t border-neutral-900 select-none flex flex-col items-center justify-center gap-1">
+        <svg className="w-0 h-0 absolute">
+          <defs>
+            <linearGradient id="halfStarGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="50%" stopColor="#B78B4B" />
+              <stop offset="50%" stopColor="#525252" />
+            </linearGradient>
+          </defs>
+        </svg>
+        <div className="flex justify-center items-center gap-2">
+          {[1, 2, 3, 4, 5].map((starIndex) => {
+            const isFull = userRating >= starIndex
+            const isHalf = !isFull && userRating >= starIndex - 0.5
+            return (
+              <div
+                key={starIndex}
+                className="relative w-7 h-7 sm:w-8 sm:h-8 flex items-center justify-center transition-transform active:scale-125 hover:scale-110"
+              >
+                <svg className="w-full h-full pointer-events-none" viewBox="0 0 24 24">
+                  <path
+                    d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
+                    fill={isFull ? '#B78B4B' : isHalf ? 'url(#halfStarGrad)' : '#525252'}
+                  />
+                </svg>
+                <button
+                  type="button"
+                  onClick={() => handleRate(starIndex - 0.5)}
+                  aria-label={`Rate ${starIndex - 0.5} stars`}
+                  className="absolute left-0 top-0 w-1/2 h-full cursor-pointer focus:outline-none"
+                />
+                <button
+                  type="button"
+                  onClick={() => handleRate(starIndex)}
+                  aria-label={`Rate ${starIndex} stars`}
+                  className="absolute right-0 top-0 w-1/2 h-full cursor-pointer focus:outline-none"
+                />
+              </div>
+            )
+          })}
+        </div>
+      </div>
     </div>
   )
 }
