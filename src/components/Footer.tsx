@@ -32,7 +32,7 @@ export function Footer() {
       {/* Sitges Cathedral: Positioned at bottom-0 right-0 touching right margin & merging into black bar */}
       <div className="absolute right-0 bottom-0 z-20 pointer-events-none">
         <img
-          src="/catedral.svg"
+          src="/images/catedral.svg"
           alt="Sitges Cathedral"
           className="h-28 w-auto object-contain object-right-bottom block"
         />
