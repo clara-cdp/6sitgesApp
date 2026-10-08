@@ -16,14 +16,14 @@ describe('WelcomePage Component', () => {
     ).toBeInTheDocument()
   })
 
-  it('renders navigation buttons for Pel·lícules, Horari, and Apunts', () => {
+  it('renders navigation buttons for El meu festival, Horari, and Apunts', () => {
     render(
       <MemoryRouter>
         <WelcomePage />
       </MemoryRouter>
     )
 
-    const filmsLink = screen.getByRole('link', { name: /Pel·lícules/i })
+    const filmsLink = screen.getByRole('link', { name: /El meu festival/i })
     expect(filmsLink).toBeInTheDocument()
     expect(filmsLink).toHaveAttribute('href', '/films')
 

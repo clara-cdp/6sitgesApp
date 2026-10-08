@@ -2,6 +2,7 @@ import { useNavigate } from 'react-router-dom'
 import { TicketButton } from './TicketButton'
 import type { Film } from '../types/film'
 import type { Marathon } from '../types/marathon'
+import { getFilmRating } from '../lib/ratings'
 
 interface FilmListItemProps {
   item: Film | Marathon
@@ -11,6 +12,7 @@ interface FilmListItemProps {
 export function FilmListItem({ item, onTicketClick }: FilmListItemProps) {
   const navigate = useNavigate()
   const dayNumber = item.date ? parseInt(item.date.split('-')[2], 10) : ''
+  const rating = getFilmRating(item.id)
 
   const handleCardClick = () => {
     navigate(`/films/${item.id}`)
@@ -34,7 +36,7 @@ export function FilmListItem({ item, onTicketClick }: FilmListItemProps) {
         </span>
       </div>
 
-      {/* 2. Middle Info & Ticket Button */}
+      {/* 2. Middle Info & Ticket Button / Rating */}
       <div className="flex-1 p-3.5 sm:p-4.5 flex items-center justify-between gap-3 min-w-0">
         {/* Info Block */}
         <div className="text-left min-w-0 pr-2 flex-1 block">
@@ -56,15 +58,40 @@ export function FilmListItem({ item, onTicketClick }: FilmListItemProps) {
           </div>
         </div>
 
-        {/* Reusable Ticket Button */}
-        <div
-          className="shrink-0 ml-1"
-          onClick={(e) => {
-            e.stopPropagation()
-          }}
-        >
-          <TicketButton onClick={onTicketClick} />
-        </div>
+        {/* Rating Stars (if rated) or Ticket Button */}
+        {rating > 0 ? (
+          <div className="shrink-0 ml-1 flex items-center gap-0.5" aria-label={`Rating: ${rating} out of 5 stars`}>
+            <svg className="w-0 h-0 absolute">
+              <defs>
+                <linearGradient id={`halfStarGrad-${item.id}`} x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="50%" stopColor="#B78B4B" />
+                  <stop offset="50%" stopColor="#d4d4d4" />
+                </linearGradient>
+              </defs>
+            </svg>
+            {[1, 2, 3, 4, 5].map((starIndex) => {
+              const isFull = rating >= starIndex
+              const isHalf = !isFull && rating >= starIndex - 0.5
+              return (
+                <svg key={starIndex} className="w-3.5 h-3.5 sm:w-4 sm:h-4 shrink-0" viewBox="0 0 24 24">
+                  <path
+                    d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
+                    fill={isFull ? '#B78B4B' : isHalf ? `url(#halfStarGrad-${item.id})` : '#d4d4d4'}
+                  />
+                </svg>
+              )
+            })}
+          </div>
+        ) : (
+          <div
+            className="shrink-0 ml-1"
+            onClick={(e) => {
+              e.stopPropagation()
+            }}
+          >
+            <TicketButton onClick={onTicketClick} />
+          </div>
+        )}
       </div>
     </div>
   )

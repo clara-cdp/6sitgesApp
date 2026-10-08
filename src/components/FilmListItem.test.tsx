@@ -106,4 +106,17 @@ describe('FilmListItem', () => {
     expect(handleTicketClick).toHaveBeenCalledTimes(1)
     expect(mockNavigate).not.toHaveBeenCalled()
   })
+
+  it('renders star rating instead of ticket button when film has been rated', () => {
+    localStorage.setItem('sitges_film_ratings', JSON.stringify({ miasma: 4.5 }))
+
+    render(
+      <MemoryRouter>
+        <FilmListItem item={mockFilm} />
+      </MemoryRouter>
+    )
+
+    expect(screen.queryByText('TICKET')).not.toBeInTheDocument()
+    expect(screen.getByLabelText('Rating: 4.5 out of 5 stars')).toBeInTheDocument()
+  })
 })

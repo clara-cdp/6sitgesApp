@@ -1,6 +1,6 @@
 import { fireEvent, render, screen } from '@testing-library/react'
 import { MemoryRouter, Route, Routes } from 'react-router-dom'
-import { beforeEach, describe, expect, it, vi } from 'vitest'
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import { FilmDetailPage } from './FilmDetailPage'
 import { useOpenTicket } from '../hooks/useOpenTicket'
 
@@ -16,8 +16,14 @@ describe('FilmDetailPage', () => {
 
   const mockOpenTicket = vi.fn()
 
+  afterEach(() => {
+    vi.useRealTimers()
+  })
+
   beforeEach(() => {
     vi.clearAllMocks()
+    vi.useFakeTimers()
+    vi.setSystemTime(new Date(2026, 9, 9, 23, 59, 59))
     vi.mocked(useOpenTicket).mockReturnValue(mockOpenTicket)
   })
 

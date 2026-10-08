@@ -5,7 +5,7 @@ import programmeData from '../data/sitges-programme.json'
 import type { Film } from '../types/film'
 import type { ProgrammeData } from '../types/programme'
 import { useOpenTicket } from '../hooks/useOpenTicket'
-import { getFilmRating, setFilmRating } from '../lib/ratings'
+import { canRateFilm, getFilmRating, setFilmRating } from '../lib/ratings'
 
 const programme: ProgrammeData = programmeData
 
@@ -23,7 +23,10 @@ export function FilmDetailPage() {
     film ? getFilmRating(film.id) : 0
   )
 
+  const canRate = film ? canRateFilm(film) : true
+
   const handleRate = (star: number) => {
+    if (!canRate) return
     const newRating = userRating === star ? 0 : star
     setUserRating(newRating)
     if (film) {
@@ -80,30 +83,18 @@ export function FilmDetailPage() {
 
   return (
     <div className="max-w-2xl mx-auto bg-black text-white font-['Montserrat'] min-h-screen relative flex flex-col justify-between selection:bg-[#FF0042] selection:text-white">
-      {/* Top Back Navigation Bar */}
-      <div className="bg-black/90 px-4 py-2 flex items-center border-b border-neutral-900">
-        <Link
-          to="/films"
-          className="inline-flex items-center gap-1.5 text-xs font-bold text-neutral-300 hover:text-[#FF0042] uppercase tracking-wider transition-colors"
-        >
-          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M15 19l-7-7 7-7" />
-          </svg>
-          Tornar
-        </Link>
+      {/* Hero Image Section - Edge-to-edge bleed */}
+      <div className="relative w-full aspect-video sm:h-72 bg-neutral-900 overflow-hidden mb-4 shadow-lg">
+        <img
+          src={heroImage}
+          alt={film.title}
+          className="w-full h-full object-cover object-center"
+        />
+        {/* Gradient Overlay for Cinematic Fade */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
       </div>
 
-      <div className="px-4 sm:px-6 py-4">
-        {/* Hero Image Section */}
-        <div className="relative w-full aspect-video sm:h-72 bg-neutral-900 overflow-hidden mb-4 rounded-xs shadow-lg">
-          <img
-            src={heroImage}
-            alt={film.title}
-            className="w-full h-full object-cover object-center"
-          />
-          {/* Gradient Overlay for Cinematic Fade */}
-          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
-        </div>
+      <div className="px-4 sm:px-6 py-2">
 
         {/* PRESÈNCIA Tag & Title Header */}
         <div className="space-y-1.5 mb-4">
@@ -212,12 +203,12 @@ export function FilmDetailPage() {
 
         {/* Director Info Red Box */}
         {primaryDirector && (
-          <div className="bg-[#FF0042] text-black my-6 p-4 sm:p-5 rounded-none flex items-start gap-4 select-none shadow-md">
+          <div className="bg-[#FF0042] text-black my-6 p-4 sm:p-5 rounded-none flex items-stretch gap-4 select-none shadow-md overflow-hidden">
             {primaryDirector.photo && (
               <img
                 src={primaryDirector.photo}
                 alt={primaryDirector.name}
-                className="w-20 h-24 sm:w-24 sm:h-28 object-cover shrink-0 shadow-sm"
+                className="w-24 sm:w-28 object-cover shrink-0 -my-4 -ml-4 sm:-my-5 sm:-ml-5 self-stretch"
               />
             )}
             <div className="flex-1 min-w-0">
@@ -243,14 +234,56 @@ export function FilmDetailPage() {
           </div>
         )}
 
-        {/* Ticket Action Area */}
-        {film.ticketId && (
-          <div className="bg-black py-6 flex items-center justify-center border-t border-neutral-900">
-            <TicketButton
-              onClick={() => void openTicket(film.ticketId!)}
-            />
+        {/* Interactive Star Rating (Swapped with Ticket) */}
+        <div className="bg-black py-4 select-none flex flex-col items-center justify-center gap-1 my-4 border-y border-neutral-900">
+          <svg className="w-0 h-0 absolute">
+            <defs>
+              <linearGradient id="halfStarGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="50%" stopColor="#B78B4B" />
+                <stop offset="50%" stopColor="#525252" />
+              </linearGradient>
+            </defs>
+          </svg>
+          <div className="flex justify-center items-center gap-2">
+            {[1, 2, 3, 4, 5].map((starIndex) => {
+              const isFull = userRating >= starIndex
+              const isHalf = !isFull && userRating >= starIndex - 0.5
+              return (
+                <div
+                  key={starIndex}
+                  className={`relative w-7 h-7 sm:w-8 sm:h-8 flex items-center justify-center transition-transform ${
+                    canRate ? 'active:scale-125 hover:scale-110' : 'opacity-40 cursor-not-allowed'
+                  }`}
+                >
+                  <svg className="w-full h-full pointer-events-none" viewBox="0 0 24 24">
+                    <path
+                      d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
+                      fill={isFull ? '#B78B4B' : isHalf ? 'url(#halfStarGrad)' : '#525252'}
+                    />
+                  </svg>
+                  <button
+                    type="button"
+                    disabled={!canRate}
+                    onClick={() => handleRate(starIndex - 0.5)}
+                    aria-label={`Rate ${starIndex - 0.5} stars`}
+                    className={`absolute left-0 top-0 w-1/2 h-full focus:outline-none ${
+                      canRate ? 'cursor-pointer' : 'cursor-not-allowed'
+                    }`}
+                  />
+                  <button
+                    type="button"
+                    disabled={!canRate}
+                    onClick={() => handleRate(starIndex)}
+                    aria-label={`Rate ${starIndex} stars`}
+                    className={`absolute right-0 top-0 w-1/2 h-full focus:outline-none ${
+                      canRate ? 'cursor-pointer' : 'cursor-not-allowed'
+                    }`}
+                  />
+                </div>
+              )
+            })}
           </div>
-        )}
+        </div>
       </div>
 
       {/* Main Film Poster */}
@@ -264,7 +297,7 @@ export function FilmDetailPage() {
         </div>
       )}
 
-      {/* Stills Gallery & Ratings Section */}
+      {/* Stills Gallery Section */}
       {stills.length > 0 && (
         <div className="bg-black py-6 px-4 sm:px-6 border-t border-neutral-900">
           {/* Main Still Image Display */}
@@ -299,7 +332,7 @@ export function FilmDetailPage() {
 
           {/* Stills Thumbnail Row */}
           {stills.length > 1 && (
-            <div className="grid grid-cols-4 gap-2 mb-6">
+            <div className="grid grid-cols-4 gap-2 mb-2">
               {stills.map((still, idx) => (
                 <button
                   key={still}
@@ -317,47 +350,26 @@ export function FilmDetailPage() {
         </div>
       )}
 
-      {/* Interactive Star Rating - Always rendered for every film */}
-      <div className="bg-black py-4 px-4 sm:px-6 border-t border-neutral-900 select-none flex flex-col items-center justify-center gap-1">
-        <svg className="w-0 h-0 absolute">
-          <defs>
-            <linearGradient id="halfStarGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="50%" stopColor="#B78B4B" />
-              <stop offset="50%" stopColor="#525252" />
-            </linearGradient>
-          </defs>
-        </svg>
-        <div className="flex justify-center items-center gap-2">
-          {[1, 2, 3, 4, 5].map((starIndex) => {
-            const isFull = userRating >= starIndex
-            const isHalf = !isFull && userRating >= starIndex - 0.5
-            return (
-              <div
-                key={starIndex}
-                className="relative w-7 h-7 sm:w-8 sm:h-8 flex items-center justify-center transition-transform active:scale-125 hover:scale-110"
-              >
-                <svg className="w-full h-full pointer-events-none" viewBox="0 0 24 24">
-                  <path
-                    d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
-                    fill={isFull ? '#B78B4B' : isHalf ? 'url(#halfStarGrad)' : '#525252'}
-                  />
-                </svg>
-                <button
-                  type="button"
-                  onClick={() => handleRate(starIndex - 0.5)}
-                  aria-label={`Rate ${starIndex - 0.5} stars`}
-                  className="absolute left-0 top-0 w-1/2 h-full cursor-pointer focus:outline-none"
-                />
-                <button
-                  type="button"
-                  onClick={() => handleRate(starIndex)}
-                  aria-label={`Rate ${starIndex} stars`}
-                  className="absolute right-0 top-0 w-1/2 h-full cursor-pointer focus:outline-none"
-                />
-              </div>
-            )
-          })}
+      {/* Ticket Action Area (Swapped to bottom section) */}
+      {film.ticketId && (
+        <div className="bg-black py-6 flex items-center justify-center border-t border-neutral-900">
+          <TicketButton
+            onClick={() => void openTicket(film.ticketId!)}
+          />
         </div>
+      )}
+
+      {/* Bottom Back Navigation Link */}
+      <div className="bg-black/90 px-4 py-3 flex items-center border-t border-neutral-900 pb-10">
+        <Link
+          to="/films"
+          className="inline-flex items-center gap-1.5 text-xs font-bold text-neutral-300 hover:text-[#FF0042] uppercase tracking-wider transition-colors"
+        >
+          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M15 19l-7-7 7-7" />
+          </svg>
+          Tornar
+        </Link>
       </div>
     </div>
   )
