@@ -7,7 +7,7 @@ export const tickets: Record<string, string> = {
     't-red': '/tickets/6-Red-Snow.enc',
     'ticket-brain': '/tickets/7-BRAINDED.enc',
     't-tesis': '/tickets/9-TESIS.enc',
-    't-oceano': '/tickets/10-Océano Titánico.enc',
+    't-oceano': '/tickets/10-Oceano-Titanico.enc',
     't-devils': '/tickets/11-The Devils.enc',
     't-onze': '/tickets/12-ONZE.enc',
     't-the-face': '/tickets/13.The-face.enc',
@@ -23,6 +23,6 @@ export const tickets: Record<string, string> = {
     't-victorian': '/tickets/23-Victorian Psycho.enc',
     't-hope': '/tickets/24-hope.enc',
     "ticket-zombi": '/tickets/8.-Zombie.enc',
-    'ticket-marato': '/tickets/25-Marató.enc',
+    'ticket-marato': '/tickets/25-Marato.enc',
 }
 

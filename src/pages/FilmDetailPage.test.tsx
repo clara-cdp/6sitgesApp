@@ -1,7 +1,15 @@
 import { fireEvent, render, screen } from '@testing-library/react'
 import { MemoryRouter, Route, Routes } from 'react-router-dom'
-import { describe, expect, it } from 'vitest'
+import { beforeEach, describe, expect, it, vi } from 'vitest'
 import { FilmDetailPage } from './FilmDetailPage'
+import { openTicket } from '../lib/openTicket'
+
+vi.mock('../lib/openTicket', () => ({
+  openTicket: vi.fn(),
+}))
+beforeEach(() => {
+  vi.clearAllMocks()
+})
 
 describe('FilmDetailPage', () => {
   it('renders film details when a valid film id is provided in the route', () => {
@@ -91,4 +99,21 @@ describe('FilmDetailPage', () => {
     expect(screen.getByText('Pel·lícula no trobada')).toBeInTheDocument()
     expect(screen.getByText('← Tornar a la llista de pel·lícules')).toBeInTheDocument()
   })
+
+
+  it('opens the correct ticket from Braindead detail page', () => {
+    // Arrange: render Braindead's detail page.
+    render(
+      <MemoryRouter initialEntries={['/films/brain']}>
+        <Routes>
+          <Route path="/films/:id" element={<FilmDetailPage />} />
+        </Routes>
+      </MemoryRouter>
+    )
+
+    fireEvent.click(screen.getByRole('button', { name: 'TICKET' }))
+
+    expect(openTicket).toHaveBeenCalledExactlyOnceWith('ticket-brain')
+  })
+
 })
