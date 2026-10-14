@@ -1,5 +1,18 @@
 import { useEffect, useState } from 'react'
-import { BrowserRouter, Route, Routes, useLocation } from 'react-router-dom'
+import { BrowserRouter, Route, Routes, useLocation, useParams } from 'react-router-dom'
+import { Footer } from './components/Footer'
+import { Header } from './components/Header'
+import { PasswordScreen } from './components/PasswordScreen'
+import { PWAUpdatePrompt } from './components/PWAUpdatePrompt'
+import { TicketAuthProvider } from './context/TicketAuthProvider'
+import { useTicketAuth } from './context/useTicketAuth'
+import programmeData from './data/sitges-programme.json'
+import { AllFilmsPage } from './pages/AllFilmsPage'
+import { ApuntsPage } from './pages/ApuntsPage'
+import { FilmDetailPage } from './pages/FilmDetailPage'
+import { HorariPage } from './pages/HorariPage'
+import { MarathonDetailPage } from './pages/MarathonDetailPage'
+import { WelcomePage } from './pages/WelcomePage'
 
 function ScrollToTop() {
   const { pathname } = useLocation()
@@ -10,20 +23,6 @@ function ScrollToTop() {
 
   return null
 }
-import { Footer } from './components/Footer'
-import { Header } from './components/Header'
-import { useParams } from 'react-router-dom'
-import { AllFilmsPage } from './pages/AllFilmsPage'
-import { FilmDetailPage } from './pages/FilmDetailPage'
-import { MarathonDetailPage } from './pages/MarathonDetailPage'
-import { WelcomePage } from './pages/WelcomePage'
-import { ApuntsPage } from './pages/ApuntsPage'
-import { HorariPage } from './pages/HorariPage'
-import programmeData from './data/sitges-programme.json'
-import { TicketAuthProvider } from './context/TicketAuthProvider'
-import { useTicketAuth } from './context/useTicketAuth'
-import { PasswordScreen } from './components/PasswordScreen'
-import { PWAUpdatePrompt } from './components/PWAUpdatePrompt'
 
 function DetailRoute() {
   const { id } = useParams<{ id: string }>()

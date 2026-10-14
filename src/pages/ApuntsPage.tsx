@@ -4,7 +4,6 @@ import {
   deleteUserNote,
   getAllStoredFilmNotes,
   getStoredFilmNotes,
-  getStoredNotes,
   getStoredUserNotes,
   saveUserNote,
   setStoredFilmNotes,
@@ -60,11 +59,7 @@ export function ApuntsPage() {
     touchStartYRef.current = null
   }
 
-  useEffect(() => {
-    setUserNotes(getStoredUserNotes())
-  }, [editingNote])
-
-
+  // Automatically scroll to top when opening notes, navigating, or toggling editor
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: 'instant' })
   }, [id, editingNote])
@@ -99,6 +94,7 @@ export function ApuntsPage() {
     setEditingNote(updated)
     saveUserNote(updated)
     setStoredNotes(val)
+    setUserNotes(getStoredUserNotes())
     setIsSaved(true)
   }
 
@@ -110,6 +106,11 @@ export function ApuntsPage() {
       updatedAt: 'Avui',
     }
     setEditingNote(newNote)
+  }
+
+  const handleCloseEditor = () => {
+    setEditingNote(null)
+    setUserNotes(getStoredUserNotes())
   }
 
   const handleDeleteUserNote = (noteId: string, e: React.MouseEvent) => {
@@ -229,7 +230,7 @@ export function ApuntsPage() {
         <div className="px-4 py-3 flex items-center border-t border-neutral-300/80 mt-6 pb-10">
           <button
             type="button"
-            onClick={() => setEditingNote(null)}
+            onClick={handleCloseEditor}
             className="inline-flex items-center gap-1.5 text-xs font-bold text-neutral-700 hover:text-[#FF0042] uppercase tracking-wider transition-colors cursor-pointer"
           >
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
