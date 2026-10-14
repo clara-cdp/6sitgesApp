@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { TicketButton } from '../components/TicketButton'
 import programmeData from '../data/sitges-programme.json'
@@ -25,8 +25,88 @@ export function FilmDetailPage() {
 
   const canRate = film ? canRateFilm(film) : true
 
-  const handleRate = (star: number) => {
+  const starsContainerRef = useRef<HTMLDivElement | null>(null)
+  const isDraggingRef = useRef<boolean>(false)
+  const pointerStartXRef = useRef<number>(0)
+  const hasMovedRef = useRef<boolean>(false)
+
+  const calculateRatingFromX = (clientX: number): number => {
+    if (!starsContainerRef.current) return userRating
+    const rect = starsContainerRef.current.getBoundingClientRect()
+    const width = rect.width
+    if (width <= 0) return userRating
+
+    const offsetX = clientX - rect.left
+    const clampedOffset = Math.max(0, Math.min(width, offsetX))
+    const rawRating = (clampedOffset / width) * 5
+    const snapped = Math.round(rawRating * 2) / 2
+    return Math.max(0.5, Math.min(5, snapped))
+  }
+
+  const handlePointerDown = (e: React.PointerEvent<HTMLDivElement>) => {
     if (!canRate) return
+    isDraggingRef.current = true
+    pointerStartXRef.current = e.clientX
+    hasMovedRef.current = false
+
+    if (e.currentTarget.setPointerCapture) {
+      try {
+        e.currentTarget.setPointerCapture(e.pointerId)
+      } catch {
+        // Fallback for environments lacking pointer capture
+      }
+    }
+  }
+
+  const handlePointerMove = (e: React.PointerEvent<HTMLDivElement>) => {
+    if (!canRate || !isDraggingRef.current) return
+
+    if (!hasMovedRef.current) {
+      if (Math.abs(e.clientX - pointerStartXRef.current) > 3) {
+        hasMovedRef.current = true
+      }
+    }
+
+    if (hasMovedRef.current) {
+      const newRating = calculateRatingFromX(e.clientX)
+      setUserRating(newRating)
+      if (film) {
+        setFilmRating(film.id, newRating)
+      }
+    }
+  }
+
+  const handlePointerUp = (e: React.PointerEvent<HTMLDivElement>) => {
+    if (!isDraggingRef.current) return
+    isDraggingRef.current = false
+
+    if (e.currentTarget.releasePointerCapture) {
+      try {
+        e.currentTarget.releasePointerCapture(e.pointerId)
+      } catch {
+        // Fallback for environments lacking pointer capture
+      }
+    }
+
+    if (hasMovedRef.current) {
+      const newRating = calculateRatingFromX(e.clientX)
+      setUserRating(newRating)
+      if (film) {
+        setFilmRating(film.id, newRating)
+      }
+      setTimeout(() => {
+        hasMovedRef.current = false
+      }, 50)
+    }
+  }
+
+  const handlePointerCancel = () => {
+    isDraggingRef.current = false
+    hasMovedRef.current = false
+  }
+
+  const handleRate = (star: number) => {
+    if (!canRate || hasMovedRef.current) return
     const newRating = userRating === star ? 0 : star
     setUserRating(newRating)
     if (film) {
@@ -233,57 +313,6 @@ export function FilmDetailPage() {
             </div>
           </div>
         )}
-
-        {/* Interactive Star Rating (Swapped with Ticket) */}
-        <div className="bg-black py-4 select-none flex flex-col items-center justify-center gap-1 my-4 border-y border-neutral-900">
-          <svg className="w-0 h-0 absolute">
-            <defs>
-              <linearGradient id="halfStarGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-                <stop offset="50%" stopColor="#B78B4B" />
-                <stop offset="50%" stopColor="#525252" />
-              </linearGradient>
-            </defs>
-          </svg>
-          <div className="flex justify-center items-center gap-2">
-            {[1, 2, 3, 4, 5].map((starIndex) => {
-              const isFull = userRating >= starIndex
-              const isHalf = !isFull && userRating >= starIndex - 0.5
-              return (
-                <div
-                  key={starIndex}
-                  className={`relative w-7 h-7 sm:w-8 sm:h-8 flex items-center justify-center transition-transform ${
-                    canRate ? 'active:scale-125 hover:scale-110' : 'opacity-40 cursor-not-allowed'
-                  }`}
-                >
-                  <svg className="w-full h-full pointer-events-none" viewBox="0 0 24 24">
-                    <path
-                      d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
-                      fill={isFull ? '#B78B4B' : isHalf ? 'url(#halfStarGrad)' : '#525252'}
-                    />
-                  </svg>
-                  <button
-                    type="button"
-                    disabled={!canRate}
-                    onClick={() => handleRate(starIndex - 0.5)}
-                    aria-label={`Rate ${starIndex - 0.5} stars`}
-                    className={`absolute left-0 top-0 w-1/2 h-full focus:outline-none ${
-                      canRate ? 'cursor-pointer' : 'cursor-not-allowed'
-                    }`}
-                  />
-                  <button
-                    type="button"
-                    disabled={!canRate}
-                    onClick={() => handleRate(starIndex)}
-                    aria-label={`Rate ${starIndex} stars`}
-                    className={`absolute right-0 top-0 w-1/2 h-full focus:outline-none ${
-                      canRate ? 'cursor-pointer' : 'cursor-not-allowed'
-                    }`}
-                  />
-                </div>
-              )
-            })}
-          </div>
-        </div>
       </div>
 
       {/* Main Film Poster */}
@@ -350,7 +379,7 @@ export function FilmDetailPage() {
         </div>
       )}
 
-      {/* Ticket Action Area (Swapped to bottom section) */}
+      {/* Ticket Action Area */}
       {film.ticketId && (
         <div className="bg-black py-6 flex items-center justify-center border-t border-neutral-900">
           <TicketButton
@@ -358,6 +387,66 @@ export function FilmDetailPage() {
           />
         </div>
       )}
+
+      {/* Interactive Star Rating (Placed after ticket button) */}
+      <div className="bg-black py-6 select-none flex flex-col items-center justify-center gap-1 border-t border-neutral-900">
+        <svg className="w-0 h-0 absolute">
+          <defs>
+            <linearGradient id="halfStarGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="50%" stopColor="#B78B4B" />
+              <stop offset="50%" stopColor="#525252" />
+            </linearGradient>
+          </defs>
+        </svg>
+        <div
+          ref={starsContainerRef}
+          onPointerDown={handlePointerDown}
+          onPointerMove={handlePointerMove}
+          onPointerUp={handlePointerUp}
+          onPointerCancel={handlePointerCancel}
+          className={`flex justify-center items-center gap-2 touch-none py-1 ${
+            canRate ? 'cursor-pointer' : 'cursor-not-allowed'
+          }`}
+        >
+            {[1, 2, 3, 4, 5].map((starIndex) => {
+              const isFull = userRating >= starIndex
+              const isHalf = !isFull && userRating >= starIndex - 0.5
+              return (
+                <div
+                  key={starIndex}
+                  className={`relative w-7 h-7 sm:w-8 sm:h-8 flex items-center justify-center transition-transform ${
+                    canRate ? 'active:scale-125 hover:scale-110' : 'opacity-40 cursor-not-allowed'
+                  }`}
+                >
+                  <svg className="w-full h-full pointer-events-none" viewBox="0 0 24 24">
+                    <path
+                      d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
+                      fill={isFull ? '#B78B4B' : isHalf ? 'url(#halfStarGrad)' : '#525252'}
+                    />
+                  </svg>
+                  <button
+                    type="button"
+                    disabled={!canRate}
+                    onClick={() => handleRate(starIndex - 0.5)}
+                    aria-label={`Rate ${starIndex - 0.5} stars`}
+                    className={`absolute left-0 top-0 w-1/2 h-full focus:outline-none ${
+                      canRate ? 'cursor-pointer' : 'cursor-not-allowed'
+                    }`}
+                  />
+                  <button
+                    type="button"
+                    disabled={!canRate}
+                    onClick={() => handleRate(starIndex)}
+                    aria-label={`Rate ${starIndex} stars`}
+                    className={`absolute right-0 top-0 w-1/2 h-full focus:outline-none ${
+                      canRate ? 'cursor-pointer' : 'cursor-not-allowed'
+                    }`}
+                  />
+                </div>
+              )
+            })}
+          </div>
+        </div>
 
       {/* Bottom Back Navigation Link */}
       <div className="bg-black/90 px-4 py-3 flex items-center border-t border-neutral-900 pb-10">
