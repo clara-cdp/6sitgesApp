@@ -22,21 +22,17 @@ export function ApuntsPage() {
   const navigate = useNavigate()
   const film = id ? programme.films.find((f: Film) => f.id === id) : null
 
-  // If viewing a specific film's notes (/films/:id/apunts)
   const isFilmSpecific = Boolean(id)
 
-  // State for specific film notes
   const [filmNoteText, setFilmNoteText] = useState<string>(() =>
     film ? getStoredFilmNotes(film.id) : ''
   )
 
-  // State for overview dashboard
   const [activeTab, setActiveTab] = useState<'notes' | 'films'>('notes')
   const [userNotes, setUserNotes] = useState<UserNote[]>(() => getStoredUserNotes())
   const [editingNote, setEditingNote] = useState<UserNote | null>(null)
   const [isSaved, setIsSaved] = useState<boolean>(false)
 
-  // Touch gesture tracking for swiping between tabs on mobile
   const touchStartXRef = useRef<number | null>(null)
   const touchStartYRef = useRef<number | null>(null)
 
@@ -52,7 +48,7 @@ export function ApuntsPage() {
     const diffX = touchEndX - touchStartXRef.current
     const diffY = touchEndY - touchStartYRef.current
 
-    // Only switch tabs if the gesture was primarily horizontal
+
     if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 40) {
       if (diffX < 0 && activeTab === 'notes') {
         setActiveTab('films')
@@ -64,12 +60,10 @@ export function ApuntsPage() {
     touchStartYRef.current = null
   }
 
-  // Reload notes when entering overview or when storage changes
   useEffect(() => {
     setUserNotes(getStoredUserNotes())
   }, [editingNote])
 
-  // Save feedback timer
   useEffect(() => {
     if (isSaved) {
       const timer = setTimeout(() => setIsSaved(false), 2000)
@@ -77,7 +71,6 @@ export function ApuntsPage() {
     }
   }, [isSaved])
 
-  // Handle film-specific note editing
   const handleFilmNoteChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     const val = e.target.value
     setFilmNoteText(val)
@@ -87,7 +80,6 @@ export function ApuntsPage() {
     setIsSaved(true)
   }
 
-  // Handle general note editing in the editor
   const handleGeneralNoteChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     const val = e.target.value
     if (!editingNote) return
@@ -121,7 +113,6 @@ export function ApuntsPage() {
     setUserNotes(getStoredUserNotes())
   }
 
-  // 1. Film not found error view
   if (id && !film) {
     return (
       <div className="max-w-2xl mx-auto px-4 py-12 text-center bg-black min-h-[60vh] flex flex-col justify-center items-center text-white font-['Montserrat']">
@@ -141,7 +132,6 @@ export function ApuntsPage() {
     )
   }
 
-  // 2. Film-Specific Notepad Editor View (/films/:id/apunts)
   if (isFilmSpecific && film) {
     return (
       <div className="max-w-2xl mx-auto w-full min-h-screen bg-[#F5F0E6] text-neutral-900 font-['Montserrat'] px-4 py-6 flex flex-col justify-between relative overflow-hidden select-text selection:bg-[#FF0042] selection:text-white">
@@ -196,7 +186,6 @@ export function ApuntsPage() {
     )
   }
 
-  // 3. General Note Editor View (Writing/editing a general note)
   if (editingNote) {
     return (
       <div className="max-w-2xl mx-auto w-full min-h-screen bg-[#F5F0E6] text-neutral-900 font-['Montserrat'] px-4 py-6 flex flex-col justify-between relative overflow-hidden select-text selection:bg-[#FF0042] selection:text-white">
@@ -248,7 +237,6 @@ export function ApuntsPage() {
     )
   }
 
-  // 4. Notes Overview Dashboard View (/apunts or /notes)
   const storedFilmNotesMap = getAllStoredFilmNotes()
   const filmNotesList: { film: Film; noteContent: string }[] = Object.entries(storedFilmNotesMap)
     .map(([filmId, noteContent]) => {
@@ -279,7 +267,7 @@ export function ApuntsPage() {
         </div>
       </div>
 
-      {/* Main Content Area with Animated Horizontal Slide for Mobile Touch */}
+      {/* Main Content Area */}
       <div
         className="flex-1 w-full overflow-hidden select-none"
         onTouchStart={handleTouchStart}
@@ -373,7 +361,7 @@ export function ApuntsPage() {
               )}
             </div>
 
-            {/* Bottom Back Button as in other screens */}
+            {/* Back Button */}
             <div className="px-4 py-3 flex items-center border-t border-neutral-900 mt-8 mb-4">
               <Link
                 to="/"
@@ -424,12 +412,22 @@ export function ApuntsPage() {
                     >
                       <div className="absolute top-0 bottom-0 left-2.5 w-0.5 bg-red-400/50 pointer-events-none" />
                       <div className="pl-2">
-                        <h3 className="font-extrabold text-sm text-neutral-900 line-clamp-2 leading-snug group-hover:text-[#FF0042] transition-colors">
+                        <span className="text-[9px] font-bold text-[#FF0042] uppercase tracking-widest block mb-0.5">
+                          {f.section}
+                        </span>
+                        <h3 className="font-black text-sm text-neutral-900 line-clamp-2 leading-tight group-hover:text-[#FF0042] transition-colors uppercase">
                           {f.title}
                         </h3>
-                        <p className="text-xs text-neutral-600 line-clamp-4 mt-1.5 leading-relaxed font-medium">
-                          {noteContent ? noteContent : <span className="italic text-neutral-400">Sense text</span>}
+                        <p className="text-[10px] text-neutral-500 font-semibold mt-0.5 uppercase tracking-wide">
+                          {f.venue} | {f.duration}
                         </p>
+                        <p className="text-xs text-neutral-700 line-clamp-4 mt-2 leading-relaxed font-medium">
+                          {noteContent}
+                        </p>
+                      </div>
+                      <div className="pl-2 pt-3 text-[10px] font-bold text-[#FF0042] uppercase tracking-wider flex items-center gap-1">
+                        <span>Obrir apunts</span>
+                        <span>→</span>
                       </div>
                     </div>
                   ))}
@@ -455,7 +453,7 @@ export function ApuntsPage() {
               )}
             </div>
 
-            {/* Bottom Back Button as in other screens */}
+            {/* Back Button */}
             <div className="px-4 py-3 flex items-center border-t border-neutral-900 mt-8 mb-4">
               <Link
                 to="/"
@@ -471,7 +469,7 @@ export function ApuntsPage() {
         </div>
       </div>
 
-      {/* Floating Action Button (+) raised higher to bottom-28 and z-50 to float clearly above footer */}
+      {/* Floating Add Button */}
       {activeTab === 'notes' && (
         <button
           type="button"
@@ -489,9 +487,8 @@ export function ApuntsPage() {
         <button
           type="button"
           onClick={() => setActiveTab('notes')}
-          className={`flex flex-col items-center gap-1 cursor-pointer transition-colors ${
-            activeTab === 'notes' ? 'text-[#FF0042]' : 'text-neutral-400 hover:text-white'
-          }`}
+          className={`flex flex-col items-center gap-1 cursor-pointer transition-colors ${activeTab === 'notes' ? 'text-[#FF0042]' : 'text-neutral-400 hover:text-white'
+            }`}
         >
           <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
@@ -503,9 +500,8 @@ export function ApuntsPage() {
         <button
           type="button"
           onClick={() => setActiveTab('films')}
-          className={`flex flex-col items-center gap-1 cursor-pointer transition-colors ${
-            activeTab === 'films' ? 'text-[#FF0042]' : 'text-neutral-400 hover:text-white'
-          }`}
+          className={`flex flex-col items-center gap-1 cursor-pointer transition-colors ${activeTab === 'films' ? 'text-[#FF0042]' : 'text-neutral-400 hover:text-white'
+            }`}
         >
           <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M7 4v16M17 4v16M3 8h4m10 0h4M3 12h18M3 16h4m10 0h4M4 20h16a1 1 0 001-1V5a1 1 0 00-1-1H4a1 1 0 00-1 1v14a1 1 0 001 1z" />
