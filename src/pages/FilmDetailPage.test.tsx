@@ -300,4 +300,18 @@ describe('FilmDetailPage', () => {
 
     expect(localStorage.getItem('sitges_film_ratings')).toContain('"miasma":5')
   })
+
+  it('renders a clickable notes button at the end of film details linking to film notes page', () => {
+    render(
+      <MemoryRouter initialEntries={['/films/miasma']}>
+        <Routes>
+          <Route path="/films/:id" element={<FilmDetailPage />} />
+        </Routes>
+      </MemoryRouter>
+    )
+
+    const notesButton = screen.getByRole('link', { name: /apunts/i })
+    expect(notesButton).toBeInTheDocument()
+    expect(notesButton).toHaveAttribute('href', '/films/miasma/apunts')
+  })
 })

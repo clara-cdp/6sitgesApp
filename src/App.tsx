@@ -1,19 +1,28 @@
-import { useState } from 'react'
-import { BrowserRouter, Route, Routes, useLocation } from 'react-router-dom'
+import { useEffect, useState } from 'react'
+import { BrowserRouter, Route, Routes, useLocation, useParams } from 'react-router-dom'
 import { Footer } from './components/Footer'
 import { Header } from './components/Header'
-import { useParams } from 'react-router-dom'
-import { AllFilmsPage } from './pages/AllFilmsPage'
-import { FilmDetailPage } from './pages/FilmDetailPage'
-import { MarathonDetailPage } from './pages/MarathonDetailPage'
-import { WelcomePage } from './pages/WelcomePage'
-import { ApuntsPage } from './pages/ApuntsPage'
-import { HorariPage } from './pages/HorariPage'
-import programmeData from './data/sitges-programme.json'
-import { TicketAuthProvider } from './context/TicketAuthProvider'
-import { useTicketAuth } from './context/useTicketAuth'
 import { PasswordScreen } from './components/PasswordScreen'
 import { PWAUpdatePrompt } from './components/PWAUpdatePrompt'
+import { TicketAuthProvider } from './context/TicketAuthProvider'
+import { useTicketAuth } from './context/useTicketAuth'
+import programmeData from './data/sitges-programme.json'
+import { AllFilmsPage } from './pages/AllFilmsPage'
+import { ApuntsPage } from './pages/ApuntsPage'
+import { FilmDetailPage } from './pages/FilmDetailPage'
+import { HorariPage } from './pages/HorariPage'
+import { MarathonDetailPage } from './pages/MarathonDetailPage'
+import { WelcomePage } from './pages/WelcomePage'
+
+function ScrollToTop() {
+  const { pathname } = useLocation()
+
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [pathname])
+
+  return null
+}
 
 function DetailRoute() {
   const { id } = useParams<{ id: string }>()
@@ -54,6 +63,8 @@ function AppContent() {
               }
             />
             <Route path="/films/:id" element={<DetailRoute />} />
+            <Route path="/films/:id/apunts" element={<ApuntsPage />} />
+            <Route path="/films/:id/notes" element={<ApuntsPage />} />
             <Route path="/marathon/:id" element={<MarathonDetailPage />} />
             <Route path="/marathons/:id" element={<MarathonDetailPage />} />
             <Route path="/horari" element={<HorariPage />} />
@@ -72,6 +83,7 @@ function App() {
   return (
     <TicketAuthProvider>
       <BrowserRouter>
+        <ScrollToTop />
         <AppContent />
         <PWAUpdatePrompt />
       </BrowserRouter>

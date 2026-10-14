@@ -448,6 +448,29 @@ export function FilmDetailPage() {
           </div>
         </div>
 
+      {/* Notes / Apunts Action Button */}
+      <div className="bg-black py-6 flex items-center justify-center border-t border-neutral-900">
+        <Link
+          to={`/films/${film.id}/apunts`}
+          style={{
+            clipPath:
+              'polygon(6px 0, calc(100% - 6px) 0, 100% 6px, 100% calc(100% - 6px), calc(100% - 6px) 100%, 6px 100%, 0 calc(100% - 6px), 0 6px)',
+          }}
+          aria-label="Apunts"
+          className="inline-flex items-center gap-2 bg-[#FF0042] hover:bg-red-700 active:scale-[0.98] text-white text-xs sm:text-sm font-black tracking-widest uppercase px-5 py-2.5 transition-all shadow-md select-none cursor-pointer"
+        >
+          <svg className="w-4 h-4 fill-none stroke-current" viewBox="0 0 24 24">
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"
+            />
+          </svg>
+          <span>APUNTS</span>
+        </Link>
+      </div>
+
       {/* Bottom Back Navigation Link */}
       <div className="bg-black/90 px-4 py-3 flex items-center border-t border-neutral-900 pb-10">
         <Link
