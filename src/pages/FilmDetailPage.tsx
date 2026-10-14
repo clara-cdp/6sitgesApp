@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { TicketButton } from '../components/TicketButton'
 import programmeData from '../data/sitges-programme.json'
@@ -25,8 +25,88 @@ export function FilmDetailPage() {
 
   const canRate = film ? canRateFilm(film) : true
 
-  const handleRate = (star: number) => {
+  const starsContainerRef = useRef<HTMLDivElement | null>(null)
+  const isDraggingRef = useRef<boolean>(false)
+  const pointerStartXRef = useRef<number>(0)
+  const hasMovedRef = useRef<boolean>(false)
+
+  const calculateRatingFromX = (clientX: number): number => {
+    if (!starsContainerRef.current) return userRating
+    const rect = starsContainerRef.current.getBoundingClientRect()
+    const width = rect.width
+    if (width <= 0) return userRating
+
+    const offsetX = clientX - rect.left
+    const clampedOffset = Math.max(0, Math.min(width, offsetX))
+    const rawRating = (clampedOffset / width) * 5
+    const snapped = Math.round(rawRating * 2) / 2
+    return Math.max(0.5, Math.min(5, snapped))
+  }
+
+  const handlePointerDown = (e: React.PointerEvent<HTMLDivElement>) => {
     if (!canRate) return
+    isDraggingRef.current = true
+    pointerStartXRef.current = e.clientX
+    hasMovedRef.current = false
+
+    if (e.currentTarget.setPointerCapture) {
+      try {
+        e.currentTarget.setPointerCapture(e.pointerId)
+      } catch {
+        // Fallback for environments lacking pointer capture
+      }
+    }
+  }
+
+  const handlePointerMove = (e: React.PointerEvent<HTMLDivElement>) => {
+    if (!canRate || !isDraggingRef.current) return
+
+    if (!hasMovedRef.current) {
+      if (Math.abs(e.clientX - pointerStartXRef.current) > 3) {
+        hasMovedRef.current = true
+      }
+    }
+
+    if (hasMovedRef.current) {
+      const newRating = calculateRatingFromX(e.clientX)
+      setUserRating(newRating)
+      if (film) {
+        setFilmRating(film.id, newRating)
+      }
+    }
+  }
+
+  const handlePointerUp = (e: React.PointerEvent<HTMLDivElement>) => {
+    if (!isDraggingRef.current) return
+    isDraggingRef.current = false
+
+    if (e.currentTarget.releasePointerCapture) {
+      try {
+        e.currentTarget.releasePointerCapture(e.pointerId)
+      } catch {
+        // Fallback for environments lacking pointer capture
+      }
+    }
+
+    if (hasMovedRef.current) {
+      const newRating = calculateRatingFromX(e.clientX)
+      setUserRating(newRating)
+      if (film) {
+        setFilmRating(film.id, newRating)
+      }
+      setTimeout(() => {
+        hasMovedRef.current = false
+      }, 50)
+    }
+  }
+
+  const handlePointerCancel = () => {
+    isDraggingRef.current = false
+    hasMovedRef.current = false
+  }
+
+  const handleRate = (star: number) => {
+    if (!canRate || hasMovedRef.current) return
     const newRating = userRating === star ? 0 : star
     setUserRating(newRating)
     if (film) {
@@ -318,7 +398,16 @@ export function FilmDetailPage() {
             </linearGradient>
           </defs>
         </svg>
-          <div className="flex justify-center items-center gap-2">
+        <div
+          ref={starsContainerRef}
+          onPointerDown={handlePointerDown}
+          onPointerMove={handlePointerMove}
+          onPointerUp={handlePointerUp}
+          onPointerCancel={handlePointerCancel}
+          className={`flex justify-center items-center gap-2 touch-none py-1 ${
+            canRate ? 'cursor-pointer' : 'cursor-not-allowed'
+          }`}
+        >
             {[1, 2, 3, 4, 5].map((starIndex) => {
               const isFull = userRating >= starIndex
               const isHalf = !isFull && userRating >= starIndex - 0.5

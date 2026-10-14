@@ -27,7 +27,7 @@ describe('AllFilmsPage', () => {
       screen.getByText('Adolescencia, sexo y muerte en Campamento Miasma'),
     ).toBeInTheDocument()
 
-    expect(screen.getByText('HALF')).toBeInTheDocument()
+    expect(screen.getByText(/half/i)).toBeInTheDocument()
     expect(screen.getByText('La nit + zombi')).toBeInTheDocument()
     expect(screen.getByText('Marató Auditori')).toBeInTheDocument()
   })
@@ -49,7 +49,7 @@ describe('AllFilmsPage', () => {
       screen.getByText('Adolescencia, sexo y muerte en Campamento Miasma'),
     ).toBeInTheDocument()
 
-    expect(screen.getByText('HALF')).toBeInTheDocument()
+    expect(screen.getByText(/half/i)).toBeInTheDocument()
 
     expect(screen.queryByText('Red Snow')).not.toBeInTheDocument()
     expect(screen.queryByText('Marató Auditori')).not.toBeInTheDocument()

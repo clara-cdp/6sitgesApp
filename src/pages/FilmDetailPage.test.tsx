@@ -234,4 +234,70 @@ describe('FilmDetailPage', () => {
     fireEvent.click(star4)
     expect(localStorage.getItem('sitges_film_ratings')).toBe('{}')
   })
+
+  it('updates rating when dragging / sliding fingers across the stars container', () => {
+    const { container } = render(
+      <MemoryRouter initialEntries={['/films/miasma']}>
+        <Routes>
+          <Route path="/films/:id" element={<FilmDetailPage />} />
+        </Routes>
+      </MemoryRouter>
+    )
+
+    const starsContainer = container.querySelector('.touch-none') as HTMLDivElement
+    expect(starsContainer).toBeInTheDocument()
+
+    // Mock getBoundingClientRect: width 200px, starting at x = 0
+    vi.spyOn(starsContainer, 'getBoundingClientRect').mockReturnValue({
+      left: 0,
+      top: 0,
+      right: 200,
+      bottom: 40,
+      width: 200,
+      height: 40,
+      x: 0,
+      y: 0,
+      toJSON: () => {},
+    })
+
+    // Pointer down at x=0
+    fireEvent.pointerDown(starsContainer, { clientX: 0, pointerId: 1 })
+    // Slide finger to x=140 (70% of 200px -> 3.5 stars)
+    fireEvent.pointerMove(starsContainer, { clientX: 140, pointerId: 1 })
+    // Pointer up at x=140
+    fireEvent.pointerUp(starsContainer, { clientX: 140, pointerId: 1 })
+
+    expect(localStorage.getItem('sitges_film_ratings')).toContain('"miasma":3.5')
+  })
+
+  it('updates rating to 5 stars when slid to the far right', () => {
+    const { container } = render(
+      <MemoryRouter initialEntries={['/films/miasma']}>
+        <Routes>
+          <Route path="/films/:id" element={<FilmDetailPage />} />
+        </Routes>
+      </MemoryRouter>
+    )
+
+    const starsContainer = container.querySelector('.touch-none') as HTMLDivElement
+    expect(starsContainer).toBeInTheDocument()
+
+    vi.spyOn(starsContainer, 'getBoundingClientRect').mockReturnValue({
+      left: 0,
+      top: 0,
+      right: 200,
+      bottom: 40,
+      width: 200,
+      height: 40,
+      x: 0,
+      y: 0,
+      toJSON: () => {},
+    })
+
+    fireEvent.pointerDown(starsContainer, { clientX: 0, pointerId: 1 })
+    fireEvent.pointerMove(starsContainer, { clientX: 200, pointerId: 1 })
+    fireEvent.pointerUp(starsContainer, { clientX: 200, pointerId: 1 })
+
+    expect(localStorage.getItem('sitges_film_ratings')).toContain('"miasma":5')
+  })
 })

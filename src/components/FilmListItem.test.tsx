@@ -148,4 +148,29 @@ describe('FilmListItem', () => {
     fireEvent.click(screen.getByText('Black Sheeps'))
     expect(mockNavigate).toHaveBeenCalledWith('/films/black-sheeps')
   })
+
+  it('renders rating stars as display-only without interactive buttons in the main list', () => {
+    localStorage.setItem('sitges_film_ratings', JSON.stringify({ miasma: 4 }))
+
+    render(
+      <MemoryRouter>
+        <FilmListItem item={mockFilm} />
+      </MemoryRouter>
+    )
+
+    const ratingContainer = screen.getByLabelText('Rating: 4 out of 5 stars')
+    expect(ratingContainer).toBeInTheDocument()
+    expect(ratingContainer.querySelectorAll('button')).toHaveLength(0)
+  })
+
+  it('renders a fine black divider between marathon header and sub-films', () => {
+    const { container } = render(
+      <MemoryRouter>
+        <FilmListItem item={mockMarathon} />
+      </MemoryRouter>
+    )
+
+    const divider = container.querySelector('.border-t.border-black')
+    expect(divider).toBeInTheDocument()
+  })
 })
