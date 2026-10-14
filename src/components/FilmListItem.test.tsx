@@ -119,4 +119,36 @@ describe('FilmListItem', () => {
     expect(screen.queryByText('TICKET')).not.toBeInTheDocument()
     expect(screen.getByLabelText('Rating: 4.5 out of 5 stars')).toBeInTheDocument()
   })
+
+  it('renders films included in the marathon and displays their ratings when at least one is rated', () => {
+    localStorage.setItem('sitges_film_ratings', JSON.stringify({ 'black-sheeps': 4 }))
+
+    render(
+      <MemoryRouter>
+        <FilmListItem item={mockMarathon} />
+      </MemoryRouter>
+    )
+
+    // Marathon included films should be displayed
+    expect(screen.getByText('Black Sheeps')).toBeInTheDocument()
+    expect(screen.getByText('Unholy Night')).toBeInTheDocument()
+
+    // Ticket button should be removed because at least one movie is rated
+    expect(screen.queryByText('TICKET')).not.toBeInTheDocument()
+
+    // Rating stars should be rendered for the films
+    expect(screen.getByLabelText('Rating: 4 out of 5 stars')).toBeInTheDocument()
+    expect(screen.getByLabelText('Rating: 0 out of 5 stars')).toBeInTheDocument()
+  })
+
+  it('navigates to individual film detail when an included marathon film is clicked', () => {
+    render(
+      <MemoryRouter>
+        <FilmListItem item={mockMarathon} />
+      </MemoryRouter>
+    )
+
+    fireEvent.click(screen.getByText('Black Sheeps'))
+    expect(mockNavigate).toHaveBeenCalledWith('/films/black-sheeps')
+  })
 })
