@@ -1,5 +1,6 @@
 import { Link, useParams } from 'react-router-dom'
 import { TicketButton } from '../components/TicketButton'
+import { LlegirMesButton } from '../components/LlegirMesButton'
 import programmeData from '../data/sitges-programme.json'
 import type { Film } from '../types/film'
 import type { Marathon } from '../types/marathon'
@@ -113,12 +114,10 @@ export function MarathonDetailPage() {
 
                   {/* Right Button: LLEGIR MÉS -> links to film detail page */}
                   <div className="shrink-0">
-                    <Link
+                    <LlegirMesButton
                       to={`/films/${film.id}`}
-                      className="inline-block border border-white hover:bg-white hover:text-black text-white font-bold text-[11px] sm:text-xs uppercase tracking-widest px-3.5 py-1.5 rounded-full transition-all select-none"
-                    >
-                      LLEGIR MÉS
-                    </Link>
+                      variant="light"
+                    />
                   </div>
                 </div>
               )

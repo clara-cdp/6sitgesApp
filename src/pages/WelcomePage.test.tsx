@@ -27,8 +27,9 @@ describe('WelcomePage Component', () => {
     expect(filmsLink).toBeInTheDocument()
     expect(filmsLink).toHaveAttribute('href', '/films')
 
-    const horariBtn = screen.getByRole('button', { name: /Horari/i })
-    expect(horariBtn).toBeDisabled()
+    const horariLink = screen.getByRole('link', { name: /Horari/i })
+    expect(horariLink).toBeInTheDocument()
+    expect(horariLink).toHaveAttribute('href', '/horari')
 
     const apuntsLink = screen.getByRole('link', { name: /Apunts/i })
     expect(apuntsLink).toBeInTheDocument()
