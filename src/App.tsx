@@ -54,6 +54,8 @@ function AppContent() {
               }
             />
             <Route path="/films/:id" element={<DetailRoute />} />
+            <Route path="/films/:id/apunts" element={<ApuntsPage />} />
+            <Route path="/films/:id/notes" element={<ApuntsPage />} />
             <Route path="/marathon/:id" element={<MarathonDetailPage />} />
             <Route path="/marathons/:id" element={<MarathonDetailPage />} />
             <Route path="/horari" element={<HorariPage />} />
