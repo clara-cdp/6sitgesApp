@@ -1,11 +1,12 @@
 import { fireEvent, render, screen } from '@testing-library/react'
 import { MemoryRouter, Route, Routes } from 'react-router-dom'
-import { beforeEach, describe, expect, it } from 'vitest'
+import { beforeEach, describe, expect, it, vi } from 'vitest'
 import { ApuntsPage } from './ApuntsPage'
 
 describe('ApuntsPage', () => {
   beforeEach(() => {
     localStorage.clear()
+    window.scrollTo = vi.fn()
   })
 
   it('renders Apunts dashboard overview and loads empty state', () => {
@@ -175,5 +176,34 @@ describe('ApuntsPage', () => {
     )
 
     expect(screen.getByText('Pel·lícula no trobada')).toBeInTheDocument()
+  })
+
+  it('scrolls window to top on mount, when opening note editor, and when returning to dashboard', () => {
+    render(
+      <MemoryRouter>
+        <ApuntsPage />
+      </MemoryRouter>
+    )
+
+    // Should scroll to top on initial mount
+    expect(window.scrollTo).toHaveBeenCalledWith({ top: 0, left: 0, behavior: 'instant' })
+
+    const scrollToMock = vi.mocked(window.scrollTo)
+    scrollToMock.mockClear()
+
+    // Open note editor
+    const addBtn = screen.getByRole('button', { name: 'Afegir apunt' })
+    fireEvent.click(addBtn)
+
+    // Should scroll to top when editor opens
+    expect(window.scrollTo).toHaveBeenCalledWith({ top: 0, left: 0, behavior: 'instant' })
+    scrollToMock.mockClear()
+
+    // Return to dashboard
+    const backBtn = screen.getByRole('button', { name: /Tornar/i })
+    fireEvent.click(backBtn)
+
+    // Should scroll to top when returning to dashboard
+    expect(window.scrollTo).toHaveBeenCalledWith({ top: 0, left: 0, behavior: 'instant' })
   })
 })

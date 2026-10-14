@@ -64,6 +64,11 @@ export function ApuntsPage() {
     setUserNotes(getStoredUserNotes())
   }, [editingNote])
 
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' })
+  }, [id, editingNote])
+
   useEffect(() => {
     if (isSaved) {
       const timer = setTimeout(() => setIsSaved(false), 2000)

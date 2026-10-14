@@ -1,5 +1,15 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { BrowserRouter, Route, Routes, useLocation } from 'react-router-dom'
+
+function ScrollToTop() {
+  const { pathname } = useLocation()
+
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [pathname])
+
+  return null
+}
 import { Footer } from './components/Footer'
 import { Header } from './components/Header'
 import { useParams } from 'react-router-dom'
@@ -74,6 +84,7 @@ function App() {
   return (
     <TicketAuthProvider>
       <BrowserRouter>
+        <ScrollToTop />
         <AppContent />
         <PWAUpdatePrompt />
       </BrowserRouter>
