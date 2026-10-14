@@ -233,57 +233,6 @@ export function FilmDetailPage() {
             </div>
           </div>
         )}
-
-        {/* Interactive Star Rating (Swapped with Ticket) */}
-        <div className="bg-black py-4 select-none flex flex-col items-center justify-center gap-1 my-4 border-y border-neutral-900">
-          <svg className="w-0 h-0 absolute">
-            <defs>
-              <linearGradient id="halfStarGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-                <stop offset="50%" stopColor="#B78B4B" />
-                <stop offset="50%" stopColor="#525252" />
-              </linearGradient>
-            </defs>
-          </svg>
-          <div className="flex justify-center items-center gap-2">
-            {[1, 2, 3, 4, 5].map((starIndex) => {
-              const isFull = userRating >= starIndex
-              const isHalf = !isFull && userRating >= starIndex - 0.5
-              return (
-                <div
-                  key={starIndex}
-                  className={`relative w-7 h-7 sm:w-8 sm:h-8 flex items-center justify-center transition-transform ${
-                    canRate ? 'active:scale-125 hover:scale-110' : 'opacity-40 cursor-not-allowed'
-                  }`}
-                >
-                  <svg className="w-full h-full pointer-events-none" viewBox="0 0 24 24">
-                    <path
-                      d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
-                      fill={isFull ? '#B78B4B' : isHalf ? 'url(#halfStarGrad)' : '#525252'}
-                    />
-                  </svg>
-                  <button
-                    type="button"
-                    disabled={!canRate}
-                    onClick={() => handleRate(starIndex - 0.5)}
-                    aria-label={`Rate ${starIndex - 0.5} stars`}
-                    className={`absolute left-0 top-0 w-1/2 h-full focus:outline-none ${
-                      canRate ? 'cursor-pointer' : 'cursor-not-allowed'
-                    }`}
-                  />
-                  <button
-                    type="button"
-                    disabled={!canRate}
-                    onClick={() => handleRate(starIndex)}
-                    aria-label={`Rate ${starIndex} stars`}
-                    className={`absolute right-0 top-0 w-1/2 h-full focus:outline-none ${
-                      canRate ? 'cursor-pointer' : 'cursor-not-allowed'
-                    }`}
-                  />
-                </div>
-              )
-            })}
-          </div>
-        </div>
       </div>
 
       {/* Main Film Poster */}
@@ -350,7 +299,7 @@ export function FilmDetailPage() {
         </div>
       )}
 
-      {/* Ticket Action Area (Swapped to bottom section) */}
+      {/* Ticket Action Area */}
       {film.ticketId && (
         <div className="bg-black py-6 flex items-center justify-center border-t border-neutral-900">
           <TicketButton
@@ -358,6 +307,57 @@ export function FilmDetailPage() {
           />
         </div>
       )}
+
+      {/* Interactive Star Rating (Placed after ticket button) */}
+      <div className="bg-black py-6 select-none flex flex-col items-center justify-center gap-1 border-t border-neutral-900">
+        <svg className="w-0 h-0 absolute">
+          <defs>
+            <linearGradient id="halfStarGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="50%" stopColor="#B78B4B" />
+              <stop offset="50%" stopColor="#525252" />
+            </linearGradient>
+          </defs>
+        </svg>
+          <div className="flex justify-center items-center gap-2">
+            {[1, 2, 3, 4, 5].map((starIndex) => {
+              const isFull = userRating >= starIndex
+              const isHalf = !isFull && userRating >= starIndex - 0.5
+              return (
+                <div
+                  key={starIndex}
+                  className={`relative w-7 h-7 sm:w-8 sm:h-8 flex items-center justify-center transition-transform ${
+                    canRate ? 'active:scale-125 hover:scale-110' : 'opacity-40 cursor-not-allowed'
+                  }`}
+                >
+                  <svg className="w-full h-full pointer-events-none" viewBox="0 0 24 24">
+                    <path
+                      d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
+                      fill={isFull ? '#B78B4B' : isHalf ? 'url(#halfStarGrad)' : '#525252'}
+                    />
+                  </svg>
+                  <button
+                    type="button"
+                    disabled={!canRate}
+                    onClick={() => handleRate(starIndex - 0.5)}
+                    aria-label={`Rate ${starIndex - 0.5} stars`}
+                    className={`absolute left-0 top-0 w-1/2 h-full focus:outline-none ${
+                      canRate ? 'cursor-pointer' : 'cursor-not-allowed'
+                    }`}
+                  />
+                  <button
+                    type="button"
+                    disabled={!canRate}
+                    onClick={() => handleRate(starIndex)}
+                    aria-label={`Rate ${starIndex} stars`}
+                    className={`absolute right-0 top-0 w-1/2 h-full focus:outline-none ${
+                      canRate ? 'cursor-pointer' : 'cursor-not-allowed'
+                    }`}
+                  />
+                </div>
+              )
+            })}
+          </div>
+        </div>
 
       {/* Bottom Back Navigation Link */}
       <div className="bg-black/90 px-4 py-3 flex items-center border-t border-neutral-900 pb-10">

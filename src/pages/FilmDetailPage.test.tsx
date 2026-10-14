@@ -22,6 +22,7 @@ describe('FilmDetailPage', () => {
 
   beforeEach(() => {
     vi.clearAllMocks()
+    localStorage.clear()
     vi.useFakeTimers()
     vi.setSystemTime(new Date(2026, 9, 9, 23, 59, 59))
     vi.mocked(useOpenTicket).mockReturnValue(mockOpenTicket)
@@ -163,5 +164,74 @@ describe('FilmDetailPage', () => {
     fireEvent.click(star3Half)
 
     expect(localStorage.getItem('sitges_film_ratings')).toContain('"miasma":3.5')
+  })
+
+  it('renders the interactive star rating section down and after the ticket button', () => {
+    render(
+      <MemoryRouter initialEntries={['/films/miasma']}>
+        <Routes>
+          <Route path="/films/:id" element={<FilmDetailPage />} />
+        </Routes>
+      </MemoryRouter>
+    )
+
+    const ticketButton = screen.getByRole('button', { name: 'TICKET' })
+    const star5Button = screen.getByRole('button', { name: 'Rate 5 stars' })
+
+    // Verify star rating button appears after ticket button in DOM order
+    expect(
+      ticketButton.compareDocumentPosition(star5Button) & Node.DOCUMENT_POSITION_FOLLOWING
+    ).toBeTruthy()
+  })
+
+  it('renders the star rating section even when film has no ticketId', () => {
+    render(
+      <MemoryRouter initialEntries={['/films/sheeps']}>
+        <Routes>
+          <Route path="/films/:id" element={<FilmDetailPage />} />
+        </Routes>
+      </MemoryRouter>
+    )
+
+    expect(screen.queryByRole('button', { name: 'TICKET' })).not.toBeInTheDocument()
+    expect(screen.getByRole('button', { name: 'Rate 5 stars' })).toBeInTheDocument()
+  })
+
+  it('disables rating buttons if less than 1 hour has passed since film start time', () => {
+    // Film miasma starts at 2026-10-09 08:30. At 09:00 it is only 30 mins after start (< 1 hour).
+    vi.setSystemTime(new Date(2026, 9, 9, 9, 0, 0))
+
+    render(
+      <MemoryRouter initialEntries={['/films/miasma']}>
+        <Routes>
+          <Route path="/films/:id" element={<FilmDetailPage />} />
+        </Routes>
+      </MemoryRouter>
+    )
+
+    const star5 = screen.getByRole('button', { name: 'Rate 5 stars' })
+    expect(star5).toBeDisabled()
+
+    fireEvent.click(star5)
+    expect(localStorage.getItem('sitges_film_ratings')).toBeNull()
+  })
+
+  it('toggles rating back to 0 when clicking the same rating again', () => {
+    localStorage.clear()
+
+    render(
+      <MemoryRouter initialEntries={['/films/miasma']}>
+        <Routes>
+          <Route path="/films/:id" element={<FilmDetailPage />} />
+        </Routes>
+      </MemoryRouter>
+    )
+
+    const star4 = screen.getByRole('button', { name: 'Rate 4 stars' })
+    fireEvent.click(star4)
+    expect(localStorage.getItem('sitges_film_ratings')).toContain('"miasma":4')
+
+    fireEvent.click(star4)
+    expect(localStorage.getItem('sitges_film_ratings')).toBe('{}')
   })
 })

@@ -129,14 +129,11 @@ describe('FilmListItem', () => {
       </MemoryRouter>
     )
 
-    // Marathon included films should be displayed
     expect(screen.getByText('Black Sheeps')).toBeInTheDocument()
     expect(screen.getByText('Unholy Night')).toBeInTheDocument()
 
-    // Ticket button should be removed because at least one movie is rated
     expect(screen.queryByText('TICKET')).not.toBeInTheDocument()
 
-    // Rating stars should be rendered for the films
     expect(screen.getByLabelText('Rating: 4 out of 5 stars')).toBeInTheDocument()
     expect(screen.getByLabelText('Rating: 0 out of 5 stars')).toBeInTheDocument()
   })
