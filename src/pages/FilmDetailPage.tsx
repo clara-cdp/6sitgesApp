@@ -245,6 +245,59 @@ export function FilmDetailPage() {
           </div>
         </div>
 
+        {/* Fitxa Tècnica / Technical Crew Info */}
+        {(film.guio || film.fotografia || film.muntatge || film.repartiment) && (
+          <div className="grid grid-cols-2 gap-2 py-3.5 mb-5 border-b border-neutral-800 text-left select-none">
+            {/* Left side: Guió & Fotografia */}
+            <div className="space-y-3 pr-1">
+              {film.guio && (
+                <div>
+                  <span className="block text-[10px] sm:text-xs text-neutral-400 uppercase font-bold tracking-wider leading-none">
+                    Guió
+                  </span>
+                  <span className="block text-xs sm:text-sm text-white font-semibold mt-1.5 leading-snug">
+                    {film.guio}
+                  </span>
+                </div>
+              )}
+              {film.fotografia && (
+                <div>
+                  <span className="block text-[10px] sm:text-xs text-neutral-400 uppercase font-bold tracking-wider leading-none">
+                    Fotografia
+                  </span>
+                  <span className="block text-xs sm:text-sm text-white font-semibold mt-1.5 leading-snug">
+                    {film.fotografia}
+                  </span>
+                </div>
+              )}
+            </div>
+
+            {/* Right side: Muntatge & Repartiment */}
+            <div className="space-y-3 border-l border-neutral-800 pl-3">
+              {film.muntatge && (
+                <div>
+                  <span className="block text-[10px] sm:text-xs text-neutral-400 uppercase font-bold tracking-wider leading-none">
+                    Muntatge
+                  </span>
+                  <span className="block text-xs sm:text-sm text-white font-semibold mt-1.5 leading-snug">
+                    {film.muntatge}
+                  </span>
+                </div>
+              )}
+              {film.repartiment && (
+                <div>
+                  <span className="block text-[10px] sm:text-xs text-neutral-400 uppercase font-bold tracking-wider leading-none">
+                    Repartiment
+                  </span>
+                  <span className="block text-xs sm:text-sm text-white font-semibold mt-1.5 leading-snug">
+                    {film.repartiment}
+                  </span>
+                </div>
+              )}
+            </div>
+          </div>
+        )}
+
         {/* Trailer Button */}
         {film.trailerUrl && (
           <div className="my-4">
