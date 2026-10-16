@@ -173,4 +173,54 @@ describe('FilmListItem', () => {
     const divider = container.querySelector('.border-t.border-black')
     expect(divider).toBeInTheDocument()
   })
+
+  it('renders a gold PRESÈNCIA badge when film has presence: true', () => {
+    render(
+      <MemoryRouter>
+        <FilmListItem item={mockFilm} />
+      </MemoryRouter>
+    )
+
+    const badge = screen.getByText('PRESÈNCIA')
+    expect(badge).toBeInTheDocument()
+    expect(badge.parentElement).toHaveClass('bg-[#B78B4B]')
+  })
+
+  it('does not render PRESÈNCIA badge when film has presence: false', () => {
+    render(
+      <MemoryRouter>
+        <FilmListItem item={{ ...mockFilm, presence: false }} />
+      </MemoryRouter>
+    )
+
+    expect(screen.queryByText('PRESÈNCIA')).not.toBeInTheDocument()
+  })
+
+  it('renders a single PRESÈNCIA badge on top for a marathon when an included film has presence: true', () => {
+    const marathonWithPresence: Marathon = {
+      ...mockMarathon,
+      filmIds: ['miasma', 'black-sheeps'],
+    }
+
+    render(
+      <MemoryRouter>
+        <FilmListItem item={marathonWithPresence} />
+      </MemoryRouter>
+    )
+
+    const badges = screen.getAllByText('PRESÈNCIA')
+    expect(badges).toHaveLength(1)
+    expect(badges[0].parentElement).toHaveClass('bg-[#B78B4B]')
+  })
+
+  it('does not render PRESÈNCIA badge for a marathon when no included films have presence', () => {
+    render(
+      <MemoryRouter>
+        <FilmListItem item={mockMarathon} />
+      </MemoryRouter>
+    )
+
+    expect(screen.queryByText('PRESÈNCIA')).not.toBeInTheDocument()
+  })
 })
+
