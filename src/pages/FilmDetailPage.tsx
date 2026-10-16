@@ -16,8 +16,6 @@ export function FilmDetailPage() {
 
   const film = programme.films.find((f: Film) => f.id === id)
 
-  const [isSynopsisExpanded, setIsSynopsisExpanded] = useState<boolean>(false)
-  const [isBioExpanded, setIsBioExpanded] = useState<boolean>(false)
   const [currentStillIndex, setCurrentStillIndex] = useState<number>(0)
   const [userRating, setUserRating] = useState<number>(() =>
     film ? getFilmRating(film.id) : 0
@@ -147,19 +145,7 @@ export function FilmDetailPage() {
     setCurrentStillIndex((prev) => (prev === stills.length - 1 ? 0 : prev + 1))
   }
 
-  const synopsisMaxLength = 230
-  const shouldTruncateSynopsis = film.synopsis && film.synopsis.length > synopsisMaxLength
-  const displayedSynopsis =
-    shouldTruncateSynopsis && !isSynopsisExpanded
-      ? film.synopsis.slice(0, synopsisMaxLength) + '...'
-      : film.synopsis
 
-  const bioMaxLength = 140
-  const shouldTruncateBio = primaryDirector?.bio && primaryDirector.bio.length > bioMaxLength
-  const displayedBio =
-    shouldTruncateBio && !isBioExpanded && primaryDirector
-      ? primaryDirector.bio.slice(0, bioMaxLength) + '...'
-      : primaryDirector?.bio || ''
 
   return (
     <div className="max-w-2xl mx-auto bg-black text-white font-['Montserrat'] min-h-screen relative flex flex-col justify-between selection:bg-[#FF0042] selection:text-white">
@@ -321,16 +307,7 @@ export function FilmDetailPage() {
             SINOPSIS
           </h2>
           <p className="text-xs sm:text-sm text-neutral-200 leading-relaxed">
-            {displayedSynopsis}
-            {shouldTruncateSynopsis && (
-              <button
-                type="button"
-                onClick={() => setIsSynopsisExpanded(!isSynopsisExpanded)}
-                className="text-[#FF0042] font-bold text-xs sm:text-sm hover:underline ml-1 cursor-pointer focus:outline-none"
-              >
-                {isSynopsisExpanded ? ' ...menys' : ' ...més'}
-              </button>
-            )}
+            {film.synopsis}
           </p>
         </div>
 
@@ -351,18 +328,11 @@ export function FilmDetailPage() {
               <h3 className="text-base sm:text-lg font-black text-black leading-tight mt-1 mb-1.5">
                 {primaryDirector.name}
               </h3>
-              <p className="text-xs text-black font-medium leading-snug">
-                {displayedBio}
-                {shouldTruncateBio && (
-                  <button
-                    type="button"
-                    onClick={() => setIsBioExpanded(!isBioExpanded)}
-                    className="font-black underline text-xs text-black ml-1 hover:opacity-80 cursor-pointer focus:outline-none"
-                  >
-                    {isBioExpanded ? ' ...menys' : ' ...més'}
-                  </button>
-                )}
-              </p>
+              {primaryDirector.bio && (
+                <p className="text-xs text-black font-medium leading-snug">
+                  {primaryDirector.bio}
+                </p>
+              )}
             </div>
           </div>
         )}
@@ -420,9 +390,8 @@ export function FilmDetailPage() {
                   key={still}
                   type="button"
                   onClick={() => setCurrentStillIndex(idx)}
-                  className={`aspect-video overflow-hidden border-2 transition-all cursor-pointer ${
-                    currentStillIndex === idx ? 'border-[#FF0042] opacity-100' : 'border-transparent opacity-60 hover:opacity-100'
-                  }`}
+                  className={`aspect-video overflow-hidden border-2 transition-all cursor-pointer ${currentStillIndex === idx ? 'border-[#FF0042] opacity-100' : 'border-transparent opacity-60 hover:opacity-100'
+                    }`}
                 >
                   <img src={still} alt="" className="w-full h-full object-cover" />
                 </button>
@@ -441,7 +410,7 @@ export function FilmDetailPage() {
         </div>
       )}
 
-      {/* Interactive Star Rating (Placed after ticket button) */}
+      {/* Interactive Star Rating */}
       <div className="bg-black py-6 select-none flex flex-col items-center justify-center gap-1 border-t border-neutral-900">
         <svg className="w-0 h-0 absolute">
           <defs>
@@ -457,49 +426,45 @@ export function FilmDetailPage() {
           onPointerMove={handlePointerMove}
           onPointerUp={handlePointerUp}
           onPointerCancel={handlePointerCancel}
-          className={`flex justify-center items-center gap-2 touch-none py-1 ${
-            canRate ? 'cursor-pointer' : 'cursor-not-allowed'
-          }`}
+          className={`flex justify-center items-center gap-2 touch-none py-1 ${canRate ? 'cursor-pointer' : 'cursor-not-allowed'
+            }`}
         >
-            {[1, 2, 3, 4, 5].map((starIndex) => {
-              const isFull = userRating >= starIndex
-              const isHalf = !isFull && userRating >= starIndex - 0.5
-              return (
-                <div
-                  key={starIndex}
-                  className={`relative w-7 h-7 sm:w-8 sm:h-8 flex items-center justify-center transition-transform ${
-                    canRate ? 'active:scale-125 hover:scale-110' : 'opacity-40 cursor-not-allowed'
+          {[1, 2, 3, 4, 5].map((starIndex) => {
+            const isFull = userRating >= starIndex
+            const isHalf = !isFull && userRating >= starIndex - 0.5
+            return (
+              <div
+                key={starIndex}
+                className={`relative w-7 h-7 sm:w-8 sm:h-8 flex items-center justify-center transition-transform ${canRate ? 'active:scale-125 hover:scale-110' : 'opacity-40 cursor-not-allowed'
                   }`}
-                >
-                  <svg className="w-full h-full pointer-events-none" viewBox="0 0 24 24">
-                    <path
-                      d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
-                      fill={isFull ? '#B78B4B' : isHalf ? 'url(#halfStarGrad)' : '#525252'}
-                    />
-                  </svg>
-                  <button
-                    type="button"
-                    disabled={!canRate}
-                    onClick={() => handleRate(starIndex - 0.5)}
-                    aria-label={`Rate ${starIndex - 0.5} stars`}
-                    className={`absolute left-0 top-0 w-1/2 h-full focus:outline-none ${
-                      canRate ? 'cursor-pointer' : 'cursor-not-allowed'
-                    }`}
+              >
+                <svg className="w-full h-full pointer-events-none" viewBox="0 0 24 24">
+                  <path
+                    d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
+                    fill={isFull ? '#B78B4B' : isHalf ? 'url(#halfStarGrad)' : '#525252'}
                   />
-                  <button
-                    type="button"
-                    disabled={!canRate}
-                    onClick={() => handleRate(starIndex)}
-                    aria-label={`Rate ${starIndex} stars`}
-                    className={`absolute right-0 top-0 w-1/2 h-full focus:outline-none ${
-                      canRate ? 'cursor-pointer' : 'cursor-not-allowed'
+                </svg>
+                <button
+                  type="button"
+                  disabled={!canRate}
+                  onClick={() => handleRate(starIndex - 0.5)}
+                  aria-label={`Rate ${starIndex - 0.5} stars`}
+                  className={`absolute left-0 top-0 w-1/2 h-full focus:outline-none ${canRate ? 'cursor-pointer' : 'cursor-not-allowed'
                     }`}
-                  />
-                </div>
-              )
-            })}
-          </div>
+                />
+                <button
+                  type="button"
+                  disabled={!canRate}
+                  onClick={() => handleRate(starIndex)}
+                  aria-label={`Rate ${starIndex} stars`}
+                  className={`absolute right-0 top-0 w-1/2 h-full focus:outline-none ${canRate ? 'cursor-pointer' : 'cursor-not-allowed'
+                    }`}
+                />
+              </div>
+            )
+          })}
         </div>
+      </div>
 
       {/* Notes / Apunts Action Button */}
       <div className="bg-black py-6 flex items-center justify-center border-t border-neutral-900">

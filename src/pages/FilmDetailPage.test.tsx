@@ -49,7 +49,7 @@ describe('FilmDetailPage', () => {
     expect(screen.getByText('TICKET')).toBeInTheDocument()
   })
 
-  it('toggles synopsis truncation when clicking ...més and ...menys', () => {
+  it('renders synopsis without truncation or toggle buttons', () => {
     render(
       <MemoryRouter initialEntries={['/films/miasma']}>
         <Routes>
@@ -58,14 +58,9 @@ describe('FilmDetailPage', () => {
       </MemoryRouter>
     )
 
-    const synopsisToggle = screen.getAllByText('...més')[0]
-    expect(synopsisToggle).toBeInTheDocument()
-
-    fireEvent.click(synopsisToggle)
-    expect(screen.getByText('...menys')).toBeInTheDocument()
-
-    fireEvent.click(screen.getByText('...menys'))
-    expect(screen.getAllByText('...més')[0]).toBeInTheDocument()
+    expect(screen.queryByText('...més')).not.toBeInTheDocument()
+    expect(screen.queryByText('...menys')).not.toBeInTheDocument()
+    expect(screen.getByText(/Després d’anys de seqüeles infames/i)).toBeInTheDocument()
   })
 
   it('renders film details for classic film (e.g. Braindead / id: brain)', () => {
