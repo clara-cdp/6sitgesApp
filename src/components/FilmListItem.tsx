@@ -49,6 +49,11 @@ export function FilmListItem({ item, onTicketClick }: FilmListItemProps) {
     ? marathonFilms.some((film) => getFilmRating(film.id) > 0)
     : false
 
+  const hasPresence = isMarathon
+    ? Boolean((item as { presence?: boolean }).presence) ||
+      marathonFilms.some((film) => 'presence' in film && Boolean(film.presence))
+    : Boolean((item as Film).presence)
+
   const handleCardClick = () => {
     navigate(`/films/${item.id}`)
   }
@@ -76,6 +81,14 @@ export function FilmListItem({ item, onTicketClick }: FilmListItemProps) {
         {/* Top Header Row: Title & Venue on left, TicketButton / StarRating on right */}
         <div className="flex items-center justify-between gap-3 min-w-0">
           <div className="text-left min-w-0 pr-2 flex-1 block">
+            {hasPresence && (
+              <div className="mb-1">
+                <span className="inline-flex items-center gap-1 bg-[#B78B4B] text-black font-extrabold text-[10px] sm:text-xs uppercase tracking-wider px-2 py-0.5 rounded-xs select-none">
+                  <span>★</span>
+                  <span>PRESÈNCIA</span>
+                </span>
+              </div>
+            )}
             <h3 className="font-bold text-base sm:text-lg text-black truncate leading-snug group-hover:text-[#FF0042] transition-colors">
               {item.title}
             </h3>
