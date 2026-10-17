@@ -314,4 +314,21 @@ describe('FilmDetailPage', () => {
     expect(notesButton).toBeInTheDocument()
     expect(notesButton).toHaveAttribute('href', '/films/miasma/apunts')
   })
+
+  it('renders details for the Company film entry under marato section', () => {
+    render(
+      <MemoryRouter initialEntries={['/films/company']}>
+        <Routes>
+          <Route path="/films/:id" element={<FilmDetailPage />} />
+        </Routes>
+      </MemoryRouter>
+    )
+
+    expect(
+      screen.getByRole('heading', { level: 1, name: /Company/i })
+    ).toBeInTheDocument()
+    expect(screen.getAllByText('Casey Affleck')[0]).toBeInTheDocument()
+    expect(screen.getByText('marato')).toBeInTheDocument()
+    expect(screen.getByText(/Auditori Meliá | 95'/i)).toBeInTheDocument()
+  })
 })
