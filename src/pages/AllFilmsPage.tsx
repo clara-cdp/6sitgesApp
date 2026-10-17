@@ -20,7 +20,7 @@ export function AllFilmsPage({ isFilterOpen = false, setIsFilterOpen }: AllFilms
   const openTicket = useOpenTicket()
 
   const filteredFilms: Film[] = programme.films.filter(
-    (film) => film.section !== 'Midnight X-Treme'
+    (film) => film.section !== 'Midnight X-Treme' && film.section !== 'marato'
   )
 
   const allItems: (Film | Marathon)[] = [
