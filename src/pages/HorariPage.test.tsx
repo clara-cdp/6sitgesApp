@@ -13,30 +13,76 @@ vi.mock('react-router-dom', async () => {
 })
 
 describe('HorariPage', () => {
-  it('renders all festival day section headers', () => {
+  it('renders all festival day section headers with arrows, collapsed by default', () => {
     render(
       <MemoryRouter>
         <HorariPage />
       </MemoryRouter>
     )
 
-    expect(screen.getByText('Divendres 09')).toBeInTheDocument()
-    expect(screen.getByText('Dissabte 10')).toBeInTheDocument()
-    expect(screen.getByText('Diumenge 11')).toBeInTheDocument()
-    expect(screen.getByText('Dilluns 12')).toBeInTheDocument()
-    expect(screen.getByText('Dimarts 13')).toBeInTheDocument()
-    expect(screen.getByText('Dijous 15')).toBeInTheDocument()
-    expect(screen.getByText('Diumenge 18')).toBeInTheDocument()
+    const fridayHeader = screen.getByRole('button', { name: /Divendres 09/i })
+    expect(fridayHeader).toBeInTheDocument()
+    expect(fridayHeader).toHaveAttribute('aria-expanded', 'false')
+
+    expect(screen.getByRole('button', { name: /Dissabte 10/i })).toBeInTheDocument()
+    expect(screen.getByRole('button', { name: /Diumenge 11/i })).toBeInTheDocument()
+    expect(screen.getByRole('button', { name: /Dilluns 12/i })).toBeInTheDocument()
+    expect(screen.getByRole('button', { name: /Dimarts 13/i })).toBeInTheDocument()
+    expect(screen.getByRole('button', { name: /Dijous 15/i })).toBeInTheDocument()
+    expect(screen.getByRole('button', { name: /Diumenge 18/i })).toBeInTheDocument()
+
+    expect(
+      screen.queryByText('Adolescencia, sexo y muerte en Campamento Miasma')
+    ).not.toBeInTheDocument()
   })
 
-  it('renders film sessions with their schedule time, venue, and running time', () => {
+  it('toggles a day dropdown open and closed when clicking the red day bar', () => {
     render(
       <MemoryRouter>
         <HorariPage />
       </MemoryRouter>
     )
 
-    // Check titles from different days
+    const fridayButton = screen.getByRole('button', { name: /Divendres 09/i })
+
+    expect(fridayButton).toHaveAttribute('aria-expanded', 'false')
+    expect(
+      screen.queryByText('Adolescencia, sexo y muerte en Campamento Miasma')
+    ).not.toBeInTheDocument()
+
+    fireEvent.click(fridayButton)
+    expect(fridayButton).toHaveAttribute('aria-expanded', 'true')
+    expect(
+      screen.getByText('Adolescencia, sexo y muerte en Campamento Miasma')
+    ).toBeInTheDocument()
+
+    fireEvent.click(fridayButton)
+    expect(fridayButton).toHaveAttribute('aria-expanded', 'false')
+    expect(
+      screen.queryByText('Adolescencia, sexo y muerte en Campamento Miasma')
+    ).not.toBeInTheDocument()
+  })
+
+  it('renders film sessions with their schedule time, venue, and running time when expanded', () => {
+    render(
+      <MemoryRouter>
+        <HorariPage />
+      </MemoryRouter>
+    )
+
+    const days = [
+      'Divendres 09',
+      'Dissabte 10',
+      'Diumenge 11',
+      'Dilluns 12',
+      'Dimarts 13',
+      'Dijous 15',
+      'Diumenge 18',
+    ]
+    days.forEach((dayName) => {
+      fireEvent.click(screen.getByRole('button', { name: new RegExp(dayName, 'i') }))
+    })
+
     expect(
       screen.getByText('Adolescencia, sexo y muerte en Campamento Miasma')
     ).toBeInTheDocument()
@@ -47,8 +93,6 @@ describe('HorariPage', () => {
     expect(screen.getByText('The Spiral')).toBeInTheDocument()
     expect(screen.getByText('Hope')).toBeInTheDocument()
     expect(screen.getByText('Marató Auditori')).toBeInTheDocument()
-
-    // Check timings and venue details
     expect(screen.getByText('08:30 - 10:21')).toBeInTheDocument()
     expect(screen.getByText('Auditori Meliá · 111 min')).toBeInTheDocument()
     expect(screen.getAllByText('Tramuntana Meliá · 96 min')).toHaveLength(2)
@@ -61,6 +105,8 @@ describe('HorariPage', () => {
         <HorariPage />
       </MemoryRouter>
     )
+
+    fireEvent.click(screen.getByRole('button', { name: /Divendres 09/i }))
 
     expect(
       screen.getByText("10:21 - 13:15 - PAUSA | 2h 54'")
@@ -76,12 +122,15 @@ describe('HorariPage', () => {
     ).toBeInTheDocument()
   })
 
-  it('renders Llegir Més links to film and marathon detail routes', () => {
+  it('renders Llegir Més links to film and marathon detail routes when days are expanded', () => {
     render(
       <MemoryRouter>
         <HorariPage />
       </MemoryRouter>
     )
+
+    fireEvent.click(screen.getByRole('button', { name: /Divendres 09/i }))
+    fireEvent.click(screen.getByRole('button', { name: /Dissabte 10/i }))
 
     const links = screen.getAllByRole('link', { name: /LLEGIR MÉS/i })
     expect(links.length).toBeGreaterThan(0)
@@ -105,6 +154,8 @@ describe('HorariPage', () => {
         <HorariPage />
       </MemoryRouter>
     )
+
+    fireEvent.click(screen.getByRole('button', { name: /Divendres 09/i }))
 
     const filmTitle = screen.getByText('Leviticus')
     const filmCard = filmTitle.closest('.cursor-pointer')
