@@ -27,7 +27,7 @@ describe('AllFilmsPage', () => {
       screen.getByText('Adolescencia, sexo y muerte en Campamento Miasma'),
     ).toBeInTheDocument()
 
-    expect(screen.getByText(/half/i)).toBeInTheDocument()
+    expect(screen.getByRole('heading', { name: /half/i })).toBeInTheDocument()
     expect(screen.getByText('La nit + zombi')).toBeInTheDocument()
     expect(screen.getByText('Marató Sorpresa')).toBeInTheDocument()
   })
