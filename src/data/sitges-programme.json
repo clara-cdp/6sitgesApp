@@ -965,7 +965,7 @@
     },
     {
       "id": "marato",
-      "title": "Marató Auditori",
+      "title": "Marató Sorpresa",
       "date": "2026-10-18",
       "programmeDate": "2026-10-18",
       "dayLabel": "diumenge",
@@ -973,7 +973,11 @@
       "venue": "Auditori Meliá",
       "ticketId": "ticket-marato",
       "filmIds": [
-        "company"
+        "company",
+        "drag",
+        "half",
+        "spiral",
+        "buddy"
       ],
       "duration": "361'"
     }
