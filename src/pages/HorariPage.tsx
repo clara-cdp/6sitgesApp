@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { horariData } from '../data/horari-data'
 import { LlegirMesButton } from '../components/LlegirMesButton'
@@ -98,40 +99,72 @@ function PausaBar({ pausa }: { pausa: HorariPausa }) {
 }
 
 export function HorariPage() {
+  const [openDays, setOpenDays] = useState<Record<string, boolean>>({})
+
+  const toggleDay = (date: string) => {
+    setOpenDays((prev) => ({
+      ...prev,
+      [date]: !prev[date],
+    }))
+  }
+
   return (
     <div className="w-full flex-1 bg-[#EFECE6] font-['Montserrat'] pb-16">
       <div className="max-w-2xl mx-auto w-full px-3 py-4">
-        {horariData.map((day) => (
-          <div
-            key={day.date}
-            className="mb-6 shadow-sm border border-neutral-300/80 bg-white overflow-hidden"
-          >
-            {/* Red Day Header */}
-            <div className="bg-[#FF0042] text-black px-4 py-2.5 sm:py-3 font-black text-lg sm:text-xl uppercase tracking-wider select-none">
-              {day.dayLabel}
-            </div>
+        {horariData.map((day) => {
+          const isOpen = Boolean(openDays[day.date])
 
-            {/* List of Sessions and Pauses */}
-            <div className="divide-y divide-neutral-200/60">
-              {day.items.map((item, index) => {
-                if (item.type === 'session') {
-                  return (
-                    <FilmCard
-                      key={`${day.date}-session-${item.session.id}-${index}`}
-                      session={item.session}
-                    />
-                  )
-                }
-                return (
-                  <PausaBar
-                    key={`${day.date}-pausa-${item.pausa.startTime}-${index}`}
-                    pausa={item.pausa}
-                  />
-                )
-              })}
+          return (
+            <div
+              key={day.date}
+              className="mb-4 sm:mb-5 shadow-xs border border-neutral-300/80 bg-white overflow-hidden transition-all"
+            >
+              {/* Red Day Header with Arrow on Left */}
+              <button
+                type="button"
+                onClick={() => toggleDay(day.date)}
+                aria-expanded={isOpen}
+                className="w-full bg-[#FF0042] text-black px-4 py-2.5 sm:py-3 font-black text-lg sm:text-xl uppercase tracking-wider select-none flex items-center gap-2.5 sm:gap-3 cursor-pointer hover:brightness-95 transition-all text-left"
+              >
+                <svg
+                  className={`w-5 h-5 sm:w-6 sm:h-6 shrink-0 text-black transition-transform duration-200 ${
+                    isOpen ? 'rotate-90' : 'rotate-0'
+                  }`}
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="3"
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                </svg>
+                <span>{day.dayLabel}</span>
+              </button>
+
+              {/* List of Sessions and Pauses */}
+              {isOpen && (
+                <div className="divide-y divide-neutral-200/60">
+                  {day.items.map((item, index) => {
+                    if (item.type === 'session') {
+                      return (
+                        <FilmCard
+                          key={`${day.date}-session-${item.session.id}-${index}`}
+                          session={item.session}
+                        />
+                      )
+                    }
+                    return (
+                      <PausaBar
+                        key={`${day.date}-pausa-${item.pausa.startTime}-${index}`}
+                        pausa={item.pausa}
+                      />
+                    )
+                  })}
+                </div>
+              )}
             </div>
-          </div>
-        ))}
+          )
+        })}
       </div>
     </div>
   )
