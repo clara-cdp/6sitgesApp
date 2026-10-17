@@ -51,7 +51,7 @@ describe('MarathonDetailPage', () => {
       </MemoryRouter>
     )
 
-    expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent('Marató Auditori')
+    expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent('Marató Sorpresa')
     expect(screen.getByText('Company')).toBeInTheDocument()
     expect(screen.getByText('Casey Affleck')).toBeInTheDocument()
 
@@ -72,7 +72,7 @@ describe('MarathonDetailPage', () => {
     expect(screen.getByText('← Tornar a la llista')).toBeInTheDocument()
   })
 
-  it('opens the correct ticket from Marató Auditori', () => {
+  it('opens the correct ticket from Marató Sorpresa', () => {
     render(
       <MemoryRouter initialEntries={['/marathon/marato']}>
         <Routes>

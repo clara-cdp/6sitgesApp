@@ -222,5 +222,58 @@ describe('FilmListItem', () => {
 
     expect(screen.queryByText('PRESÈNCIA')).not.toBeInTheDocument()
   })
+
+  it('for marato, shows ticket and hides film ratings when other films are rated but company is not rated', () => {
+    localStorage.setItem('sitges_film_ratings', JSON.stringify({ half: 4.5, drag: 4 }))
+
+    const mockMarato: Marathon = {
+      id: 'marato',
+      title: 'Marató Sorpresa',
+      date: '2026-10-18',
+      programmeDate: '2026-10-18',
+      dayLabel: 'diumenge',
+      time: '15:30',
+      venue: 'Auditori Meliá',
+      ticketId: 'ticket-marato',
+      filmIds: ['company', 'half', 'drag'],
+      duration: "361'",
+    }
+
+    render(
+      <MemoryRouter>
+        <FilmListItem item={mockMarato} onTicketClick={vi.fn()} />
+      </MemoryRouter>
+    )
+
+    expect(screen.getByText('TICKET')).toBeInTheDocument()
+    expect(screen.queryByLabelText(/Rating:/i)).not.toBeInTheDocument()
+  })
+
+  it('for marato, hides ticket and reveals film ratings once company is rated', () => {
+    localStorage.setItem('sitges_film_ratings', JSON.stringify({ company: 5, half: 4.5 }))
+
+    const mockMarato: Marathon = {
+      id: 'marato',
+      title: 'Marató Sorpresa',
+      date: '2026-10-18',
+      programmeDate: '2026-10-18',
+      dayLabel: 'diumenge',
+      time: '15:30',
+      venue: 'Auditori Meliá',
+      ticketId: 'ticket-marato',
+      filmIds: ['company', 'half'],
+      duration: "361'",
+    }
+
+    render(
+      <MemoryRouter>
+        <FilmListItem item={mockMarato} onTicketClick={vi.fn()} />
+      </MemoryRouter>
+    )
+
+    expect(screen.queryByText('TICKET')).not.toBeInTheDocument()
+    expect(screen.getByLabelText('Rating: 5 out of 5 stars')).toBeInTheDocument()
+    expect(screen.getByLabelText('Rating: 4.5 out of 5 stars')).toBeInTheDocument()
+  })
 })
 
