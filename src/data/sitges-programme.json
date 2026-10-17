@@ -31,7 +31,11 @@
         "/images/films/miasma_3.jpg"
       ],
       "section": "SOF - Sitges Collection",
-      "poster": "/images/films/miasma_poster.jpg"
+      "poster": "/images/films/miasma_poster.jpg",
+      "guio": "Jane Schoenbrun",
+      "fotografia": "Eric K. Yue",
+      "muntatge": "Graham Mason",
+      "repartiment": "Hannah Einbinder, Gillian Anderson, Jack Haven"
     },
     {
       "id": "half",
@@ -62,7 +66,11 @@
         "/images/films/half_1.jpg"
       ],
       "section": "SOF - Sitges Collection",
-      "poster": "/images/films/half_poster.jpg"
+      "poster": "/images/films/half_poster.jpg",
+      "guio": "Praveen Viswanath, Samjad",
+      "fotografia": "Pappinu",
+      "muntatge": "Mahesh Bhuvanend",
+      "repartiment": "Ranjith Sajeev, Aiswarya Raj, Abbas"
     },
     {
       "id": "leviticus",
@@ -95,7 +103,11 @@
         "/images/films/leviticus_3.jpeg"
       ],
       "section": "Oficial Fantàstic Competició",
-      "poster": "/images/films/leviticus_poster.webp"
+      "poster": "/images/films/leviticus_poster.webp",
+      "guio": "Adrian Chiarella",
+      "fotografia": "Tyson Perkins",
+      "muntatge": "Nick Fenton",
+      "repartiment": "Stacy Clausen, Joe Bird, Tyallah Bullock"
     },
     {
       "id": "karma",
@@ -128,7 +140,11 @@
         "/images/films/karma_3.jpg"
       ],
       "section": "Òrbita",
-      "poster": "/images/films/karma_poster.png"
+      "poster": "/images/films/karma_poster.png",
+      "guio": "Guillaume Canet, Simon Jacquet",
+      "fotografia": "Benoît Debie",
+      "muntatge": "Laure Gardette",
+      "repartiment": "Marion Cotillard, Leonardo Sbaraglia, Denis Ménochet"
     },
     {
       "id": "apocalipsis",
@@ -160,7 +176,11 @@
         "/images/films/apocalipsis_2.jpg"
       ],
       "section": "SOF - Sitges Collection",
-      "poster": "/images/films/apocalipsis_poster.jpg"
+      "poster": "/images/films/apocalipsis_poster.jpg",
+      "guio": "Ángel Agudo",
+      "fotografia": "Elías M. Félix",
+      "muntatge": "Luis de la Madrid, Guillermo Lorenzana Toms",
+      "repartiment": "Carlos Alcaide, Julia Martínez, José María Yazpik"
     },
     {
       "id": "red",
@@ -194,7 +214,11 @@
         "/images/films/red_5.jpg"
       ],
       "section": "SOF - Sitges Collection",
-      "poster": "/images/films/Red_poster.jpg"
+      "poster": "/images/films/Red_poster.jpg",
+      "guio": "Ilja Rautsi",
+      "fotografia": "Kerttu Hakkerainen",
+      "muntatge": "Eric Bäckström",
+      "repartiment": "Hannu-Pekka Björkman, Anni Iikkanen, Kari Hietalahti"
     },
     {
       "id": "brain",
@@ -202,7 +226,7 @@
       "directors": [
         {
           "name": "Peter Jackson",
-          "bio": "Sir Peter Jackson is an acclaimed New Zealand filmmaker who began his career as an indie maverick, pioneering low-budget, over-the-top splatter comedies before transitioning into blockbuster prestige. After breaking out with the DIY alien comedy Bad Taste (1987), he cemented his cult status with the 1992 zombie horror-comedy BraindeadJackson subsequently expanded his artistic range with the critically lauded psychological drama Heavenly Creatures (1994) before achieving historic international acclaim by co-writing and directing The Lord of the Rings trilogy which grossed nearly $3 billion and swept 17 Academy Awards, including Best Picture and Best Director for The Return of the King. Later directing The Hobbit trilogy and groundbreaking archival documentaries like They Shall Not Grow Old (2018) and The Beatles: Get Back (2021), Jackson remains one of cinema's most innovative directors and visual-effects trailblazers.",
+          "bio": "Sir Peter Jackson és un reconegut director neozelandès que va començar la seva carrera amb comèdies de terror de baix pressupost com *Bad Taste* (1987) i *Braindead* (1992), convertides en pel·lícules de culte. Després de l'aclamada *Heavenly Creatures* (1994), va assolir fama mundial amb la trilogia d'*El Senyor dels Anells*, guardonada amb 17 Oscars, inclosos els de millor pel·lícula i direcció per *El retorn del rei*. Posteriorment, va dirigir la trilogia d'*El hòbbit* i documentals innovadors com *They Shall Not Grow Old* (2018) i *The Beatles: Get Back* (2021), consolidant-se com un referent del cinema fantàstic i dels efectes visuals.",
           "photo": "/images/films/braindead_director.jpg"
         }
       ],
@@ -228,7 +252,11 @@
         "/images/films/brain_4.jpg"
       ],
       "section": "Sitges Clàssics",
-      "poster": "/images/films/BRAINDEAD_poster.webp"
+      "poster": "/images/films/BRAINDEAD_poster.webp",
+      "guio": "Peter Jackson, Fran Walsh, Stephen Sinclair",
+      "fotografia": "Pendent de confirmar",
+      "muntatge": "Pendent de confirmar",
+      "repartiment": "Timothy Balme, Diana Peñalver, Elizabeth Moody"
     },
     {
       "id": "tesis",
@@ -262,7 +290,11 @@
         "/images/films/tesis_4.jpg"
       ],
       "section": "Sitges Clàssics",
-      "poster": "/images/films/tesis_1.jpg"
+      "poster": "/images/films/tesis_1.jpg",
+      "guio": "Alejandro Amenábar, Mateo Gil",
+      "fotografia": "Hans Burmann",
+      "muntatge": "María Elena Sáinz de Rozas",
+      "repartiment": "Ana Torrent, Fele Martínez, Eduardo Noriega"
     },
     {
       "id": "oceano",
@@ -295,7 +327,11 @@
         "/images/films/oceano_3.jpg"
       ],
       "section": "Oficial Fantàstic Competició",
-      "poster": "/images/films/oceano_poster.jpg"
+      "poster": "/images/films/oceano_poster.jpg",
+      "guio": "Konstantina Kotzamani",
+      "fotografia": "Raphaël Vandenbussche",
+      "muntatge": "Livia Neroutsopoulou, Vincent Tricon, Julie Wuillai",
+      "repartiment": "Arisa Sasaki, Melina Mardini, Hanna Muro"
     },
     {
       "id": "devils",
@@ -330,7 +366,11 @@
         "/images/films/devils_5.jpg"
       ],
       "section": "Sitges Clàssics",
-      "poster": "/images/films/devils_poster.webp"
+      "poster": "/images/films/devils_poster.webp",
+      "guio": "Ken Russell",
+      "fotografia": "David Watkin",
+      "muntatge": "Michael Bradsell",
+      "repartiment": "Vanessa Redgrave, Oliver Reed, Max Adrian"
     },
     {
       "id": "11",
@@ -368,7 +408,11 @@
         "/images/films/11_3.jpg"
       ],
       "section": "Oficial Fantàstic Competició",
-      "poster": "/images/films/11_poster.jpg"
+      "poster": "/images/films/11_poster.jpg",
+      "guio": "Clara Esteban, Pau Pujol, Andrea Martínez",
+      "fotografia": "Mariano Suárez",
+      "muntatge": "Dídac Palou",
+      "repartiment": "Mia Sala-Patau, Pablo Scapigliati, Jael Borràs, Matías Zocca"
     },
     {
       "id": "face",
@@ -399,7 +443,11 @@
         "/images/films/face_1.jpg"
       ],
       "section": "Oficial Fantàstic Competició",
-      "poster": "/images/films/face_poster.jpg"
+      "poster": "/images/films/face_poster.jpg",
+      "guio": "Anna Biller",
+      "fotografia": "M. David Mullen",
+      "muntatge": "Anna Biller",
+      "repartiment": "Jonah Hauer-King, Kristine Froseth, Ellie Bamber"
     },
     {
       "id": "girl",
@@ -432,7 +480,11 @@
         "/images/films/girl_3.jpg"
       ],
       "section": "Noves Visions",
-      "poster": "/images/films/girl_poster.jpg"
+      "poster": "/images/films/girl_poster.jpg",
+      "guio": "Luka Marčetić",
+      "fotografia": "Lev Predan Kowarski",
+      "muntatge": "Špela Murenc Škulj",
+      "repartiment": "Urban Kuntarič, Lara Wolf"
     },
     {
       "id": "sanguine",
@@ -463,7 +515,11 @@
         "/images/films/sanguine_1.jpg"
       ],
       "section": "Oficial Fantàstic Competició",
-      "poster": "/images/films/sanguine_poster.jpg"
+      "poster": "/images/films/sanguine_poster.jpg",
+      "guio": "Marion Le Corroller, Thomas Pujol",
+      "fotografia": "Guillaume Schiffman",
+      "muntatge": "Jerome Eltabet",
+      "repartiment": "Mara Taquin, Karin Viard, Kim Higelin"
     },
     {
       "id": "buddy",
@@ -497,7 +553,11 @@
         "/images/films/buddy_4.png"
       ],
       "section": "Oficial Fantàstic Competició",
-      "poster": "/images/films/buddy_poster.jpg"
+      "poster": "/images/films/buddy_poster.jpg",
+      "guio": "Casper Kelly, Jamie King",
+      "fotografia": "Zach Kuperstein",
+      "muntatge": "Josh Ethier",
+      "repartiment": "Cristin Milioti, Delaney Quinn, Keegan-Michael Key"
     },
     {
       "id": "wicked",
@@ -531,7 +591,11 @@
         "/images/films/wicked_4.jpg"
       ],
       "section": "Oficial Fantàstic Competició",
-      "poster": "/images/films/wicked_poster.jpg"
+      "poster": "/images/films/wicked_poster.jpg",
+      "guio": "Rasmus Birch",
+      "fotografia": "Jacob Møller",
+      "muntatge": "Mark Bukdahl",
+      "repartiment": "Egor Venned, Pilou Asbæk, Sofia Nolsøe"
     },
     {
       "id": "after-dark",
@@ -562,7 +626,11 @@
         "/images/films/after-dark_1.webp"
       ],
       "section": "Oficial Fantàstic Competició",
-      "poster": "/images/films/after-dark_poster.jpg"
+      "poster": "/images/films/after-dark_poster.jpg",
+      "guio": "Dave Boyle",
+      "fotografia": "Patrick Ouziel",
+      "muntatge": "Chieko Suzaki",
+      "repartiment": "Moeka Hoshi, Kurumi Inagaki, Kento Kaku"
     },
     {
       "id": "spiral",
@@ -596,7 +664,11 @@
         "/images/films/spiral_4.jpg"
       ],
       "section": "Oficial Fantàstic Competició",
-      "poster": "/images/films/spiral_poster.jpg"
+      "poster": "/images/films/spiral_poster.jpg",
+      "guio": "Paolo Strippoli, Salvatore de Chirico",
+      "fotografia": "Cristiano Di Nicola",
+      "muntatge": "Federico Palmerini",
+      "repartiment": "Jasmine Trinca, Romana Maggiora Vergano, Adriano Giannini"
     },
     {
       "id": "no-way",
@@ -635,7 +707,11 @@
         "/images/films/no-way_4.jpg"
       ],
       "section": "Panorama",
-      "poster": "/images/films/no-way_poster.webp"
+      "poster": "/images/films/no-way_poster.webp",
+      "guio": "Romain Protat, Mohamed Chabane, Théo Jourdain",
+      "fotografia": "Raphaël Vandenbussche",
+      "muntatge": "Maxime Pozzi-Garcia",
+      "repartiment": "Alassane Diong, Manon Bresch, Bilel Chegrani"
     },
     {
       "id": "salmokji",
@@ -668,7 +744,11 @@
         "/images/films/salmokji_3.jpg"
       ],
       "section": "Panorama",
-      "poster": "/images/films/salmokji_poster.jpg"
+      "poster": "/images/films/salmokji_poster.jpg",
+      "guio": "Sang-min Lee",
+      "fotografia": "Sung-an Kim",
+      "muntatge": "Gang-hee Lee",
+      "repartiment": "Hye-yoon Kim, Jong-won Lee"
     },
     {
       "id": "drag",
@@ -707,7 +787,11 @@
         "/images/films/drag_4.jpeg"
       ],
       "section": "Oficial Fantàstic Competició",
-      "poster": "/images/films/drag_poster.jpg"
+      "poster": "/images/films/drag_poster.jpg",
+      "guio": "Greg Yagolnitzer, Raviv Ullman",
+      "fotografia": "Ben Goodman",
+      "muntatge": "Malinda Zehner",
+      "repartiment": "Lizzy Caplan, Lucy DeVito, John Stamos"
     },
     {
       "id": "victorian",
@@ -739,7 +823,11 @@
         "/images/films/victorian_2.jpg"
       ],
       "section": "Oficial Fantàstic Competició",
-      "poster": "/images/films/victorian_poster.jpg"
+      "poster": "/images/films/victorian_poster.jpg",
+      "guio": "Virginia Feito",
+      "fotografia": "Nico Aguilar",
+      "muntatge": "Dustin Chow, Lance Edmands",
+      "repartiment": "Maika Monroe, Thomasin McKenzie, Ruth Wilson"
     },
     {
       "id": "hope",
@@ -772,7 +860,11 @@
         "/images/films/hope_3.jpg"
       ],
       "section": "SOF - Sitges Collection",
-      "poster": "/images/films/hope_poster.jpg"
+      "poster": "/images/films/hope_poster.jpg",
+      "guio": "Na Hong-jin",
+      "fotografia": "Hong Kyung-pyo",
+      "muntatge": "Kim Sun-min",
+      "repartiment": "Hwang Jung-min, Zo In-sung, Hoyeon (la pel·lícula també compta amb Michael Fassbender i Alicia Vikander)"
     },
     {
       "id": "sheeps",

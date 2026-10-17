@@ -22,5 +22,9 @@ export type Film = {
     images?: string[]
     section: string
     poster: string
+    guio?: string
+    fotografia?: string
+    muntatge?: string
+    repartiment?: string
 }
 
