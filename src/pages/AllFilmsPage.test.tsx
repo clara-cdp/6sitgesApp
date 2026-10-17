@@ -67,6 +67,20 @@ describe('AllFilmsPage', () => {
     expect(screen.getByText('Get Undressed')).toBeInTheDocument()
   })
 
+  it('displays marato section films like Company only inside their marathon item and not as individual film cards', () => {
+    render(
+      <MemoryRouter>
+        <AllFilmsPage />
+      </MemoryRouter>,
+    )
+
+    // Company is listed inside Marató Sorpresa
+    expect(screen.getByText('Company')).toBeInTheDocument()
+
+    // But Company does not have its own standalone card heading
+    expect(screen.queryByRole('heading', { level: 3, name: /^Company$/i })).not.toBeInTheDocument()
+  })
+
   it('opens Braindead ticket from the film list', () => {
 
     render(
