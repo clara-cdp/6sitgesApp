@@ -1004,6 +1004,37 @@
       ],
       "section": "Midnight X-Treme",
       "poster": "/images/films/undressed_poster.jpg"
+    },
+    {
+      "id": "company",
+      "title": "Company",
+      "directors": [
+        {
+          "name": "Casey Affleck",
+          "bio": "Actor, guionista, director i productor, va fundar Sea Change Media el 2017. Va guanyar un Oscar, un BAFTA i un Globus d’Or pel seu paper a Manchester frente al mar (2017).",
+          "photo": "/images/films/company_director.jpg"
+        }
+      ],
+      "year": "2026",
+      "country": "Estats Units, Emirats Àrabs Units, Canadà",
+      "idioma": "Anglès",
+      "subt": "Castellà, Català",
+      "date": "2026-10-18",
+      "programmeDate": "2026-10-18",
+      "dayLabel": "diumenge",
+      "time": "15:30",
+      "venue": "Auditori Meliá",
+      "duration": "95'",
+      "synopsis": "L’any 1975, una dona misteriosa apareix en una reunió nadalenca i explica la història del Tom, un ermità que, vint anys enrere, va rescatar una actriu durant una tempesta de neu. Per passar la nit, l’actriu comparteix un relat encara més antic: una parella de grangers acull un jove vagabund mentre una sèrie d’assassinats escampa la por per la frontera. Aquestes històries s’entrellacen a través de diverses generacions per parlar de la venjança i el perdó.",
+      "presence": false,
+      "sitgesUrl": "https://sitgesfilmfestival.com/ca/film/2026/company",
+      "trailerUrl": null,
+      "ticketId": null,
+      "images": [
+        "/images/films/company_1.jpg"
+      ],
+      "section": "marato",
+      "poster": "/images/films/company_poster.jpg"
     }
   ],
   "marathons": [
@@ -1026,14 +1057,20 @@
     },
     {
       "id": "marato",
-      "title": "Marató Auditori",
+      "title": "Marató Sorpresa",
       "date": "2026-10-18",
       "programmeDate": "2026-10-18",
       "dayLabel": "diumenge",
       "time": "15:30",
       "venue": "Auditori Meliá",
       "ticketId": "ticket-marato",
-      "filmIds": [],
+      "filmIds": [
+        "company",
+        "drag",
+        "half",
+        "spiral",
+        "buddy"
+      ],
       "duration": "361'"
     }
   ]

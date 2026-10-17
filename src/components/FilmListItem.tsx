@@ -46,7 +46,9 @@ export function FilmListItem({ item, onTicketClick }: FilmListItemProps) {
     : []
 
   const anyMarathonFilmRated = isMarathon
-    ? marathonFilms.some((film) => getFilmRating(film.id) > 0)
+    ? item.id === 'marato'
+      ? getFilmRating('company') > 0
+      : marathonFilms.some((film) => getFilmRating(film.id) > 0)
     : false
 
   const hasPresence = isMarathon

@@ -27,9 +27,9 @@ describe('AllFilmsPage', () => {
       screen.getByText('Adolescencia, sexo y muerte en Campamento Miasma'),
     ).toBeInTheDocument()
 
-    expect(screen.getByText(/half/i)).toBeInTheDocument()
+    expect(screen.getByRole('heading', { name: /half/i })).toBeInTheDocument()
     expect(screen.getByText('La nit + zombi')).toBeInTheDocument()
-    expect(screen.getByText('Marató Auditori')).toBeInTheDocument()
+    expect(screen.getByText('Marató Sorpresa')).toBeInTheDocument()
   })
 
   it('filters items when a specific date key is selected from dropdown', () => {
@@ -52,7 +52,7 @@ describe('AllFilmsPage', () => {
     expect(screen.getByText(/half/i)).toBeInTheDocument()
 
     expect(screen.queryByText('Red Snow')).not.toBeInTheDocument()
-    expect(screen.queryByText('Marató Auditori')).not.toBeInTheDocument()
+    expect(screen.queryByText('Marató Sorpresa')).not.toBeInTheDocument()
   })
 
   it('displays Midnight X-Treme section films inside their marathon item', () => {

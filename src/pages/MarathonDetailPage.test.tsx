@@ -42,7 +42,7 @@ describe('MarathonDetailPage', () => {
     expect(filmLinks[0]).toHaveAttribute('href', '/films/sheeps')
   })
 
-  it('renders unrevealed marathon state when filmIds is empty', () => {
+  it('renders marathon details and lists associated films for Marató Auditori', () => {
     render(
       <MemoryRouter initialEntries={['/marathon/marato']}>
         <Routes>
@@ -51,11 +51,12 @@ describe('MarathonDetailPage', () => {
       </MemoryRouter>
     )
 
-    expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent('Marató Auditori')
-    expect(screen.getByText('Detalls pròximament')).toBeInTheDocument()
-    expect(
-      screen.getByText("Els títols d'aquesta marató es revelaran pròximament.")
-    ).toBeInTheDocument()
+    expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent('Marató Sorpresa')
+    expect(screen.getByText('Company')).toBeInTheDocument()
+    expect(screen.getByText('Casey Affleck')).toBeInTheDocument()
+
+    const filmLinks = screen.getAllByRole('link', { name: /LLEGIR MÉS/i })
+    expect(filmLinks[0]).toHaveAttribute('href', '/films/company')
   })
 
   it('renders not found message when marathon id is invalid', () => {
@@ -71,7 +72,7 @@ describe('MarathonDetailPage', () => {
     expect(screen.getByText('← Tornar a la llista')).toBeInTheDocument()
   })
 
-  it('opens the correct ticket from Marató Auditori', () => {
+  it('opens the correct ticket from Marató Sorpresa', () => {
     render(
       <MemoryRouter initialEntries={['/marathon/marato']}>
         <Routes>
