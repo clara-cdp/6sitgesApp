@@ -22,7 +22,7 @@
 
 ---
 
-# 🎟️ About
+## 🎟️ About
 
 As Sitges Film Festival regular and graphic designer. I have, until now, created a personal guide booklet emulating the real one but personalized instead with the average 25- 30 films we might watch every year. This year I preferred to make an app. since it was decided last minute, I had to work with very short time constraints, tha is the decition to work only on a front end which is enought for such a small app. Next year, I might implement features that will make this app useful to anyone that wants to downloaded, where to they can add their own tickets and have friends on the festival, check other reviews and rating and even a catch the plain, king kong game so watch this space.
 
@@ -99,6 +99,7 @@ The screens were designed in **Figma before development**.
 - Consistent navigation, festival-inspired headers and recurring graphic elements.
 - A watched-state treatment that sits within the existing palette instead of introducing an unrelated success colour.
 
+<img width="3093" height="1714" alt="Screenshot 2026-10-19 203221" src="https://github.com/user-attachments/assets/b28d6d3a-cf1a-40b3-941d-6dd42ced7684" />
 
 ## 🛠️ Tech stack
 
