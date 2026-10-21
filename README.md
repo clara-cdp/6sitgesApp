@@ -125,7 +125,16 @@ The ticket workflow uses the Web Crypto API, **PBKDF2 with SHA-256 (600,000 iter
 
 
 ## 📸 Screenshots
+<img width="200" height="auto" alt="screenshot (1)" src="https://github.com/user-attachments/assets/6a815e5e-4063-440f-954a-e4a1aa5a8743" />
 
+<img width="200" height="auto" alt="screenshot (4)" src="https://github.com/user-attachments/assets/222c69f7-036b-492b-bc68-b40f7b72a312" />
+
+<img width="200" height="auto" alt="screenshot (12)" src="https://github.com/user-attachments/assets/b5e4a78a-aed9-4839-a54a-12d1a7773d94" />
+<img width="200" height="auto" alt="screenshot (8)" src="https://github.com/user-attachments/assets/4c160f6f-6c49-40ae-b939-32353eb17e12" />
+<img width="200" height="auto" alt="screenshot (6)" src="https://github.com/user-attachments/assets/45a47086-28c7-4a7f-9f8f-e3b704f13ea2" />
+<img width="200" height="auto" alt="screenshot (5)" src="https://github.com/user-attachments/assets/55d165cd-d631-471d-9d97-f81b5462c0bc" />
+<img width="200" height="auto" alt="screenshot(4)" src="https://github.com/user-attachments/assets/3fe0a629-3853-4059-966b-4a631bf1e9e3" />
+<img width="200" height="auto" alt="screenshot (1)" src="https://github.com/user-attachments/assets/c14e9952-695a-4ea7-80f2-f310e1a323e2" />
 
 
 ## 📂 Project structure
